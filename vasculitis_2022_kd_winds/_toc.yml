@@ -1,8 +1,4 @@
 format: jb-article
-root: intro
-title: Overview
-sections:
-  - file: markdown
-    title: Markdown test
-  - file: notebooks
-    title: notebooks test
+root: notebooks
+
+

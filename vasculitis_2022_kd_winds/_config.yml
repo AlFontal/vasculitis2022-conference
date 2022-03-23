@@ -5,10 +5,10 @@
 
 #######################################################################################
 # Book settings
-title                       : vasculitis-2022-kd-winds  # The title of the book. Will be placed in the left navbar.
+title                       : KD and Tokyo's air sources  # The title of the book. Will be placed in the left navbar.
 author                      : Alejandro Fontal  # The author of the book
 copyright                   : "2022"  # Copyright year to be placed in the footer
-logo                        : images/logo_air.png # A path to the book logo
+logo                        : images/logo.png # A path to the book logo
 
 execute:
   execute_notebooks: "off"
@@ -19,6 +19,11 @@ html:
   use_repository_button: true
   use_issues_button: true
   favicon: images/favicon.ico
+  baseurl: 'https://alfontal.github.io/vasculitis2022-conference'
+  comments:
+    utterances: 
+      repo: 'AlFontal/vasculitis2022-conference'
+
 
 sphinx:
   config:
