@@ -9,5 +9,5 @@ div.cell div.cell_input {
   }
 
   :root {
-    font-family: serif;
+    --pst-font-family-base-system: serif;
   }
