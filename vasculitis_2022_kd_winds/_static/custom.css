@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Pro&family=Noto+Serif&display=swap');
+
 div.cell div.cell_input {
     padding-left: 0em;
     padding-right: 0em;
@@ -9,5 +11,5 @@ div.cell div.cell_input {
   }
 
   :root {
-    --pst-font-family-base-system: serif;
+    --pst-font-family-base-system: 'Noto serif', serif;
   }
