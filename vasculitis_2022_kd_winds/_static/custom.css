@@ -13,3 +13,7 @@ div.cell div.cell_input {
   :root {
     --pst-font-family-base-system: 'Noto serif', serif;
   }
+
+  p {
+    text-align: justify;
+  }
