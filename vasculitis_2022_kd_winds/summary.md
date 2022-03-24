@@ -4,9 +4,11 @@ This document intends to expand, provide context and reproducible analysis code 
 
 
 
-## Introduction
+## Background
 
-Just testing wether I can cite {cite}`rodo_association_2011` and `PySPLIT` {cite}`warner_introduction_2018`
+**Kawasaki Disease (KD)** is a systemic vasculitis that mainly affects children **younger than 5 years old**. Although KD cases have been registered in over 60 countries across several continents, its incidence is **highest in East Easia**, particularly in **Japan**. After more than five decades since its discovery and active research, the etiology of KD is **yet to be elucidated**. Recent studies have analyzed the association between KD and diverse environmental factors, with some advances pointing towards a **relevant role of the atmospheric transport of a wind-borne agent triggering the disease** {cite}`rodo_association_2011, rodo_tropospheric_2014`. The specific nature of this agent(s) is still unknown, with biological (bacterial/fungal/viral) and chemical (pollution) elements being the strongest candidates to initiate the autoimmune cascade which leads to the disease.
+
+
 
 ## Methods
 
