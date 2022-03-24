@@ -54,3 +54,9 @@ sphinx:
     html_js_files:
       - https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js
     bibtex_reference_style: author_year
+    
+    html_baseurl: 'https://alfontal.github.io/vasculitis2022-conference/'
+  
+  extra_extensions:
+    - sphinx_sitemap
+
