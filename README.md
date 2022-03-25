@@ -12,7 +12,7 @@ This repository acts as a centralized place where to provide reproducible code f
 
 ## Report and code
 
-The [Github pages site](https://alfontal.github.io/bioaerosol-reports) renders the reports and code nicely for a more thorough explanation of the whole project.
+The [Github pages site](https://alfontal.github.io/vasculitis2022-conference) renders the reports and code nicely for a more thorough explanation of the whole project.
 
 ## Reproducing the analysis
 
