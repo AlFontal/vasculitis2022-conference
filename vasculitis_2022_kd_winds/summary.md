@@ -55,6 +55,11 @@ To generate the **yearly maxima** and **minima**, we selected the **5 weeks** wi
 
 To model **air mass back-trajectories**, we used the Hybrid Single Particle Lagrangian Integrated Trajectory (**HYSPLIT**) model version 5 {cite}`stein_noaas_2015`, which we operated programmatically via the Python package `PySPLIT` {cite}`warner_introduction_2018` to generate a high amount of trajectories. 
 
+For each day of the period from the 1st of January 2011 to the 31st of December 2018, we generated 4 backtrajectories up to the previous 96h starting at 00:00, 6:00, 12:00 and 18:00, with the initial point 50 meters over sea surface in central Tokyo (139.65E, 35.68N). 
+
+Below, an extract showing the individual trajectories generated at different points in time:
+
+![Weekly counts](images/trajectories_animation.gif)
 
 
 #### Meteorology data
