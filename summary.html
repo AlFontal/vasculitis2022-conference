@@ -437,6 +437,9 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="section" id="trajectory-generation">
 <h3>Trajectory Generation<a class="headerlink" href="#trajectory-generation" title="Permalink to this headline">¶</a></h3>
 <p>To model <strong>air mass back-trajectories</strong>, we used the Hybrid Single Particle Lagrangian Integrated Trajectory (<strong>HYSPLIT</strong>) model version 5 <span id="id5">[<a class="reference internal" href="#id12">Stein <em>et al.</em>, 2015</a>]</span>, which we operated programmatically via the Python package <code class="docutils literal notranslate"><span class="pre">PySPLIT</span></code> <span id="id6">[<a class="reference internal" href="#id11">Warner, 2018</a>]</span> to generate a high amount of trajectories.</p>
+<p>For each day of the period from the 1st of January 2011 to the 31st of December 2018, we generated 4 backtrajectories up to the previous 96h starting at 00:00, 6:00, 12:00 and 18:00, with the initial point 50 meters over sea surface in central Tokyo (139.65E, 35.68N).</p>
+<p>Below, an extract showing the individual trajectories generated at different points in time:</p>
+<p><img alt="Weekly counts" src="_images/trajectories_animation.gif" /></p>
 <div class="section" id="meteorology-data">
 <h4>Meteorology data<a class="headerlink" href="#meteorology-data" title="Permalink to this headline">¶</a></h4>
 </div>
