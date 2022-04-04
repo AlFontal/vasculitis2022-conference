@@ -1,4 +1,7 @@
 format: jb-article
 root: summary
+sections:
+- file: poster
+  title: Poster Image
 
 
