@@ -132,7 +132,7 @@ This study further confirms, with updated data, the hypothesis connecting the tr
 
 Further studies should (and are being done) on the characterization of these air masses to understand the potential immune-triggering compounds carried in them.
 
-Keep posted for more updated on the issue and feel free to comment below with any doubts or comments.
+Stay posted for more updated on the issue and feel free to comment below with any doubts or comments.
 
 ## References
 
