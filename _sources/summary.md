@@ -11,7 +11,7 @@ This document intends to expand, provide context and reproducible analysis code 
 + [Methods](#methods)
 + [Results](#results)
 + [Limitations](#limitations)
-+ [Conclusions](#conclusions)
++ [Conclusions](#conclusions-and-outlook)
 + [References](#references)
 
 
