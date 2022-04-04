@@ -86,6 +86,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="canonical" href="https://alfontal.github.io/vasculitis2022-conference/summary.html" />
     <link rel="shortcut icon" href="_static/favicon.ico"/>
@@ -442,14 +444,26 @@ const thebe_selector_output = ".output, .cell_output"
 <p><img alt="Weekly counts" src="_images/trajectories_animation.gif" /></p>
 <div class="section" id="meteorology-data">
 <h4>Meteorology data<a class="headerlink" href="#meteorology-data" title="Permalink to this headline">¶</a></h4>
+<p>To model the air trajectories, HYSPLIT requires a set of gridded meteorological data at all pressure levels. In this case, we downloaded the  <a class="reference external" href="https://www.ready.noaa.gov/archives.php">GDAS</a> 1x1°, 3 hour resolutio dataset for every week from December 2010 (to be able to generate backtrajectories starting on January 2011) to December 2018. These data can directly be accessed through <span class="xref myst">NOAA’S ARL FTP Server</span>.</p>
 </div>
 </div>
 <div class="section" id="differential-trajectory-analysis">
 <h3>Differential Trajectory Analysis<a class="headerlink" href="#differential-trajectory-analysis" title="Permalink to this headline">¶</a></h3>
+<p>As a first step, we generated a grid of frequency of intersection between lat-lon grid cells and the trajectories associated to KD maxima and KD minima dates, which are a total of <strong>1120</strong> trajectories associated to each group.</p>
+<p>We first generate a grid of 200 by 200 cellsvbased on the boundaries of the generated trajectories, which ends up looking like a 0.8x0.8° resolution grid like the one displayed in the following image:</p>
+<p><img alt="Map Grid" src="_images/map_grid.png" /></p>
+<p>Then, we count the number of intersections of the trajectories of each KD group for each of the grid cells, which allows us to visualize longer term or aggregated patterns, like in this figure that displays the different sources associated to KD maxima and minima per calendar year:</p>
+<p><img alt="Trajectories per year" src="_images/trajs_per_year.png" /></p>
+<p>By comparing, cell-wise, the ratio between KD maxima and KD minima intersections, we can obtain an overview of the source areas overrepresented in association with the timings of either phenomena.</p>
+<p>To generate a summarized figure, we use the Log2 transformation of the ratios to generate the image, and colour each cell grid according to this. The transformation is such that:</p>
+<div class="math notranslate nohighlight">
+\[R = \text{Log}_2\cfrac{\text{Intersections}_{max}}{\text{Intersections}_{min}}\]</div>
 </div>
 </div>
 <div class="section" id="results">
 <h2>Results<a class="headerlink" href="#results" title="Permalink to this headline">¶</a></h2>
+<p>The main findings support the hypothesis that winds from Northeastern Asia are associated and synchronized with seasons of high KD Maxima in Tokyo, as the main figure portrays:</p>
+<p><img alt="Main Figure" src="_images/main_figure.png" /></p>
 </div>
 <div class="section" id="limitations-outlook">
 <h2>Limitations / Outlook<a class="headerlink" href="#limitations-outlook" title="Permalink to this headline">¶</a></h2>
