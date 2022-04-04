@@ -48,9 +48,6 @@ To generate the **yearly maxima** and **minima**, we selected the **5 weeks** wi
 ![Weekly counts](images/weekly_kd_tokyo.png)
 
 
-
-
-
 ### Trajectory Generation
 
 To model **air mass back-trajectories**, we used the Hybrid Single Particle Lagrangian Integrated Trajectory (**HYSPLIT**) model version 5 {cite}`stein_noaas_2015`, which we operated programmatically via the Python package `PySPLIT` {cite}`warner_introduction_2018` to generate a high amount of trajectories. 
@@ -64,10 +61,34 @@ Below, an extract showing the individual trajectories generated at different poi
 
 #### Meteorology data
 
+To model the air trajectories, HYSPLIT requires a set of gridded meteorological data at all pressure levels. In this case, we downloaded the  [GDAS](https://www.ready.noaa.gov/archives.php) 1x1°, 3 hour resolutio dataset for every week from December 2010 (to be able to generate backtrajectories starting on January 2011) to December 2018. These data can directly be accessed through [NOAA'S ARL FTP Server](ftp://ftp.arl.noaa.gov/nams).
+
 
 ### Differential Trajectory Analysis
 
+As a first step, we generated a grid of frequency of intersection between lat-lon grid cells and the trajectories associated to KD maxima and KD minima dates, which are a total of **1120** trajectories associated to each group. 
+
+
+We first generate a grid of 200 by 200 cellsvbased on the boundaries of the generated trajectories, which ends up looking like a 0.8x0.8° resolution grid like the one displayed in the following image:
+
+![Map Grid](images/map_grid.png)
+
+Then, we count the number of intersections of the trajectories of each KD group for each of the grid cells, which allows us to visualize longer term or aggregated patterns, like in this figure that displays the different sources associated to KD maxima and minima per calendar year:
+
+![Trajectories per year](images/trajs_per_year.png)
+
+By comparing, cell-wise, the ratio between KD maxima and KD minima intersections, we can obtain an overview of the source areas overrepresented in association with the timings of either phenomena. 
+
+To generate a summarized figure, we use the Log2 transformation of the ratios to generate the image, and colour each cell grid according to this. The transformation is such that:
+
+$$R = \text{Log}_2\cfrac{\text{Intersections}_{max}}{\text{Intersections}_{min}}$$
+
+
 ## Results
+
+The main findings support the hypothesis that winds from Northeastern Asia are associated and synchronized with seasons of high KD Maxima in Tokyo, as the main figure portrays:
+
+![Main Figure](images/main_figure.png)
 
 ## Limitations / Outlook
 
