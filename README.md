@@ -7,7 +7,7 @@
 
 This repository acts as a centralized place where to provide reproducible code for the analysis displayed in the 20th International Vasculitis and ANCA workshop in the study titled  *Tracing Tokyo's air sources to identify Kawasaki Disease's etiological triggers*:
 
-![poster_landscape](vasculitis_2022_kd_winds/images/kd_air_tokyo_vasculitis_2022.png)
+![poster_portrait](vasculitis_2022_kd_winds/images/alejandro_poster_portrait.png)
 
 
 ## Report and code
