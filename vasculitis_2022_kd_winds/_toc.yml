@@ -1,6 +1,8 @@
 format: jb-article
 root: summary
 sections:
+- file: kd_tokyo_air_sources
+  title: Full code and analysis
 - file: poster
   title: Poster Image
 
