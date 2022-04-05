@@ -91,6 +91,8 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="_static/favicon.ico"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Poster" href="poster.html" />
+    <link rel="prev" title="Tracing Tokyo’s air sources to identify Kawasaki Disease’s etiological triggers" href="summary.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -142,7 +144,12 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
 </ul>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Full code and analysis
+  </a>
+ </li>
  <li class="toctree-l1">
   <a class="reference internal" href="poster.html">
    Poster Image
@@ -289,6 +296,30 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
   </ul>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-loading-and-processing">
+   Data loading and processing
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#kawasaki-disease">
+     Kawasaki Disease
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#full-japanese-temporal-records">
+       Full Japanese temporal records
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#work-in-progress">
+   Work in progress
+  </a>
+ </li>
 </ul>
 
             </nav>
@@ -326,6 +357,30 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
   </ul>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-loading-and-processing">
+   Data loading and processing
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#kawasaki-disease">
+     Kawasaki Disease
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#full-japanese-temporal-records">
+       Full Japanese temporal records
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#work-in-progress">
+   Work in progress
+  </a>
+ </li>
 </ul>
 
                         </nav>
@@ -337,14 +392,265 @@ const thebe_selector_output = ".output, .cell_output"
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="full-code-and-analysis">
 <h1>Full code and analysis<a class="headerlink" href="#full-code-and-analysis" title="Permalink to this headline">¶</a></h1>
+<p>This notebook should serve as a guide to reproduce the analysis and figures shown in the poster and
+main summary file.</p>
+<p>The whole analysis can be performed using <code class="docutils literal notranslate"><span class="pre">Python</span></code> (&lt;3.8) and a local installation of <a class="reference external" href="https://www.ready.noaa.gov/HYSPLIT_register.php">HYSPLIT</a> (follow the link
+for the instructions on how to get it installed).</p>
+<p>While the full KD registry dataset can’t be shared, we will share the list of dates selected as KD Maxima
+and KD Minima so that the trajectory generation can be emulated and reproduced.</p>
 <div class="section" id="preamble">
 <h2>Preamble<a class="headerlink" href="#preamble" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="imports">
 <h3>Imports<a class="headerlink" href="#imports" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">shapely</span>
+<span class="kn">import</span> <span class="nn">pysplit</span>
+
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">plotnine</span> <span class="k">as</span> <span class="nn">p9</span>
+<span class="kn">import</span> <span class="nn">geopandas</span> <span class="k">as</span> <span class="nn">gpd</span>
+
+<span class="kn">from</span> <span class="nn">shapely.geometry</span> <span class="kn">import</span> <span class="n">Point</span><span class="p">,</span> <span class="n">LineString</span>
+<span class="kn">from</span> <span class="nn">mizani.formatters</span> <span class="kn">import</span> <span class="n">percent_format</span><span class="p">,</span> <span class="n">date_format</span><span class="p">,</span> <span class="n">custom_format</span>
+</pre></div>
+</div>
+</div>
+</div>
 </div>
 <div class="section" id="pre-sets">
 <h3>Pre-sets<a class="headerlink" href="#pre-sets" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p9</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;dpi&#39;</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
+<span class="n">p9</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;figure_size&#39;</span><span class="p">,</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+<span class="n">p9</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;base_family&#39;</span><span class="p">,</span> <span class="s1">&#39;Bitstream Vera Serif&#39;</span><span class="p">)</span>
+<span class="n">p9</span><span class="o">.</span><span class="n">theme_set</span><span class="p">(</span><span class="n">p9</span><span class="o">.</span><span class="n">theme_bw</span><span class="p">()</span> <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">theme</span><span class="p">(</span><span class="n">axis_text</span><span class="o">=</span><span class="n">p9</span><span class="o">.</span><span class="n">element_text</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">7</span><span class="p">),</span>
+                                      <span class="n">axis_title</span><span class="o">=</span><span class="n">p9</span><span class="o">.</span><span class="n">element_text</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">9</span><span class="p">)))</span>
+</pre></div>
 </div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="data-loading-and-processing">
+<h2>Data loading and processing<a class="headerlink" href="#data-loading-and-processing" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="kawasaki-disease">
+<h3>Kawasaki Disease<a class="headerlink" href="#kawasaki-disease" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="full-japanese-temporal-records">
+<h4>Full Japanese temporal records<a class="headerlink" href="#full-japanese-temporal-records" title="Permalink to this headline">¶</a></h4>
+<p>We have acces to a pre-processed file with the number of hospital admissions registered as
+Kawasaki Disease cases for all of Japan starting from 1970 and up to 2018. For privacy reasons
+we are not allowed to share this but since we will just use this to generate the general time
+series for the whole period, it shouldn’t be a big deal.</p>
+<p>We load a file and show a sample of 10 rows, with the date and the number of registered admissions:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">kd_japan</span> <span class="o">=</span> <span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;../data/kawasaki_disease/japan_ts.csv&#39;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+            <span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+            <span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;index&#39;</span><span class="p">:</span> <span class="s1">&#39;date&#39;</span><span class="p">})</span>
+            <span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">date</span><span class="o">=</span><span class="k">lambda</span> <span class="n">dd</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">dd</span><span class="o">.</span><span class="n">date</span><span class="p">))</span>
+<span class="p">)</span>
+<span class="n">kd_japan</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;date&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>kd_cases</th>
+    </tr>
+    <tr>
+      <th>date</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1988-04-27</th>
+      <td>19</td>
+    </tr>
+    <tr>
+      <th>1985-11-11</th>
+      <td>38</td>
+    </tr>
+    <tr>
+      <th>2003-06-15</th>
+      <td>9</td>
+    </tr>
+    <tr>
+      <th>1973-03-12</th>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>2015-10-18</th>
+      <td>20</td>
+    </tr>
+    <tr>
+      <th>2017-07-27</th>
+      <td>35</td>
+    </tr>
+    <tr>
+      <th>1975-04-21</th>
+      <td>10</td>
+    </tr>
+    <tr>
+      <th>1999-02-06</th>
+      <td>15</td>
+    </tr>
+    <tr>
+      <th>1973-09-01</th>
+      <td>8</td>
+    </tr>
+    <tr>
+      <th>2012-01-06</th>
+      <td>69</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>If we plot the full temporal series for the daily KD hospital admissions in all of Japan, the figure is the following:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">p9</span><span class="o">.</span><span class="n">ggplot</span><span class="p">(</span><span class="n">kd_japan</span><span class="p">)</span>
+ <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">aes</span><span class="p">(</span><span class="s1">&#39;date&#39;</span><span class="p">,</span> <span class="s1">&#39;kd_cases&#39;</span><span class="p">)</span>
+ <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">geom_line</span><span class="p">()</span>
+ <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">labs</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;Registered KD Admissions&#39;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Daily KD admissions in Japan (1970-2018)&#39;</span><span class="p">)</span>
+ <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">theme</span><span class="p">(</span><span class="n">figure_size</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span>
+                  <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span>
+                  <span class="n">title</span><span class="o">=</span><span class="n">p9</span><span class="o">.</span><span class="n">element_text</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">10</span><span class="p">),</span>
+                  <span class="n">axis_title_y</span><span class="o">=</span><span class="n">p9</span><span class="o">.</span><span class="n">element_text</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">9</span><span class="p">))</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/kd_tokyo_air_sources_14_0.png" src="_images/kd_tokyo_air_sources_14_0.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ggplot: (8760336679940)&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p>While some of the patterns are visible here, the daily variance makes some of the temporal features hard to visualize. Let’s generate the monthly averages of daily admissions and plot the figure again:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">kd_japan</span>
+ <span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;date&#39;</span><span class="p">)</span>
+ <span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="s1">&#39;M&#39;</span><span class="p">)</span>
+ <span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+ <span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+ <span class="o">.</span><span class="n">pipe</span><span class="p">(</span><span class="k">lambda</span> <span class="n">dd</span><span class="p">:</span> <span class="n">p9</span><span class="o">.</span><span class="n">ggplot</span><span class="p">(</span><span class="n">dd</span><span class="p">)</span>
+ <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">aes</span><span class="p">(</span><span class="s1">&#39;date&#39;</span><span class="p">,</span> <span class="s1">&#39;kd_cases&#39;</span><span class="p">)</span>
+ <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">geom_line</span><span class="p">()</span>
+ <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">labs</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;Registered KD Admissions&#39;</span><span class="p">,</span>
+           <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Daily KD admissions in Japan (1970-2018)&#39;</span><span class="p">)</span>
+ <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">theme</span><span class="p">(</span><span class="n">figure_size</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span>
+                  <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span>
+                  <span class="n">title</span><span class="o">=</span><span class="n">p9</span><span class="o">.</span><span class="n">element_text</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">10</span><span class="p">),</span>
+                  <span class="n">axis_title_y</span><span class="o">=</span><span class="n">p9</span><span class="o">.</span><span class="n">element_text</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">9</span><span class="p">))</span>
+<span class="p">)</span>
+<span class="p">)</span>
+
+ 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/kd_tokyo_air_sources_16_0.png" src="_images/kd_tokyo_air_sources_16_0.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ggplot: (8760341690929)&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Notice how now, 3 features are clearly visible:</p>
+<ul class="simple">
+<li><p>The three <em>epidemic</em> events during 1979, 1982 and 1986.</p></li>
+<li><p>The increasing trend from 2000 on.</p></li>
+<li><p>The marked periodicity (yearly seasonality) from 2000 on.</p></li>
+</ul>
+<p>Taking a closer look to the pre-1990 period:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">kd_japan</span>
+ <span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;date&#39;</span><span class="p">)</span>
+ <span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="s1">&#39;M&#39;</span><span class="p">)</span>
+ <span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+ <span class="o">.</span><span class="n">loc</span><span class="p">[:</span><span class="s1">&#39;1990-01-01&#39;</span><span class="p">]</span>
+ <span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+ <span class="o">.</span><span class="n">pipe</span><span class="p">(</span><span class="k">lambda</span> <span class="n">dd</span><span class="p">:</span> <span class="n">p9</span><span class="o">.</span><span class="n">ggplot</span><span class="p">(</span><span class="n">dd</span><span class="p">)</span>
+ <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">aes</span><span class="p">(</span><span class="s1">&#39;date&#39;</span><span class="p">,</span> <span class="s1">&#39;kd_cases&#39;</span><span class="p">)</span>
+ <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">geom_line</span><span class="p">()</span>
+ <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">labs</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;Registered KD Admissions&#39;</span><span class="p">,</span>
+           <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Daily KD admissions in Japan (1970-1990)&#39;</span><span class="p">)</span>
+ <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">theme</span><span class="p">(</span><span class="n">figure_size</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span>
+                  <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span>
+                  <span class="n">title</span><span class="o">=</span><span class="n">p9</span><span class="o">.</span><span class="n">element_text</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">10</span><span class="p">),</span>
+                  <span class="n">axis_title_y</span><span class="o">=</span><span class="n">p9</span><span class="o">.</span><span class="n">element_text</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">9</span><span class="p">))</span>
+<span class="p">)</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/kd_tokyo_air_sources_19_0.png" src="_images/kd_tokyo_air_sources_19_0.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ggplot: (8760331677437)&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">kd_japan</span>
+ <span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;date&#39;</span><span class="p">)</span>
+ <span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="s1">&#39;M&#39;</span><span class="p">)</span>
+ <span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+ <span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;2000-01-01&#39;</span><span class="p">:]</span>
+ <span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+ <span class="o">.</span><span class="n">pipe</span><span class="p">(</span><span class="k">lambda</span> <span class="n">dd</span><span class="p">:</span> <span class="n">p9</span><span class="o">.</span><span class="n">ggplot</span><span class="p">(</span><span class="n">dd</span><span class="p">)</span>
+ <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">aes</span><span class="p">(</span><span class="s1">&#39;date&#39;</span><span class="p">,</span> <span class="s1">&#39;kd_cases&#39;</span><span class="p">)</span>
+ <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">geom_line</span><span class="p">()</span>
+ <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">scale_x_datetime</span><span class="p">(</span><span class="n">labels</span><span class="o">=</span><span class="n">date_format</span><span class="p">(</span><span class="s1">&#39;%Y&#39;</span><span class="p">))</span>
+ <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">labs</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;Registered KD Admissions&#39;</span><span class="p">,</span>
+           <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Daily KD admissions in Japan (2000-2018)&#39;</span><span class="p">)</span>
+ <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">theme</span><span class="p">(</span><span class="n">figure_size</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span>
+                  <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span>
+                  <span class="n">title</span><span class="o">=</span><span class="n">p9</span><span class="o">.</span><span class="n">element_text</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">10</span><span class="p">),</span>
+                  <span class="n">axis_title_y</span><span class="o">=</span><span class="n">p9</span><span class="o">.</span><span class="n">element_text</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">9</span><span class="p">))</span>
+<span class="p">)</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/kd_tokyo_air_sources_20_0.png" src="_images/kd_tokyo_air_sources_20_0.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ggplot: (8760331729415)&gt;
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="work-in-progress">
+<h2>Work in progress<a class="headerlink" href="#work-in-progress" title="Permalink to this headline">¶</a></h2>
+<p>Come later to see the full code. Or contact <a class="reference external" href="mailto:alejandro&#46;fontal&#37;&#52;&#48;isglobal&#46;org">alejandro<span>&#46;</span>fontal<span>&#64;</span>isglobal<span>&#46;</span>org</a></p>
 </div>
 </div>
 
@@ -372,7 +678,21 @@ const thebe_selector_output = ".output, .cell_output"
               
             
                 <!-- Previous / next buttons -->
-<div class='prev-next-area'>
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="summary.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Tracing Tokyo’s air sources to identify Kawasaki Disease’s etiological triggers</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="poster.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Poster</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
 </div>
             
         </div>
