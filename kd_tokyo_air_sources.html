@@ -313,6 +313,11 @@ const thebe_selector_output = ".output, .cell_output"
      </li>
     </ul>
    </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#tokyo-records-2011-2018">
+     Tokyo records (2011-2018)
+    </a>
+   </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -374,6 +379,11 @@ const thebe_selector_output = ".output, .cell_output"
      </li>
     </ul>
    </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#tokyo-records-2011-2018">
+     Tokyo records (2011-2018)
+    </a>
+   </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -411,6 +421,7 @@ and KD Minima so that the trajectory generation can be emulated and reproduced.<
 <span class="kn">import</span> <span class="nn">plotnine</span> <span class="k">as</span> <span class="nn">p9</span>
 <span class="kn">import</span> <span class="nn">geopandas</span> <span class="k">as</span> <span class="nn">gpd</span>
 
+<span class="kn">from</span> <span class="nn">mizani.breaks</span> <span class="kn">import</span> <span class="n">date_breaks</span>
 <span class="kn">from</span> <span class="nn">shapely.geometry</span> <span class="kn">import</span> <span class="n">Point</span><span class="p">,</span> <span class="n">LineString</span>
 <span class="kn">from</span> <span class="nn">mizani.formatters</span> <span class="kn">import</span> <span class="n">percent_format</span><span class="p">,</span> <span class="n">date_format</span><span class="p">,</span> <span class="n">custom_format</span>
 </pre></div>
@@ -557,14 +568,14 @@ series for the whole period, it shouldn’t be a big deal.</p>
  <span class="o">.</span><span class="n">mean</span><span class="p">()</span>
  <span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
  <span class="o">.</span><span class="n">pipe</span><span class="p">(</span><span class="k">lambda</span> <span class="n">dd</span><span class="p">:</span> <span class="n">p9</span><span class="o">.</span><span class="n">ggplot</span><span class="p">(</span><span class="n">dd</span><span class="p">)</span>
- <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">aes</span><span class="p">(</span><span class="s1">&#39;date&#39;</span><span class="p">,</span> <span class="s1">&#39;kd_cases&#39;</span><span class="p">)</span>
- <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">geom_line</span><span class="p">()</span>
- <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">labs</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;Registered KD Admissions&#39;</span><span class="p">,</span>
-           <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Daily KD admissions in Japan (1970-2018)&#39;</span><span class="p">)</span>
- <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">theme</span><span class="p">(</span><span class="n">figure_size</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span>
-                  <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span>
-                  <span class="n">title</span><span class="o">=</span><span class="n">p9</span><span class="o">.</span><span class="n">element_text</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">10</span><span class="p">),</span>
-                  <span class="n">axis_title_y</span><span class="o">=</span><span class="n">p9</span><span class="o">.</span><span class="n">element_text</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">9</span><span class="p">))</span>
+                <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">aes</span><span class="p">(</span><span class="s1">&#39;date&#39;</span><span class="p">,</span> <span class="s1">&#39;kd_cases&#39;</span><span class="p">)</span>
+                <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">geom_line</span><span class="p">()</span>
+                <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">labs</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;Registered KD Admissions&#39;</span><span class="p">,</span>
+                        <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Daily KD admissions in Japan (1970-2018)&#39;</span><span class="p">)</span>
+                <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">theme</span><span class="p">(</span><span class="n">figure_size</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span>
+                                <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span>
+                                <span class="n">title</span><span class="o">=</span><span class="n">p9</span><span class="o">.</span><span class="n">element_text</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">10</span><span class="p">),</span>
+                                <span class="n">axis_title_y</span><span class="o">=</span><span class="n">p9</span><span class="o">.</span><span class="n">element_text</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">9</span><span class="p">))</span>
 <span class="p">)</span>
 <span class="p">)</span>
 
@@ -597,6 +608,7 @@ series for the whole period, it shouldn’t be a big deal.</p>
  <span class="o">.</span><span class="n">pipe</span><span class="p">(</span><span class="k">lambda</span> <span class="n">dd</span><span class="p">:</span> <span class="n">p9</span><span class="o">.</span><span class="n">ggplot</span><span class="p">(</span><span class="n">dd</span><span class="p">)</span>
  <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">aes</span><span class="p">(</span><span class="s1">&#39;date&#39;</span><span class="p">,</span> <span class="s1">&#39;kd_cases&#39;</span><span class="p">)</span>
  <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">geom_line</span><span class="p">()</span>
+ <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">geom_area</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="mf">.1</span><span class="p">)</span>
  <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">labs</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;Registered KD Admissions&#39;</span><span class="p">,</span>
            <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Daily KD admissions in Japan (1970-1990)&#39;</span><span class="p">)</span>
  <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">theme</span><span class="p">(</span><span class="n">figure_size</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span>
@@ -610,11 +622,13 @@ series for the whole period, it shouldn’t be a big deal.</p>
 </div>
 <div class="cell_output docutils container">
 <img alt="_images/kd_tokyo_air_sources_19_0.png" src="_images/kd_tokyo_air_sources_19_0.png" />
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ggplot: (8760331677437)&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ggplot: (8760331504981)&gt;
 </pre></div>
 </div>
 </div>
 </div>
+<p>The epidemic events are now even more clear!</p>
+<p>Let’s look closely to the post 2000 era:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">kd_japan</span>
@@ -625,11 +639,13 @@ series for the whole period, it shouldn’t be a big deal.</p>
  <span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
  <span class="o">.</span><span class="n">pipe</span><span class="p">(</span><span class="k">lambda</span> <span class="n">dd</span><span class="p">:</span> <span class="n">p9</span><span class="o">.</span><span class="n">ggplot</span><span class="p">(</span><span class="n">dd</span><span class="p">)</span>
  <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">aes</span><span class="p">(</span><span class="s1">&#39;date&#39;</span><span class="p">,</span> <span class="s1">&#39;kd_cases&#39;</span><span class="p">)</span>
+ <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">geom_line</span><span class="p">(</span><span class="n">p9</span><span class="o">.</span><span class="n">aes</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="s1">&#39;kd_cases.rolling(12, center=True).mean()&#39;</span><span class="p">),</span>
+                 <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">.9</span><span class="p">)</span>
  <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">geom_line</span><span class="p">()</span>
  <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">scale_x_datetime</span><span class="p">(</span><span class="n">labels</span><span class="o">=</span><span class="n">date_format</span><span class="p">(</span><span class="s1">&#39;%Y&#39;</span><span class="p">))</span>
  <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">labs</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;Registered KD Admissions&#39;</span><span class="p">,</span>
            <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Daily KD admissions in Japan (2000-2018)&#39;</span><span class="p">)</span>
- <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">theme</span><span class="p">(</span><span class="n">figure_size</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span>
+ <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">theme</span><span class="p">(</span><span class="n">figure_size</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">),</span>
                   <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span>
                   <span class="n">title</span><span class="o">=</span><span class="n">p9</span><span class="o">.</span><span class="n">element_text</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">10</span><span class="p">),</span>
                   <span class="n">axis_title_y</span><span class="o">=</span><span class="n">p9</span><span class="o">.</span><span class="n">element_text</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">9</span><span class="p">))</span>
@@ -639,10 +655,180 @@ series for the whole period, it shouldn’t be a big deal.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/kd_tokyo_air_sources_20_0.png" src="_images/kd_tokyo_air_sources_20_0.png" />
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ggplot: (8760331729415)&gt;
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/afontal/.cache/pypoetry/virtualenvs/vasculitis2022-conference-w24wV9dD-py3.8/lib/python3.8/site-packages/plotnine/geoms/geom_path.py:75: PlotnineWarning: geom_path: Removed 11 rows containing missing values.
 </pre></div>
 </div>
+<img alt="_images/kd_tokyo_air_sources_21_1.png" src="_images/kd_tokyo_air_sources_21_1.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ggplot: (8760330385713)&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Both the yearly seasonality and the trend become clear now!</p>
+<p>There is a yearly cycle which peaks every winter and has its nadir during the fall, and the trend, represented by the red line (displaying the 12-month moving average), shows a change from ~23 daily cases in the early 2000s to about ~45 daily cases in 2016.</p>
+<p>We are undergoing more formal time series analysis work, but for the sake of this example let’s keep it here.</p>
+<p>The period from 2016 to 2018 seems to break both the seasonal and trend pattern, and the reasons for these are being studied, but let’s now focus on the data for Tokyo used in this study.</p>
+</div>
+</div>
+<div class="section" id="tokyo-records-2011-2018">
+<h3>Tokyo records (2011-2018)<a class="headerlink" href="#tokyo-records-2011-2018" title="Permalink to this headline">¶</a></h3>
+<p>We have another dataset with the reported dates of onset for a total of 13790 cases diagnosed in hospitals within the prefecture of Tokyo from 2011 to 2018.</p>
+<p>Let’s load the already pre-processed file:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">kd_tokyo</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;../data/kawasaki_disease/tokyo_ts.csv&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>And visualize the full temporal series:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">kd_tokyo</span>
+ <span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">rolling_7</span><span class="o">=</span><span class="k">lambda</span> <span class="n">dd</span><span class="p">:</span> <span class="n">dd</span><span class="o">.</span><span class="n">cases</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="n">center</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
+ <span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">rolling_56</span><span class="o">=</span><span class="k">lambda</span> <span class="n">dd</span><span class="p">:</span> <span class="n">dd</span><span class="o">.</span><span class="n">cases</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="mi">7</span> <span class="o">*</span> <span class="mi">8</span><span class="p">,</span> <span class="n">center</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
+ <span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;cases&#39;</span><span class="p">:</span> <span class="s1">&#39;Daily cases&#39;</span><span class="p">,</span> <span class="s1">&#39;rolling_7&#39;</span><span class="p">:</span> <span class="s1">&#39;7 Days MA&#39;</span><span class="p">,</span> <span class="s1">&#39;rolling_56&#39;</span><span class="p">:</span> <span class="s1">&#39;8 Weeks MA&#39;</span><span class="p">})</span>
+ <span class="o">.</span><span class="n">melt</span><span class="p">([</span><span class="s1">&#39;date&#39;</span><span class="p">,</span> <span class="s1">&#39;year&#39;</span><span class="p">])</span>
+ <span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+  <span class="o">.</span><span class="n">pipe</span><span class="p">(</span><span class="k">lambda</span> <span class="n">dd</span><span class="p">:</span> <span class="n">p9</span><span class="o">.</span><span class="n">ggplot</span><span class="p">(</span><span class="n">dd</span><span class="p">)</span> 
+        <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">aes</span><span class="p">(</span><span class="s1">&#39;date&#39;</span><span class="p">,</span> <span class="s1">&#39;value&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;variable&#39;</span><span class="p">,</span> <span class="n">group</span><span class="o">=</span><span class="s1">&#39;variable&#39;</span><span class="p">)</span> 
+        <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">geom_line</span><span class="p">(</span><span class="n">p9</span><span class="o">.</span><span class="n">aes</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="s1">&#39;variable&#39;</span><span class="p">))</span>
+        <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">scale_alpha_manual</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">.2</span><span class="p">])</span>
+        <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">scale_color_manual</span><span class="p">([</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="s1">&#39;black&#39;</span><span class="p">])</span>
+       <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">scale_x_datetime</span><span class="p">(</span><span class="n">labels</span><span class="o">=</span><span class="n">date_format</span><span class="p">(</span><span class="s1">&#39;%Y-%m&#39;</span><span class="p">),</span> <span class="n">breaks</span><span class="o">=</span><span class="n">date_breaks</span><span class="p">(</span><span class="s1">&#39;20 months&#39;</span><span class="p">))</span>
+       <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">theme</span><span class="p">(</span><span class="n">figure_size</span><span class="o">=</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">title</span><span class="o">=</span><span class="n">p9</span><span class="o">.</span><span class="n">element_text</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">11</span><span class="p">))</span>
+       <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">labs</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;Registered KD cases&#39;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Daily KD cases in Tokyo&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span>
+                 <span class="n">alpha</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+<span class="p">)</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/kd_tokyo_air_sources_27_0.png" src="_images/kd_tokyo_air_sources_27_0.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ggplot: (8760330125475)&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can see how for the <em>smaller</em> sample of Tokyo, the temporal patterns become more diffuse, with the daily cases ranging from 0 to 15. As we average over longer periods of time, periods with a consistent increased number of daily cases become more apparent.</p>
+<p>For this study, we decided to generate weekly data and select the <strong>top 5</strong> weeks and <strong>bottom 5</strong> weeks with regards to the average number of daily KD cases.</p>
+<p>We will now convert the daily data to weekly average of daily cases for all the consecutive weeks in the year (since the last week of the year doesn’t have 7 full days, this should make them still comparable).</p>
+<p>As the data was based on admissions up to 31st of December 2018 and the lag from reported onset to actual admission ranges from 2 to 5 days, we removed the data from after the 24th of December 2018 since the data for that last week couldn’t be considered <em>complete</em>.</p>
+<p>Let’s process the data:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">kd_weekly_tokyo</span> <span class="o">=</span> <span class="p">(</span><span class="n">kd_tokyo</span>
+        <span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">date</span><span class="o">=</span><span class="k">lambda</span> <span class="n">dd</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">dd</span><span class="o">.</span><span class="n">date</span><span class="p">))</span>
+        <span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">week</span><span class="o">=</span><span class="k">lambda</span> <span class="n">dd</span><span class="p">:</span> <span class="p">(((</span><span class="n">dd</span><span class="o">.</span><span class="n">date</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">dayofyear</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">//</span> <span class="mi">7</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="mi">52</span><span class="p">))</span>
+        <span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;year&#39;</span><span class="p">,</span> <span class="s1">&#39;week&#39;</span><span class="p">],</span> <span class="n">as_index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="o">.</span><span class="n">cases</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can now visualize the average number of daily cases per week:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">kd_weekly_tokyo</span>
+ <span class="o">.</span><span class="n">pipe</span><span class="p">(</span><span class="k">lambda</span> <span class="n">dd</span><span class="p">:</span> <span class="n">p9</span><span class="o">.</span><span class="n">ggplot</span><span class="p">(</span><span class="n">dd</span><span class="p">)</span> 
+                <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">aes</span><span class="p">(</span><span class="s1">&#39;week&#39;</span><span class="p">,</span> <span class="s1">&#39;cases&#39;</span><span class="p">)</span> 
+                <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">geom_col</span><span class="p">()</span>
+                <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">theme</span><span class="p">(</span><span class="n">figure_size</span><span class="o">=</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">400</span><span class="p">,</span> <span class="n">strip_text</span><span class="o">=</span><span class="n">p9</span><span class="o">.</span><span class="n">element_text</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">6</span><span class="p">),</span>
+                           <span class="n">axis_text</span><span class="o">=</span><span class="n">p9</span><span class="o">.</span><span class="n">element_text</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">6</span><span class="p">),</span> <span class="n">subplots_adjust</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;hspace&#39;</span><span class="p">:</span> <span class="mf">.4</span><span class="p">},</span>
+                           <span class="n">legend_key_size</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span> <span class="n">legend_text</span><span class="o">=</span><span class="n">p9</span><span class="o">.</span><span class="n">element_text</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">7</span><span class="p">))</span>
+                <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">facet_wrap</span><span class="p">(</span><span class="s1">&#39;year&#39;</span><span class="p">,</span> <span class="n">ncol</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+                <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">scale_y_continuous</span><span class="p">(</span><span class="n">breaks</span><span class="o">=</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">8</span><span class="p">])</span>
+                <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">scale_fill_manual</span><span class="p">([</span><span class="s1">&#39;#B2182B&#39;</span><span class="p">,</span> <span class="s1">&#39;#2166AC&#39;</span><span class="p">])</span>
+                <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">labs</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;Week of the year&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;Mean Daily KD cases&#39;</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> 
+                          <span class="n">title</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+                <span class="p">)</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/afontal/.cache/pypoetry/virtualenvs/vasculitis2022-conference-w24wV9dD-py3.8/lib/python3.8/site-packages/plotnine/utils.py:371: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
+</pre></div>
+</div>
+<img alt="_images/kd_tokyo_air_sources_32_1.png" src="_images/kd_tokyo_air_sources_32_1.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ggplot: (8760328021498)&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s now select the weeks associated to the yearly KD maxima and minima:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">kd_weekly_tokyo_minmax</span> <span class="o">=</span> <span class="p">(</span><span class="n">kd_weekly_tokyo</span>
+ <span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;year&#39;</span><span class="p">])</span>
+ <span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">dd</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">dd</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;cases&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:</span><span class="mi">5</span><span class="p">]</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;KD Minima&#39;</span><span class="p">),</span>
+                              <span class="n">dd</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;cases&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="mi">5</span><span class="p">:]</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;KD Maxima&#39;</span><span class="p">)]))</span>
+ <span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>If we now mark the weeks associated to KD Maxima and Minima:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">kd_weekly_tokyo</span>
+ <span class="o">.</span><span class="n">pipe</span><span class="p">(</span><span class="k">lambda</span> <span class="n">dd</span><span class="p">:</span> <span class="n">p9</span><span class="o">.</span><span class="n">ggplot</span><span class="p">(</span><span class="n">dd</span><span class="p">)</span> 
+                <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">aes</span><span class="p">(</span><span class="s1">&#39;week&#39;</span><span class="p">,</span> <span class="s1">&#39;cases&#39;</span><span class="p">)</span> 
+                <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">geom_col</span><span class="p">()</span>
+                <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">geom_col</span><span class="p">(</span><span class="n">p9</span><span class="o">.</span><span class="n">aes</span><span class="p">(</span><span class="n">fill</span><span class="o">=</span><span class="s1">&#39;label&#39;</span><span class="p">),</span> <span class="n">data</span><span class="o">=</span><span class="n">kd_weekly_tokyo_minmax</span><span class="p">)</span>
+                <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">theme</span><span class="p">(</span><span class="n">figure_size</span><span class="o">=</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">400</span><span class="p">,</span> <span class="n">strip_text</span><span class="o">=</span><span class="n">p9</span><span class="o">.</span><span class="n">element_text</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">6</span><span class="p">),</span>
+                           <span class="n">axis_text</span><span class="o">=</span><span class="n">p9</span><span class="o">.</span><span class="n">element_text</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">6</span><span class="p">),</span> <span class="n">subplots_adjust</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;hspace&#39;</span><span class="p">:</span> <span class="mf">.4</span><span class="p">},</span>
+                           <span class="n">legend_key_size</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span> <span class="n">legend_text</span><span class="o">=</span><span class="n">p9</span><span class="o">.</span><span class="n">element_text</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">7</span><span class="p">))</span>
+                <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">facet_wrap</span><span class="p">(</span><span class="s1">&#39;year&#39;</span><span class="p">,</span> <span class="n">ncol</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+                <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">scale_y_continuous</span><span class="p">(</span><span class="n">breaks</span><span class="o">=</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">8</span><span class="p">])</span>
+                <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">scale_fill_manual</span><span class="p">([</span><span class="s1">&#39;#B2182B&#39;</span><span class="p">,</span> <span class="s1">&#39;#2166AC&#39;</span><span class="p">])</span>
+                <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">labs</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;Week of the year&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;Mean Daily KD cases&#39;</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> 
+                          <span class="n">title</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+                <span class="p">)</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/afontal/.cache/pypoetry/virtualenvs/vasculitis2022-conference-w24wV9dD-py3.8/lib/python3.8/site-packages/plotnine/utils.py:371: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
+/home/afontal/.cache/pypoetry/virtualenvs/vasculitis2022-conference-w24wV9dD-py3.8/lib/python3.8/site-packages/plotnine/utils.py:371: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
+</pre></div>
+</div>
+<img alt="_images/kd_tokyo_air_sources_36_1.png" src="_images/kd_tokyo_air_sources_36_1.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ggplot: (8760336780349)&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s now generate a list of single dates that we’ll later use to select the trajectories associated to either KD maxima or minima. This list will be shared so as to enable the reproduction of the differential trajectory analysis.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">min_max_weekly_dates</span> <span class="o">=</span> <span class="p">(</span><span class="n">kd_weekly_tokyo_minmax</span>
+ <span class="o">.</span><span class="n">merge</span><span class="p">((</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="nb">dict</span><span class="p">(</span><span class="n">date</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="s1">&#39;2011&#39;</span><span class="p">,</span> <span class="s1">&#39;2018-12-31&#39;</span><span class="p">)))</span>
+         <span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">year</span><span class="o">=</span><span class="k">lambda</span> <span class="n">dd</span><span class="p">:</span> <span class="n">dd</span><span class="o">.</span><span class="n">date</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">year</span><span class="p">)</span>
+         <span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">week</span><span class="o">=</span><span class="k">lambda</span> <span class="n">dd</span><span class="p">:</span> <span class="p">(((</span><span class="n">dd</span><span class="o">.</span><span class="n">date</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">dayofyear</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">//</span> <span class="mi">7</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+         <span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="mi">52</span><span class="p">))))</span>
+ <span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="s1">&#39;cases&#39;</span><span class="p">)</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">min_max_weekly_dates</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;../data/kawasaki_disease/kd_min_max_dates.csv&#39;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>If you want to reproduce the analysis, just read the data running the following cell, and you should be able to follow the next steps.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">min_max_weekly_dates</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;../data/kawasaki_disease/kd_min_max_dates.csv&#39;</span><span class="p">)</span>
+</pre></div>
 </div>
 </div>
 </div>
