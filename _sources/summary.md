@@ -135,9 +135,13 @@ Further studies should (and are being done) on the characterization of these air
 Stay posted for more updated on the issue and feel free to comment below with any doubts or comments.
 
 ## References
-
+<details>
+  <summary>Click to expand!</summary>
+ 
 ```{bibliography}
 :style: unsrt
 ```
+</details>
+
 
 
