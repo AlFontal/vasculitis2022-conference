@@ -411,7 +411,7 @@ const thebe_selector_output = ".output, .cell_output"
               <div>
                 
   <h1>Table of Contents<span class="tocSkip"></span></h1>
-<div class="toc"><ul class="toc-item"><li><span><a href="#Preamble" data-toc-modified-id="Preamble-1"><span class="toc-item-num">1&nbsp;&nbsp;</span>Preamble</a></span><ul class="toc-item"><li><span><a href="#Imports" data-toc-modified-id="Imports-1.1"><span class="toc-item-num">1.1&nbsp;&nbsp;</span>Imports</a></span></li><li><span><a href="#Pre-sets" data-toc-modified-id="Pre-sets-1.2"><span class="toc-item-num">1.2&nbsp;&nbsp;</span>Pre-sets</a></span></li></ul></li><li><span><a href="#Data-loading-and-processing" data-toc-modified-id="Data-loading-and-processing-2"><span class="toc-item-num">2&nbsp;&nbsp;</span>Data loading and processing</a></span><ul class="toc-item"><li><span><a href="#Kawasaki-Disease" data-toc-modified-id="Kawasaki-Disease-2.1"><span class="toc-item-num">2.1&nbsp;&nbsp;</span>Kawasaki Disease</a></span><ul class="toc-item"><li><span><a href="#Full-Japanese-temporal-records" data-toc-modified-id="Full-Japanese-temporal-records-2.1.1"><span class="toc-item-num">2.1.1&nbsp;&nbsp;</span>Full Japanese temporal records</a></span></li></ul></li><li><span><a href="#Tokyo-records-(2011-2018)" data-toc-modified-id="Tokyo-records-(2011-2018)-2.2"><span class="toc-item-num">2.2&nbsp;&nbsp;</span>Tokyo records (2011-2018)</a></span></li></ul></li><li><span><a href="#Generating-the-backtrajectories" data-toc-modified-id="Generating-the-backtrajectories-3"><span class="toc-item-num">3&nbsp;&nbsp;</span>Generating the backtrajectories</a></span></li><li><span><a href="#Work-in-progress" data-toc-modified-id="Work-in-progress-4"><span class="toc-item-num">4&nbsp;&nbsp;</span>Work in progress</a></span></li></ul></div><div class="tex2jax_ignore mathjax_ignore section" id="full-code-and-analysis">
+<div class="toc"><ul class="toc-item"><li><span><a href="#preamble" data-toc-modified-id="Preamble-1"><span class="toc-item-num">1&nbsp;&nbsp;</span>Preamble</a></span><ul class="toc-item"><li><span><a href="#imports" data-toc-modified-id="Imports-1.1"><span class="toc-item-num">1.1&nbsp;&nbsp;</span>Imports</a></span></li><li><span><a href="#pre-sets" data-toc-modified-id="Pre-sets-1.2"><span class="toc-item-num">1.2&nbsp;&nbsp;</span>Pre-sets</a></span></li></ul></li><li><span><a href="#data-loading-and-processing" data-toc-modified-id="Data-loading-and-processing-2"><span class="toc-item-num">2&nbsp;&nbsp;</span>Data loading and processing</a></span><ul class="toc-item"><li><span><a href="#kawasaki-disease" data-toc-modified-id="Kawasaki-Disease-2.1"><span class="toc-item-num">2.1&nbsp;&nbsp;</span>Kawasaki Disease</a></span><ul class="toc-item"><li><span><a href="#full-japanese-temporal-records" data-toc-modified-id="Full-Japanese-temporal-records-2.1.1"><span class="toc-item-num">2.1.1&nbsp;&nbsp;</span>Full Japanese temporal records</a></span></li></ul></li><li><span><a href="#tokyo-records-(2011-2018)" data-toc-modified-id="Tokyo-records-(2011-2018)-2.2"><span class="toc-item-num">2.2&nbsp;&nbsp;</span>Tokyo records (2011-2018)</a></span></li></ul></li><li><span><a href="#generating-the-backtrajectories" data-toc-modified-id="Generating-the-backtrajectories-3"><span class="toc-item-num">3&nbsp;&nbsp;</span>Generating the backtrajectories</a></span></li><li><span><a href="#work-in-progress" data-toc-modified-id="Work-in-progress-4"><span class="toc-item-num">4&nbsp;&nbsp;</span>Work in progress</a></span></li></ul></div><div class="tex2jax_ignore mathjax_ignore section" id="full-code-and-analysis">
 <h1>Full code and analysis<a class="headerlink" href="#full-code-and-analysis" title="Permalink to this headline">¶</a></h1>
 <p>This notebook should serve as a guide to reproduce the analysis and figures shown in the poster and
 main summary file.</p>
@@ -566,9 +566,6 @@ series for the whole period, it shouldn’t be a big deal.</p>
 </div>
 <div class="cell_output docutils container">
 <img alt="_images/kd_tokyo_air_sources_15_0.png" src="_images/kd_tokyo_air_sources_15_0.png" />
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ggplot: (8734842526082)&gt;
-</pre></div>
-</div>
 </div>
 </div>
 <p>While some of the patterns are visible here, the daily variance makes some of the temporal features hard to visualize. Let’s generate the monthly averages of daily admissions and plot the figure again:</p>
@@ -597,9 +594,6 @@ series for the whole period, it shouldn’t be a big deal.</p>
 </div>
 <div class="cell_output docutils container">
 <img alt="_images/kd_tokyo_air_sources_17_0.png" src="_images/kd_tokyo_air_sources_17_0.png" />
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ggplot: (8734842452011)&gt;
-</pre></div>
-</div>
 </div>
 </div>
 <p>Notice how now, 3 features are clearly visible:</p>
@@ -634,9 +628,6 @@ series for the whole period, it shouldn’t be a big deal.</p>
 </div>
 <div class="cell_output docutils container">
 <img alt="_images/kd_tokyo_air_sources_20_0.png" src="_images/kd_tokyo_air_sources_20_0.png" />
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ggplot: (8734842397356)&gt;
-</pre></div>
-</div>
 </div>
 </div>
 <p>The epidemic events are now even more clear!</p>
@@ -671,9 +662,6 @@ series for the whole period, it shouldn’t be a big deal.</p>
 </pre></div>
 </div>
 <img alt="_images/kd_tokyo_air_sources_22_1.png" src="_images/kd_tokyo_air_sources_22_1.png" />
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ggplot: (8734842423477)&gt;
-</pre></div>
-</div>
 </div>
 </div>
 <p>Both the yearly seasonality and the trend become clear now!</p>
@@ -718,9 +706,6 @@ series for the whole period, it shouldn’t be a big deal.</p>
 </div>
 <div class="cell_output docutils container">
 <img alt="_images/kd_tokyo_air_sources_28_0.png" src="_images/kd_tokyo_air_sources_28_0.png" />
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ggplot: (8734842399202)&gt;
-</pre></div>
-</div>
 </div>
 </div>
 <p>We can see how for the <em>smaller</em> sample of Tokyo, the temporal patterns become more diffuse, with the daily cases ranging from 0 to 15. As we average over longer periods of time, periods with a consistent increased number of daily cases become more apparent.</p>
@@ -765,9 +750,6 @@ series for the whole period, it shouldn’t be a big deal.</p>
 </pre></div>
 </div>
 <img alt="_images/kd_tokyo_air_sources_33_1.png" src="_images/kd_tokyo_air_sources_33_1.png" />
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ggplot: (8734842320887)&gt;
-</pre></div>
-</div>
 </div>
 </div>
 <p>Let’s now select the weeks associated to the yearly KD maxima and minima:</p>
@@ -810,9 +792,6 @@ series for the whole period, it shouldn’t be a big deal.</p>
 </pre></div>
 </div>
 <img alt="_images/kd_tokyo_air_sources_37_1.png" src="_images/kd_tokyo_air_sources_37_1.png" />
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ggplot: (8734836946565)&gt;
-</pre></div>
-</div>
 </div>
 </div>
 <p>We can now generate a list of single dates that we’ll later use to select the trajectories associated to either KD maxima or minima. This list will be shared so as to enable the reproduction of the differential trajectory analysis.</p>
