@@ -32,7 +32,7 @@ jobs:
         jupyter-book build vasculitis_2022_kd_winds
 
     - name: Clean notebook outputs for nicer HTML render
-      run: curl -s -S https://gist.githubusercontent.com/AlFontal/896e180f9f7772c4825067591f34c94b/raw > clean_notebook.py & 
+      run: curl -s -S https://gist.githubusercontent.com/AlFontal/896e180f9f7772c4825067591f34c94b/raw > clean_notebook.py; 
               python clean_notebook.py --path vasculitis_2022_kd_winds
 
     # Deploy the book's HTML to gh-pages branch
