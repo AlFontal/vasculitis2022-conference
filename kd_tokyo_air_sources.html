@@ -321,6 +321,11 @@ const thebe_selector_output = ".output, .cell_output"
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#generating-the-backtrajectories">
+   Generating the backtrajectories
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#work-in-progress">
    Work in progress
   </a>
@@ -387,6 +392,11 @@ const thebe_selector_output = ".output, .cell_output"
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#generating-the-backtrajectories">
+   Generating the backtrajectories
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#work-in-progress">
    Work in progress
   </a>
@@ -400,7 +410,8 @@ const thebe_selector_output = ".output, .cell_output"
             
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="full-code-and-analysis">
+  <h1>Table of Contents<span class="tocSkip"></span></h1>
+<div class="toc"><ul class="toc-item"><li><span><a href="#Preamble" data-toc-modified-id="Preamble-1"><span class="toc-item-num">1&nbsp;&nbsp;</span>Preamble</a></span><ul class="toc-item"><li><span><a href="#Imports" data-toc-modified-id="Imports-1.1"><span class="toc-item-num">1.1&nbsp;&nbsp;</span>Imports</a></span></li><li><span><a href="#Pre-sets" data-toc-modified-id="Pre-sets-1.2"><span class="toc-item-num">1.2&nbsp;&nbsp;</span>Pre-sets</a></span></li></ul></li><li><span><a href="#Data-loading-and-processing" data-toc-modified-id="Data-loading-and-processing-2"><span class="toc-item-num">2&nbsp;&nbsp;</span>Data loading and processing</a></span><ul class="toc-item"><li><span><a href="#Kawasaki-Disease" data-toc-modified-id="Kawasaki-Disease-2.1"><span class="toc-item-num">2.1&nbsp;&nbsp;</span>Kawasaki Disease</a></span><ul class="toc-item"><li><span><a href="#Full-Japanese-temporal-records" data-toc-modified-id="Full-Japanese-temporal-records-2.1.1"><span class="toc-item-num">2.1.1&nbsp;&nbsp;</span>Full Japanese temporal records</a></span></li></ul></li><li><span><a href="#Tokyo-records-(2011-2018)" data-toc-modified-id="Tokyo-records-(2011-2018)-2.2"><span class="toc-item-num">2.2&nbsp;&nbsp;</span>Tokyo records (2011-2018)</a></span></li></ul></li><li><span><a href="#Generating-the-backtrajectories" data-toc-modified-id="Generating-the-backtrajectories-3"><span class="toc-item-num">3&nbsp;&nbsp;</span>Generating the backtrajectories</a></span></li><li><span><a href="#Work-in-progress" data-toc-modified-id="Work-in-progress-4"><span class="toc-item-num">4&nbsp;&nbsp;</span>Work in progress</a></span></li></ul></div><div class="tex2jax_ignore mathjax_ignore section" id="full-code-and-analysis">
 <h1>Full code and analysis<a class="headerlink" href="#full-code-and-analysis" title="Permalink to this headline">¶</a></h1>
 <p>This notebook should serve as a guide to reproduce the analysis and figures shown in the poster and
 main summary file.</p>
@@ -421,6 +432,7 @@ and KD Minima so that the trajectory generation can be emulated and reproduced.<
 <span class="kn">import</span> <span class="nn">plotnine</span> <span class="k">as</span> <span class="nn">p9</span>
 <span class="kn">import</span> <span class="nn">geopandas</span> <span class="k">as</span> <span class="nn">gpd</span>
 
+<span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">product</span>
 <span class="kn">from</span> <span class="nn">mizani.breaks</span> <span class="kn">import</span> <span class="n">date_breaks</span>
 <span class="kn">from</span> <span class="nn">shapely.geometry</span> <span class="kn">import</span> <span class="n">Point</span><span class="p">,</span> <span class="n">LineString</span>
 <span class="kn">from</span> <span class="nn">mizani.formatters</span> <span class="kn">import</span> <span class="n">percent_format</span><span class="p">,</span> <span class="n">date_format</span><span class="p">,</span> <span class="n">custom_format</span>
@@ -494,44 +506,44 @@ series for the whole period, it shouldn’t be a big deal.</p>
   </thead>
   <tbody>
     <tr>
-      <th>1988-04-27</th>
-      <td>19</td>
-    </tr>
-    <tr>
-      <th>1985-11-11</th>
-      <td>38</td>
-    </tr>
-    <tr>
-      <th>2003-06-15</th>
-      <td>9</td>
-    </tr>
-    <tr>
-      <th>1973-03-12</th>
+      <th>1977-11-25</th>
       <td>6</td>
     </tr>
     <tr>
-      <th>2015-10-18</th>
-      <td>20</td>
+      <th>1974-03-13</th>
+      <td>6</td>
     </tr>
     <tr>
-      <th>2017-07-27</th>
-      <td>35</td>
+      <th>1970-12-29</th>
+      <td>0</td>
     </tr>
     <tr>
-      <th>1975-04-21</th>
-      <td>10</td>
+      <th>2014-06-19</th>
+      <td>57</td>
     </tr>
     <tr>
-      <th>1999-02-06</th>
-      <td>15</td>
+      <th>1995-02-27</th>
+      <td>14</td>
     </tr>
     <tr>
-      <th>1973-09-01</th>
-      <td>8</td>
+      <th>2006-08-28</th>
+      <td>47</td>
     </tr>
     <tr>
-      <th>2012-01-06</th>
-      <td>69</td>
+      <th>2016-05-15</th>
+      <td>17</td>
+    </tr>
+    <tr>
+      <th>2015-04-27</th>
+      <td>78</td>
+    </tr>
+    <tr>
+      <th>2015-04-17</th>
+      <td>61</td>
+    </tr>
+    <tr>
+      <th>1985-12-18</th>
+      <td>80</td>
     </tr>
   </tbody>
 </table>
@@ -553,8 +565,8 @@ series for the whole period, it shouldn’t be a big deal.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/kd_tokyo_air_sources_14_0.png" src="_images/kd_tokyo_air_sources_14_0.png" />
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ggplot: (8760336679940)&gt;
+<img alt="_images/kd_tokyo_air_sources_15_0.png" src="_images/kd_tokyo_air_sources_15_0.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ggplot: (8734842526082)&gt;
 </pre></div>
 </div>
 </div>
@@ -584,8 +596,8 @@ series for the whole period, it shouldn’t be a big deal.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/kd_tokyo_air_sources_16_0.png" src="_images/kd_tokyo_air_sources_16_0.png" />
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ggplot: (8760341690929)&gt;
+<img alt="_images/kd_tokyo_air_sources_17_0.png" src="_images/kd_tokyo_air_sources_17_0.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ggplot: (8734842452011)&gt;
 </pre></div>
 </div>
 </div>
@@ -621,8 +633,8 @@ series for the whole period, it shouldn’t be a big deal.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/kd_tokyo_air_sources_19_0.png" src="_images/kd_tokyo_air_sources_19_0.png" />
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ggplot: (8760331504981)&gt;
+<img alt="_images/kd_tokyo_air_sources_20_0.png" src="_images/kd_tokyo_air_sources_20_0.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ggplot: (8734842397356)&gt;
 </pre></div>
 </div>
 </div>
@@ -658,8 +670,8 @@ series for the whole period, it shouldn’t be a big deal.</p>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/afontal/.cache/pypoetry/virtualenvs/vasculitis2022-conference-w24wV9dD-py3.8/lib/python3.8/site-packages/plotnine/geoms/geom_path.py:75: PlotnineWarning: geom_path: Removed 11 rows containing missing values.
 </pre></div>
 </div>
-<img alt="_images/kd_tokyo_air_sources_21_1.png" src="_images/kd_tokyo_air_sources_21_1.png" />
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ggplot: (8760330385713)&gt;
+<img alt="_images/kd_tokyo_air_sources_22_1.png" src="_images/kd_tokyo_air_sources_22_1.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ggplot: (8734842423477)&gt;
 </pre></div>
 </div>
 </div>
@@ -705,8 +717,8 @@ series for the whole period, it shouldn’t be a big deal.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/kd_tokyo_air_sources_27_0.png" src="_images/kd_tokyo_air_sources_27_0.png" />
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ggplot: (8760330125475)&gt;
+<img alt="_images/kd_tokyo_air_sources_28_0.png" src="_images/kd_tokyo_air_sources_28_0.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ggplot: (8734842399202)&gt;
 </pre></div>
 </div>
 </div>
@@ -752,8 +764,8 @@ series for the whole period, it shouldn’t be a big deal.</p>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/afontal/.cache/pypoetry/virtualenvs/vasculitis2022-conference-w24wV9dD-py3.8/lib/python3.8/site-packages/plotnine/utils.py:371: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
 </pre></div>
 </div>
-<img alt="_images/kd_tokyo_air_sources_32_1.png" src="_images/kd_tokyo_air_sources_32_1.png" />
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ggplot: (8760328021498)&gt;
+<img alt="_images/kd_tokyo_air_sources_33_1.png" src="_images/kd_tokyo_air_sources_33_1.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ggplot: (8734842320887)&gt;
 </pre></div>
 </div>
 </div>
@@ -797,13 +809,13 @@ series for the whole period, it shouldn’t be a big deal.</p>
 /home/afontal/.cache/pypoetry/virtualenvs/vasculitis2022-conference-w24wV9dD-py3.8/lib/python3.8/site-packages/plotnine/utils.py:371: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
 </pre></div>
 </div>
-<img alt="_images/kd_tokyo_air_sources_36_1.png" src="_images/kd_tokyo_air_sources_36_1.png" />
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ggplot: (8760336780349)&gt;
+<img alt="_images/kd_tokyo_air_sources_37_1.png" src="_images/kd_tokyo_air_sources_37_1.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ggplot: (8734836946565)&gt;
 </pre></div>
 </div>
 </div>
 </div>
-<p>Let’s now generate a list of single dates that we’ll later use to select the trajectories associated to either KD maxima or minima. This list will be shared so as to enable the reproduction of the differential trajectory analysis.</p>
+<p>We can now generate a list of single dates that we’ll later use to select the trajectories associated to either KD maxima or minima. This list will be shared so as to enable the reproduction of the differential trajectory analysis.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">min_max_weekly_dates</span> <span class="o">=</span> <span class="p">(</span><span class="n">kd_weekly_tokyo_minmax</span>
@@ -834,6 +846,46 @@ series for the whole period, it shouldn’t be a big deal.</p>
 </div>
 </div>
 </div>
+<div class="section" id="generating-the-backtrajectories">
+<h2>Generating the backtrajectories<a class="headerlink" href="#generating-the-backtrajectories" title="Permalink to this headline">¶</a></h2>
+<p>We will generate the backtrajectories using the <code class="docutils literal notranslate"><span class="pre">pysplit</span></code> library, which allows us to programmatically call HYSPLIT
+and generate many trajectories in bulk. For that, however, we need to have (1) a running version of HYSPLIT installed in our local machine, and (2) ARL compatible meteorology files for the period of time we want to run the trajectories.</p>
+<p>In this case, we downloaded the GDAS1 meteorology files from the ARL FTP server. These can be accessed through this link.</p>
+<p>I am going to define here the local folders where my installation of HYSPLIT is located and where the meteorology files are.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">HYSPLIT_DIR</span> <span class="o">=</span> <span class="s1">&#39;/home/afontal/utils/hysplit/exec/hyts_std&#39;</span>
+<span class="n">HYSPLIT_WORKING</span> <span class="o">=</span> <span class="s1">&#39;/home/afontal/utils/hysplit/working&#39;</span>
+<span class="n">METEO_DIR</span> <span class="o">=</span> <span class="s1">&#39;/home/afontal/utils/hysplit/meteo/gdas1&#39;</span>
+<span class="n">OUT_DIR</span> <span class="o">=</span> <span class="s1">&#39;/home/afontal/projects/vasculitis2022-conference/output/trajectories&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We will now call the <code class="docutils literal notranslate"><span class="pre">generate_bulktraj</span></code> function from the <code class="docutils literal notranslate"><span class="pre">pysplit</span></code> package to generate the trajectories. In previous trials I realized that trying to call too many trajectories at once causes the call to freeze (at least in my local machine) so I ended up splitting the call by months:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">year</span><span class="p">,</span> <span class="n">month</span> <span class="ow">in</span> <span class="n">product</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">2011</span><span class="p">,</span> <span class="mi">2019</span><span class="p">),</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">13</span><span class="p">)):</span>
+    <span class="n">pysplit</span><span class="o">.</span><span class="n">generate_bulktraj</span><span class="p">(</span><span class="s1">&#39;tokyo&#39;</span><span class="p">,</span>
+                              <span class="n">hysplit_working</span><span class="o">=</span><span class="n">HYSPLIT_WORKING</span><span class="p">,</span>
+                              <span class="n">hysplit</span><span class="o">=</span><span class="n">HYSPLIT_DIR</span><span class="p">,</span>
+                              <span class="n">output_dir</span><span class="o">=</span><span class="n">OUT_DIR</span><span class="p">,</span>
+                              <span class="n">meteo_dir</span><span class="o">=</span><span class="n">METEO_DIR</span><span class="p">,</span>
+                              <span class="n">years</span><span class="o">=</span><span class="p">[</span><span class="n">year</span><span class="p">],</span>
+                              <span class="n">months</span><span class="o">=</span><span class="p">[</span><span class="n">month</span><span class="p">],</span>
+                              <span class="n">meteoyr_2digits</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                              <span class="n">hours</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">18</span><span class="p">],</span>
+                              <span class="n">altitudes</span><span class="o">=</span><span class="p">[</span><span class="mi">10</span><span class="p">],</span>
+                              <span class="n">coordinates</span><span class="o">=</span><span class="p">(</span><span class="mf">35.68</span><span class="p">,</span> <span class="mf">139.65</span><span class="p">),</span>
+                              <span class="n">run</span><span class="o">=-</span><span class="mi">96</span><span class="p">,</span>
+                              <span class="n">meteo_bookends</span><span class="o">=</span><span class="p">([</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span> <span class="p">[])</span>
+
+    <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
 <div class="section" id="work-in-progress">
 <h2>Work in progress<a class="headerlink" href="#work-in-progress" title="Permalink to this headline">¶</a></h2>
 <p>Come later to see the full code. Or contact <a class="reference external" href="mailto:alejandro&#46;fontal&#37;&#52;&#48;isglobal&#46;org">alejandro<span>&#46;</span>fontal<span>&#64;</span>isglobal<span>&#46;</span>org</a></p>
@@ -852,13 +904,13 @@ series for the whole period, it shouldn’t be a big deal.</p>
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            kernelName: "python3810jvsc74a57bd089648fb152502fbcbc7b7606006af7f7d574bf18000f2a44f512ddc99300b486",
             path: "./."
         },
         predefinedOutput: true
     }
     </script>
-    <script>kernelName = 'python3'</script>
+    <script>kernelName = 'python3810jvsc74a57bd089648fb152502fbcbc7b7606006af7f7d574bf18000f2a44f512ddc99300b486'</script>
 
               </div>
               
