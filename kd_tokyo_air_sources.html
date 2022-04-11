@@ -308,8 +308,13 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#work-in-progress">
-   Work in progress
+  <a class="reference internal nav-link" href="#extra">
+   Extra
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#comments">
+   Comments
   </a>
  </li>
 </ul>
@@ -389,8 +394,13 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#work-in-progress">
-   Work in progress
+  <a class="reference internal nav-link" href="#extra">
+   Extra
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#comments">
+   Comments
   </a>
  </li>
 </ul>
@@ -403,7 +413,7 @@ const thebe_selector_output = ".output, .cell_output"
               <div>
                 
   <h1>Table of Contents<span class="tocSkip"></span></h1>
-<div class="toc"><ul class="toc-item"><li><span><a data-toc-modified-id="Preamble-1" href="#preamble"><span class="toc-item-num">1  </span>Preamble</a></span><ul class="toc-item"><li><span><a data-toc-modified-id="Imports-1.1" href="#imports"><span class="toc-item-num">1.1  </span>Imports</a></span></li><li><span><a data-toc-modified-id="Pre-sets-1.2" href="#pre-sets"><span class="toc-item-num">1.2  </span>Pre-sets</a></span></li></ul></li><li><span><a data-toc-modified-id="Data-loading-and-processing-2" href="#data-loading-and-processing"><span class="toc-item-num">2  </span>Data loading and processing</a></span><ul class="toc-item"><li><span><a data-toc-modified-id="Kawasaki-Disease-2.1" href="#kawasaki-disease"><span class="toc-item-num">2.1  </span>Kawasaki Disease</a></span><ul class="toc-item"><li><span><a data-toc-modified-id="Full-Japanese-temporal-records-2.1.1" href="#full-japanese-temporal-records"><span class="toc-item-num">2.1.1  </span>Full Japanese temporal records</a></span></li><li><span><a data-toc-modified-id="Tokyo-records-(2011-2018)-2.1.2" href="#tokyo-records-2011-2018"><span class="toc-item-num">2.1.2  </span>Tokyo records (2011-2018)</a></span></li></ul></li><li><span><a data-toc-modified-id="Shapes-2.2" href="#shapes"><span class="toc-item-num">2.2  </span>Shapes</a></span></li></ul></li><li><span><a data-toc-modified-id="Generating-the-backtrajectories-3" href="#generating-the-backtrajectories"><span class="toc-item-num">3  </span>Generating the backtrajectories</a></span></li><li><span><a data-toc-modified-id="Trajectories-groupying-and-analysis-4" href="#trajectories-groupying-and-analysis"><span class="toc-item-num">4  </span>Trajectories groupying and analysis</a></span></li><li><span><a data-toc-modified-id="Work-in-progress-5" href="#work-in-progress"><span class="toc-item-num">5  </span>Work in progress</a></span></li></ul></div><div class="tex2jax_ignore mathjax_ignore section" id="full-code-and-analysis">
+<div class="toc"><ul class="toc-item"><li><span><a data-toc-modified-id="Preamble-1" href="#preamble"><span class="toc-item-num">1  </span>Preamble</a></span><ul class="toc-item"><li><span><a data-toc-modified-id="Imports-1.1" href="#imports"><span class="toc-item-num">1.1  </span>Imports</a></span></li><li><span><a data-toc-modified-id="Pre-sets-1.2" href="#pre-sets"><span class="toc-item-num">1.2  </span>Pre-sets</a></span></li></ul></li><li><span><a data-toc-modified-id="Data-loading-and-processing-2" href="#data-loading-and-processing"><span class="toc-item-num">2  </span>Data loading and processing</a></span><ul class="toc-item"><li><span><a data-toc-modified-id="Kawasaki-Disease-2.1" href="#kawasaki-disease"><span class="toc-item-num">2.1  </span>Kawasaki Disease</a></span><ul class="toc-item"><li><span><a data-toc-modified-id="Full-Japanese-temporal-records-2.1.1" href="#full-japanese-temporal-records"><span class="toc-item-num">2.1.1  </span>Full Japanese temporal records</a></span></li><li><span><a data-toc-modified-id="Tokyo-records-(2011-2018)-2.1.2" href="#tokyo-records-2011-2018"><span class="toc-item-num">2.1.2  </span>Tokyo records (2011-2018)</a></span></li></ul></li><li><span><a data-toc-modified-id="Shapes-2.2" href="#shapes"><span class="toc-item-num">2.2  </span>Shapes</a></span></li></ul></li><li><span><a data-toc-modified-id="Generating-the-backtrajectories-3" href="#generating-the-backtrajectories"><span class="toc-item-num">3  </span>Generating the backtrajectories</a></span></li><li><span><a data-toc-modified-id="Trajectories-groupying-and-analysis-4" href="#trajectories-groupying-and-analysis"><span class="toc-item-num">4  </span>Trajectories groupying and analysis</a></span></li><li><span><a data-toc-modified-id="Extra-5" href="#extra"><span class="toc-item-num">5  </span>Extra</a></span></li><li><span><a data-toc-modified-id="Comments-6" href="#comments"><span class="toc-item-num">6  </span>Comments</a></span></li></ul></div><div class="tex2jax_ignore mathjax_ignore section" id="full-code-and-analysis">
 <h1>Full code and analysis<a class="headerlink" href="#full-code-and-analysis" title="Permalink to this headline">¶</a></h1>
 <p>This notebook should serve as a guide to reproduce the analysis and figures shown in the poster and
 main summary file.</p>
@@ -429,6 +439,7 @@ and KD Minima so that the trajectory generation can be emulated and reproduced.<
 <span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">rc</span>
 <span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">product</span>
 <span class="kn">from</span> <span class="nn">mizani.breaks</span> <span class="kn">import</span> <span class="n">date_breaks</span>
+<span class="kn">from</span> <span class="nn">src.utils</span> <span class="kn">import</span> <span class="n">add_date_columns</span>
 <span class="kn">from</span> <span class="nn">shapely.geometry</span> <span class="kn">import</span> <span class="n">Point</span><span class="p">,</span> <span class="n">LineString</span>
 <span class="kn">from</span> <span class="nn">plotnine.animation</span> <span class="kn">import</span> <span class="n">PlotnineAnimation</span>
 <span class="kn">from</span> <span class="nn">mizani.formatters</span> <span class="kn">import</span> <span class="n">percent_format</span><span class="p">,</span> <span class="n">date_format</span><span class="p">,</span> <span class="n">custom_format</span>
@@ -879,6 +890,45 @@ series for the whole period, it shouldn’t be a big deal.</p>
 </div>
 <div class="section" id="trajectories-groupying-and-analysis">
 <h2>Trajectories groupying and analysis<a class="headerlink" href="#trajectories-groupying-and-analysis" title="Permalink to this headline">¶</a></h2>
+<p>HYSPLIT generates a file for each of the calculated trajectories. Taking a peek at one of them we can see how they’re basically tabular data giving a x-y-z coordinate and pressure level for every hour the backtrajectory lasts: in our case, a total of 96 points.</p>
+<p>Just showing the first 24 here:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>sed -n <span class="s1">'12,36p'</span> &lt; ../output/trajectories/tokyoapr0010spring2011040100 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     1     1    11     4     1     0     0     0     0.0   35.680  139.650     10.0    999.3
+     1     1    11     3    31    23     0     1    -1.0   35.692  139.664      9.9    999.2
+     1     1    11     3    31    22     0     2    -2.0   35.718  139.660     10.3    997.9
+     1     1    11     3    31    21     0     3    -3.0   35.755  139.636     11.4    995.0
+     1     1    11     3    31    20     0     2    -4.0   35.794  139.596     14.0    991.4
+     1     1    11     3    31    19     0     1    -5.0   35.829  139.548     20.0    986.8
+     1     1    11     3    31    18     0     0    -6.0   35.859  139.492     33.8    981.0
+     1     1    11     3    31    17     0     1    -7.0   35.895  139.420     61.3    973.2
+     1     1    11     3    31    16     0     2    -8.0   35.949  139.319    122.7    959.1
+     1     1    11     3    31    15     0     3    -9.0   36.035  139.171    276.3    932.3
+     1     1    11     3    31    14     0     2   -10.0   36.180  138.979    528.0    882.0
+     1     1    11     3    31    13     0     1   -11.0   36.382  138.798    780.3    840.0
+     1     1    11     3    31    12     0     0   -12.0   36.628  138.642   1000.3    812.6
+     1     1    11     3    31    11     0     1   -13.0   36.884  138.482   1169.0    799.4
+     1     1    11     3    31    10     0     2   -14.0   37.112  138.273   1259.3    807.3
+     1     1    11     3    31     9     0     3   -15.0   37.301  138.014   1267.0    828.6
+     1     1    11     3    31     8     0     2   -16.0   37.458  137.740   1227.8    852.3
+     1     1    11     3    31     7     0     1   -17.0   37.600  137.471   1169.8    873.1
+     1     1    11     3    31     6     0     0   -18.0   37.737  137.205   1120.2    887.4
+     1     1    11     3    31     5     0     1   -19.0   37.877  136.933   1094.3    893.1
+     1     1    11     3    31     4     0     2   -20.0   38.027  136.649   1101.0    892.1
+     1     1    11     3    31     3     0     3   -21.0   38.195  136.357   1118.0    887.0
+     1     1    11     3    31     2     0     2   -22.0   38.386  136.078   1129.5    886.8
+     1     1    11     3    31     1     0     1   -23.0   38.600  135.825   1147.8    884.8
+     1     1    11     3    31     0     0     0   -24.0   38.835  135.598   1173.3    881.7
+</pre></div>
+</div>
+</div>
+</div>
+<p>With <code class="docutils literal notranslate"><span class="pre">pysplit</span></code>, we can directly load all trajectory files into a single object, or ‘trajectory group’. Let’s do that:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">all_trajs</span> <span class="o">=</span> <span class="n">pysplit</span><span class="o">.</span><span class="n">make_trajectorygroup</span><span class="p">(</span><span class="n">glob</span><span class="p">(</span><span class="s1">'../output/trajectories/*'</span><span class="p">))</span>
@@ -886,66 +936,39 @@ series for the whole period, it shouldn’t be a big deal.</p>
 </div>
 </div>
 </div>
+<p>Since I want to manipulate these myself, we can extract the data of every single trajectory into a pandas DataFrame:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">all_trajectories_data</span> <span class="o">=</span> <span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">t</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">traj_id</span><span class="o">=</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">all_trajs</span><span class="p">)])</span>
                          <span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">'Temperature_C'</span><span class="p">,</span>  <span class="s1">'Temperature'</span><span class="p">,</span> <span class="s1">'Mixing_Depth'</span><span class="p">])</span>
-<span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">margin</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="n">xmin</span><span class="p">,</span> <span class="n">ymin</span><span class="p">,</span> <span class="n">xmax</span><span class="p">,</span> <span class="n">ymax</span> <span class="o">=</span> <span class="n">all_trajectories_data</span><span class="o">.</span><span class="n">total_bounds</span><span class="o">.</span><span class="n">round</span><span class="p">()</span> <span class="o">+</span> <span class="p">[</span><span class="mi">200</span><span class="p">,</span> <span class="o">-</span><span class="n">margin</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">margin</span><span class="p">]</span>
-<span class="n">n_cells</span> <span class="o">=</span> <span class="mi">200</span>
-<span class="n">cell_size</span> <span class="o">=</span> <span class="p">(</span><span class="n">xmax</span> <span class="o">-</span> <span class="n">xmin</span><span class="p">)</span> <span class="o">/</span> <span class="n">n_cells</span>
-<span class="n">grid_cells</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="k">for</span> <span class="n">x0</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">xmin</span><span class="p">,</span> <span class="n">xmax</span> <span class="o">+</span> <span class="n">cell_size</span><span class="p">,</span> <span class="n">cell_size</span> <span class="p">):</span>
-    <span class="k">for</span> <span class="n">y0</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">ymin</span><span class="p">,</span> <span class="n">ymax</span> <span class="o">+</span> <span class="n">cell_size</span><span class="p">,</span> <span class="n">cell_size</span><span class="p">):</span>
-        <span class="c1"># bounds</span>
-        <span class="n">x1</span> <span class="o">=</span> <span class="n">x0</span> <span class="o">-</span> <span class="n">cell_size</span>
-        <span class="n">y1</span> <span class="o">=</span> <span class="n">y0</span> <span class="o">+</span> <span class="n">cell_size</span>
-        <span class="n">grid_cells</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">shapely</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">box</span><span class="p">(</span><span class="n">x0</span><span class="p">,</span> <span class="n">y0</span><span class="p">,</span> <span class="n">x1</span><span class="p">,</span> <span class="n">y1</span><span class="p">))</span>
-<span class="n">grid</span> <span class="o">=</span> <span class="p">(</span><span class="n">gpd</span><span class="o">.</span><span class="n">GeoDataFrame</span><span class="p">(</span><span class="n">grid_cells</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">'geometry'</span><span class="p">])</span>
-        <span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">cell</span><span class="o">=</span><span class="k">lambda</span> <span class="n">dd</span><span class="p">:</span> <span class="n">dd</span><span class="o">.</span><span class="n">geometry</span><span class="p">)</span>
-        <span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="k">lambda</span> <span class="n">dd</span><span class="p">:</span> <span class="n">dd</span><span class="o">.</span><span class="n">cell</span><span class="o">.</span><span class="n">centroid</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="k">lambda</span> <span class="n">dd</span><span class="p">:</span> <span class="n">dd</span><span class="o">.</span><span class="n">cell</span><span class="o">.</span><span class="n">centroid</span><span class="o">.</span><span class="n">y</span><span class="p">)</span>
-<span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">p9</span><span class="o">.</span><span class="n">ggplot</span><span class="p">(</span><span class="n">grid</span><span class="p">)</span> 
- <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">geom_map</span><span class="p">(</span><span class="n">world</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">.1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mf">.2</span><span class="p">)</span>
- <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">geom_map</span><span class="p">(</span><span class="n">fill</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mf">.1</span><span class="p">)</span>               
-<span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">scale_x_continuous</span><span class="p">(</span><span class="n">labels</span><span class="o">=</span><span class="n">custom_format</span><span class="p">(</span><span class="s1">'</span><span class="si">{:0g}</span><span class="s1">°E'</span><span class="p">),</span> <span class="n">limits</span><span class="o">=</span><span class="p">(</span><span class="mi">70</span><span class="p">,</span> <span class="mi">160</span><span class="p">))</span>
-<span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">scale_y_continuous</span><span class="p">(</span><span class="n">labels</span><span class="o">=</span><span class="n">custom_format</span><span class="p">(</span><span class="s1">'</span><span class="si">{:0g}</span><span class="s1">°N'</span><span class="p">),</span> <span class="n">limits</span><span class="o">=</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span> <span class="mi">65</span><span class="p">))</span>
- <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">theme</span><span class="p">(</span><span class="n">figure_size</span><span class="o">=</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">panel_grid</span><span class="o">=</span><span class="n">p9</span><span class="o">.</span><span class="n">element_blank</span><span class="p">())</span>
-<span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-
-<img alt="_images/kd_tokyo_air_sources_57_1.png" src="_images/kd_tokyo_air_sources_57_1.png"/>
-
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">all_trajectories_data</span> <span class="o">=</span> <span class="p">(</span><span class="n">gpd</span><span class="o">.</span><span class="n">sjoin</span><span class="p">(</span><span class="n">all_trajectories_data</span><span class="p">,</span> <span class="n">grid</span><span class="p">,</span> <span class="s1">'left'</span><span class="p">,</span> <span class="n">op</span><span class="o">=</span><span class="s1">'within'</span><span class="p">)</span>
                          <span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">start_time</span><span class="o">=</span><span class="k">lambda</span> <span class="n">dd</span><span class="p">:</span> <span class="n">dd</span><span class="o">.</span><span class="n">DateTime</span> <span class="o">-</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_timedelta</span><span class="p">(</span><span class="n">dd</span><span class="o">.</span><span class="n">Timestep</span><span class="p">,</span> <span class="n">unit</span><span class="o">=</span><span class="s1">'h'</span><span class="p">))</span>
-                     <span class="p">)</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">all_trajectories_data</span>
+ <span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="k">lambda</span> <span class="n">dd</span><span class="p">:</span> <span class="n">dd</span><span class="o">.</span><span class="n">start_time</span><span class="o">==</span><span class="s1">'2011-01-01 00:00:00'</span><span class="p">]</span>
+ <span class="o">.</span><span class="n">pipe</span><span class="p">(</span><span class="k">lambda</span> <span class="n">dd</span><span class="p">:</span> <span class="n">p9</span><span class="o">.</span><span class="n">ggplot</span><span class="p">(</span><span class="n">dd</span><span class="p">)</span> 
+       <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">geom_map</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mf">.1</span><span class="p">)</span>
+       <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">geom_map</span><span class="p">(</span><span class="n">world</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">.1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mf">.1</span><span class="p">)</span>
+       <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">theme</span><span class="p">(</span><span class="n">figure_size</span><span class="o">=</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">title</span><span class="o">=</span><span class="n">p9</span><span class="o">.</span><span class="n">element_text</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">8</span><span class="p">))</span>
+       <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">labs</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">'96h backtrajectory from 2011-01-01 at 00:00:00'</span><span class="p">)</span>
+       <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">scale_x_continuous</span><span class="p">(</span><span class="n">labels</span><span class="o">=</span><span class="n">custom_format</span><span class="p">(</span><span class="s1">'</span><span class="si">{:0g}</span><span class="s1">°E'</span><span class="p">),</span> <span class="n">limits</span><span class="o">=</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">150</span><span class="p">))</span>
+       <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">scale_y_continuous</span><span class="p">(</span><span class="n">labels</span><span class="o">=</span><span class="n">custom_format</span><span class="p">(</span><span class="s1">'</span><span class="si">{:0g}</span><span class="s1">°N'</span><span class="p">),</span> <span class="n">limits</span><span class="o">=</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span> <span class="mi">50</span><span class="p">)))</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 
+<img alt="_images/kd_tokyo_air_sources_60_1.png" src="_images/kd_tokyo_air_sources_60_1.png"/>
+
 </div>
 </div>
+<p>What we want, however, is to have these trajectories as continuous <em>lines</em>, so we will linearly interpolate the 96 points of each trajectory to generate <em>trajectory lines</em>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">trajectory_lines</span> <span class="o">=</span> <span class="p">(</span><span class="n">all_trajectories_data</span>
@@ -957,6 +980,28 @@ series for the whole period, it shouldn’t be a big deal.</p>
 </div>
 </div>
 </div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">trajectory_lines</span>
+ <span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="k">lambda</span> <span class="n">dd</span><span class="p">:</span> <span class="n">dd</span><span class="o">.</span><span class="n">start_time</span><span class="o">==</span><span class="s1">'2011-01-01 00:00:00'</span><span class="p">]</span>
+ <span class="o">.</span><span class="n">pipe</span><span class="p">(</span><span class="k">lambda</span> <span class="n">dd</span><span class="p">:</span> <span class="n">p9</span><span class="o">.</span><span class="n">ggplot</span><span class="p">(</span><span class="n">dd</span><span class="p">)</span> 
+       <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">geom_map</span><span class="p">()</span>
+       <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">geom_map</span><span class="p">(</span><span class="n">world</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">.1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mf">.1</span><span class="p">)</span>
+       <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">theme</span><span class="p">(</span><span class="n">figure_size</span><span class="o">=</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">title</span><span class="o">=</span><span class="n">p9</span><span class="o">.</span><span class="n">element_text</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">8</span><span class="p">))</span>
+       <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">labs</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">'96h backtrajectory from 2011-01-01 at 00:00:00'</span><span class="p">)</span>
+       <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">scale_x_continuous</span><span class="p">(</span><span class="n">labels</span><span class="o">=</span><span class="n">custom_format</span><span class="p">(</span><span class="s1">'</span><span class="si">{:0g}</span><span class="s1">°E'</span><span class="p">),</span> <span class="n">limits</span><span class="o">=</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">150</span><span class="p">))</span>
+       <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">scale_y_continuous</span><span class="p">(</span><span class="n">labels</span><span class="o">=</span><span class="n">custom_format</span><span class="p">(</span><span class="s1">'</span><span class="si">{:0g}</span><span class="s1">°N'</span><span class="p">),</span> <span class="n">limits</span><span class="o">=</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span> <span class="mi">50</span><span class="p">)))</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+
+<img alt="_images/kd_tokyo_air_sources_63_1.png" src="_images/kd_tokyo_air_sources_63_1.png"/>
+
+</div>
+</div>
+<p>If we want to generate an animation with several of these computed trajectories:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plots</span> <span class="o">=</span> <span class="p">[]</span>
@@ -975,21 +1020,7 @@ series for the whole period, it shouldn’t be a big deal.</p>
 
 <span class="n">ani</span> <span class="o">=</span> <span class="n">PlotnineAnimation</span><span class="p">(</span><span class="n">plots</span><span class="p">,</span> <span class="n">interval</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span> <span class="n">repeat_delay</span><span class="o">=</span><span class="mi">500</span><span class="p">)</span>
 <span class="n">ani</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s1">'../output/animation.gif'</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-
-
-
-
-
-
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ani</span>
+<span class="n">ani</span>
 </pre></div>
 </div>
 </div>
@@ -2666,10 +2697,292 @@ AAAAAAAAAAAALWlsc3QAAAAlqXRvbwAAAB1kYXRhAAAAAQAAAABMYXZmNTguMjkuMTAw
   Your browser does not support the video tag.
 </video></div></div>
 </div>
+<p>Now, we will generate a grid so that we can generate counts of the number of times each area in the map is intersected in various conditions so that we can test for differential areas.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">margin</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">xmin</span><span class="p">,</span> <span class="n">ymin</span><span class="p">,</span> <span class="n">xmax</span><span class="p">,</span> <span class="n">ymax</span> <span class="o">=</span> <span class="n">all_trajectories_data</span><span class="o">.</span><span class="n">total_bounds</span><span class="o">.</span><span class="n">round</span><span class="p">()</span> <span class="o">+</span> <span class="p">[</span><span class="mi">200</span><span class="p">,</span> <span class="o">-</span><span class="n">margin</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">margin</span><span class="p">]</span>
+<span class="n">n_cells</span> <span class="o">=</span> <span class="mi">200</span>
+<span class="n">cell_size</span> <span class="o">=</span> <span class="p">(</span><span class="n">xmax</span> <span class="o">-</span> <span class="n">xmin</span><span class="p">)</span> <span class="o">/</span> <span class="n">n_cells</span>
+<span class="n">grid_cells</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">x0</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">xmin</span><span class="p">,</span> <span class="n">xmax</span> <span class="o">+</span> <span class="n">cell_size</span><span class="p">,</span> <span class="n">cell_size</span> <span class="p">):</span>
+    <span class="k">for</span> <span class="n">y0</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">ymin</span><span class="p">,</span> <span class="n">ymax</span> <span class="o">+</span> <span class="n">cell_size</span><span class="p">,</span> <span class="n">cell_size</span><span class="p">):</span>
+        <span class="c1"># bounds</span>
+        <span class="n">x1</span> <span class="o">=</span> <span class="n">x0</span> <span class="o">-</span> <span class="n">cell_size</span>
+        <span class="n">y1</span> <span class="o">=</span> <span class="n">y0</span> <span class="o">+</span> <span class="n">cell_size</span>
+        <span class="n">grid_cells</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">shapely</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">box</span><span class="p">(</span><span class="n">x0</span><span class="p">,</span> <span class="n">y0</span><span class="p">,</span> <span class="n">x1</span><span class="p">,</span> <span class="n">y1</span><span class="p">))</span>
+<span class="n">grid</span> <span class="o">=</span> <span class="p">(</span><span class="n">gpd</span><span class="o">.</span><span class="n">GeoDataFrame</span><span class="p">(</span><span class="n">grid_cells</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">'geometry'</span><span class="p">])</span>
+        <span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">cell</span><span class="o">=</span><span class="k">lambda</span> <span class="n">dd</span><span class="p">:</span> <span class="n">dd</span><span class="o">.</span><span class="n">geometry</span><span class="p">)</span>
+        <span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="k">lambda</span> <span class="n">dd</span><span class="p">:</span> <span class="n">dd</span><span class="o">.</span><span class="n">cell</span><span class="o">.</span><span class="n">centroid</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="k">lambda</span> <span class="n">dd</span><span class="p">:</span> <span class="n">dd</span><span class="o">.</span><span class="n">cell</span><span class="o">.</span><span class="n">centroid</span><span class="o">.</span><span class="n">y</span><span class="p">)</span>
+<span class="p">)</span>
+
+<span class="n">x_y_poly</span> <span class="o">=</span> <span class="n">grid</span><span class="p">[[</span><span class="s1">'x'</span><span class="p">,</span> <span class="s1">'y'</span><span class="p">,</span> <span class="s1">'cell'</span><span class="p">]]</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">()</span>
+</pre></div>
 </div>
-<div class="section" id="work-in-progress">
-<h2>Work in progress<a class="headerlink" href="#work-in-progress" title="Permalink to this headline">¶</a></h2>
-<p>Come later to see the full code. Or contact <a class="reference external" href="mailto:alejandro.fontal%40isglobal.org">alejandro<span>.</span>fontal<span>@</span>isglobal<span>.</span>org</a></p>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">p9</span><span class="o">.</span><span class="n">ggplot</span><span class="p">(</span><span class="n">grid</span><span class="p">)</span> 
+     <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">geom_map</span><span class="p">(</span><span class="n">world</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">.1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mf">.2</span><span class="p">)</span>
+     <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">geom_map</span><span class="p">(</span><span class="n">fill</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mf">.1</span><span class="p">)</span>               
+     <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">scale_x_continuous</span><span class="p">(</span><span class="n">labels</span><span class="o">=</span><span class="n">custom_format</span><span class="p">(</span><span class="s1">'</span><span class="si">{:0g}</span><span class="s1">°E'</span><span class="p">),</span> <span class="n">limits</span><span class="o">=</span><span class="p">(</span><span class="mi">70</span><span class="p">,</span> <span class="mi">160</span><span class="p">))</span>
+     <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">scale_y_continuous</span><span class="p">(</span><span class="n">labels</span><span class="o">=</span><span class="n">custom_format</span><span class="p">(</span><span class="s1">'</span><span class="si">{:0g}</span><span class="s1">°N'</span><span class="p">),</span> <span class="n">limits</span><span class="o">=</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span> <span class="mi">65</span><span class="p">))</span>
+     <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">theme</span><span class="p">(</span><span class="n">figure_size</span><span class="o">=</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">panel_grid</span><span class="o">=</span><span class="n">p9</span><span class="o">.</span><span class="n">element_blank</span><span class="p">())</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+
+<img alt="_images/kd_tokyo_air_sources_68_1.png" src="_images/kd_tokyo_air_sources_68_1.png"/>
+
+</div>
+</div>
+<p>We can now merge the trajectories to include only those contained in the dates which we previously assigned to days of KD minima and maxima:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">min_max_trajectories</span> <span class="o">=</span> <span class="p">(</span><span class="n">trajectory_lines</span>
+                         <span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">date</span><span class="o">=</span><span class="k">lambda</span> <span class="n">dd</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">dd</span><span class="o">.</span><span class="n">start_time</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">date</span><span class="p">))</span>
+                         <span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">min_max_weekly_dates</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>And then, we perform a merge operation with the <code class="docutils literal notranslate"><span class="pre">geopandas</span></code> <code class="docutils literal notranslate"><span class="pre">sjoin</span></code> function, specifying the <code class="docutils literal notranslate"><span class="pre">op</span></code> parameter as ‘intersects’ so that we can get a count of intersections per category.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">grid_intersections</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">sjoin</span><span class="p">(</span><span class="n">min_max_trajectories</span><span class="p">,</span> <span class="n">grid</span><span class="p">,</span> <span class="n">op</span><span class="o">=</span><span class="s1">'intersects'</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+
+</div>
+</div>
+<p>We can now visualize the average trajectory path per year and KD maxima/minima:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">negative_log</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sign</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">grid_intersections</span>
+ <span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">'x'</span><span class="p">,</span> <span class="s1">'y'</span><span class="p">,</span> <span class="s1">'label'</span><span class="p">,</span> <span class="s1">'year'</span><span class="p">])</span>
+ <span class="o">.</span><span class="n">size</span><span class="p">()</span>
+ <span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s1">'n'</span><span class="p">)</span>
+ <span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+ <span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">x_y_poly</span><span class="p">)</span>
+ <span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="k">lambda</span> <span class="n">dd</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">dd</span><span class="o">.</span><span class="n">label</span><span class="o">==</span><span class="s1">'KD Minima'</span><span class="p">,</span> <span class="o">-</span><span class="n">dd</span><span class="o">.</span><span class="n">n</span><span class="p">,</span> <span class="n">dd</span><span class="o">.</span><span class="n">n</span><span class="p">))</span>
+ <span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="k">lambda</span> <span class="n">dd</span><span class="p">:</span> <span class="n">negative_log</span><span class="p">(</span><span class="n">dd</span><span class="o">.</span><span class="n">n</span><span class="p">))</span>
+ <span class="o">.</span><span class="n">pipe</span><span class="p">(</span><span class="k">lambda</span> <span class="n">dd</span><span class="p">:</span> <span class="n">p9</span><span class="o">.</span><span class="n">ggplot</span><span class="p">(</span><span class="n">dd</span><span class="p">)</span> 
+       <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">geom_map</span><span class="p">(</span><span class="n">p9</span><span class="o">.</span><span class="n">aes</span><span class="p">(</span><span class="n">fill</span><span class="o">=</span><span class="s1">'n'</span><span class="p">,</span> <span class="n">geometry</span><span class="o">=</span><span class="s1">'cell'</span><span class="p">),</span> <span class="n">size</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+       <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">geom_map</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">world</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mf">.1</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">.1</span><span class="p">)</span>
+       <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">facet_grid</span><span class="p">([</span><span class="s1">'year'</span><span class="p">,</span> <span class="s1">'label'</span><span class="p">])</span>
+       <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">theme</span><span class="p">(</span><span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">panel_grid</span><span class="o">=</span><span class="n">p9</span><span class="o">.</span><span class="n">element_blank</span><span class="p">(),</span> <span class="n">figure_size</span><span class="o">=</span><span class="p">(</span><span class="mf">2.5</span><span class="p">,</span> <span class="mi">7</span><span class="p">),</span>
+                  <span class="n">axis_text</span><span class="o">=</span><span class="n">p9</span><span class="o">.</span><span class="n">element_text</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">5</span><span class="p">),</span> <span class="n">strip_text</span><span class="o">=</span><span class="n">p9</span><span class="o">.</span><span class="n">element_text</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">7</span><span class="p">))</span>
+       <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">labs</span><span class="p">(</span><span class="n">fill</span><span class="o">=</span><span class="s1">''</span><span class="p">)</span>
+       <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">scale_fill_continuous</span><span class="p">(</span><span class="s1">'RdBu_r'</span><span class="p">)</span>
+       <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">scale_alpha_continuous</span><span class="p">(</span><span class="n">trans</span><span class="o">=</span><span class="s1">'sqrt'</span><span class="p">)</span>
+       <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">guides</span><span class="p">(</span><span class="n">fill</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+       <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">scale_x_continuous</span><span class="p">(</span><span class="n">labels</span><span class="o">=</span><span class="n">custom_format</span><span class="p">(</span><span class="s1">'</span><span class="si">{:0g}</span><span class="s1">°E'</span><span class="p">),</span> <span class="n">limits</span><span class="o">=</span><span class="p">(</span><span class="mi">90</span><span class="p">,</span> <span class="mi">160</span><span class="p">),</span> <span class="n">breaks</span><span class="o">=</span><span class="p">[</span><span class="mi">105</span><span class="p">,</span> <span class="mi">130</span><span class="p">,</span> <span class="mi">155</span><span class="p">])</span>
+       <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">scale_y_continuous</span><span class="p">(</span><span class="n">labels</span><span class="o">=</span><span class="n">custom_format</span><span class="p">(</span><span class="s1">'</span><span class="si">{:0g}</span><span class="s1">°N'</span><span class="p">),</span> <span class="n">limits</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">65</span><span class="p">),</span> <span class="n">breaks</span><span class="o">=</span><span class="p">[</span><span class="mi">25</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">55</span><span class="p">]))</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+
+
+<img alt="_images/kd_tokyo_air_sources_75_2.png" src="_images/kd_tokyo_air_sources_75_2.png"/>
+
+</div>
+</div>
+<p>We can generate the same plot for the full period:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">grid_intersections</span>
+ <span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">'x'</span><span class="p">,</span> <span class="s1">'y'</span><span class="p">,</span> <span class="s1">'label'</span><span class="p">])</span>
+ <span class="o">.</span><span class="n">size</span><span class="p">()</span>
+ <span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s1">'n'</span><span class="p">)</span>
+ <span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+ <span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">x_y_poly</span><span class="p">)</span>
+ <span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="k">lambda</span> <span class="n">dd</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">dd</span><span class="o">.</span><span class="n">label</span><span class="o">==</span><span class="s1">'KD Minima'</span><span class="p">,</span> <span class="o">-</span><span class="n">dd</span><span class="o">.</span><span class="n">n</span><span class="p">,</span> <span class="n">dd</span><span class="o">.</span><span class="n">n</span><span class="p">))</span>
+ <span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="k">lambda</span> <span class="n">dd</span><span class="p">:</span> <span class="n">negative_log</span><span class="p">(</span><span class="n">dd</span><span class="o">.</span><span class="n">n</span><span class="p">))</span>
+ <span class="o">.</span><span class="n">pipe</span><span class="p">(</span><span class="k">lambda</span> <span class="n">dd</span><span class="p">:</span> <span class="n">p9</span><span class="o">.</span><span class="n">ggplot</span><span class="p">(</span><span class="n">dd</span><span class="p">)</span> 
+       <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">geom_map</span><span class="p">(</span><span class="n">p9</span><span class="o">.</span><span class="n">aes</span><span class="p">(</span><span class="n">fill</span><span class="o">=</span><span class="s1">'n'</span><span class="p">,</span> <span class="n">geometry</span><span class="o">=</span><span class="s1">'cell'</span><span class="p">),</span> <span class="n">size</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+       <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">geom_map</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">world</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mf">.1</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">.1</span><span class="p">)</span>
+       <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">facet_wrap</span><span class="p">([</span><span class="s1">'label'</span><span class="p">],</span> <span class="n">ncol</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+       <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">theme</span><span class="p">(</span><span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">panel_grid</span><span class="o">=</span><span class="n">p9</span><span class="o">.</span><span class="n">element_blank</span><span class="p">(),</span> <span class="n">figure_size</span><span class="o">=</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span>
+                  <span class="n">axis_text</span><span class="o">=</span><span class="n">p9</span><span class="o">.</span><span class="n">element_text</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">5</span><span class="p">),</span> <span class="n">strip_text</span><span class="o">=</span><span class="n">p9</span><span class="o">.</span><span class="n">element_text</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">7</span><span class="p">))</span>
+       <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">labs</span><span class="p">(</span><span class="n">fill</span><span class="o">=</span><span class="s1">''</span><span class="p">)</span>
+       <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">scale_fill_continuous</span><span class="p">(</span><span class="s1">'RdBu_r'</span><span class="p">)</span>
+       <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">scale_alpha_continuous</span><span class="p">(</span><span class="n">trans</span><span class="o">=</span><span class="s1">'sqrt'</span><span class="p">)</span>
+       <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">guides</span><span class="p">(</span><span class="n">fill</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+       <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">scale_x_continuous</span><span class="p">(</span><span class="n">labels</span><span class="o">=</span><span class="n">custom_format</span><span class="p">(</span><span class="s1">'</span><span class="si">{:0g}</span><span class="s1">°E'</span><span class="p">),</span> <span class="n">limits</span><span class="o">=</span><span class="p">(</span><span class="mi">90</span><span class="p">,</span> <span class="mi">160</span><span class="p">),</span> <span class="n">breaks</span><span class="o">=</span><span class="p">[</span><span class="mi">105</span><span class="p">,</span> <span class="mi">130</span><span class="p">,</span> <span class="mi">155</span><span class="p">])</span>
+       <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">scale_y_continuous</span><span class="p">(</span><span class="n">labels</span><span class="o">=</span><span class="n">custom_format</span><span class="p">(</span><span class="s1">'</span><span class="si">{:0g}</span><span class="s1">°N'</span><span class="p">),</span> <span class="n">limits</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">65</span><span class="p">),</span> <span class="n">breaks</span><span class="o">=</span><span class="p">[</span><span class="mi">25</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">55</span><span class="p">]))</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+
+<img alt="_images/kd_tokyo_air_sources_77_1.png" src="_images/kd_tokyo_air_sources_77_1.png"/>
+
+</div>
+</div>
+<p>And if we now calculate the Log2 Fold Change of the number of counts for every cell, keeping only those cells which are intersected by more than 11 trajectories (over 0.5% of all the trajectories), we get the differential plot:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">grid_intersections</span>
+ <span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">'x'</span><span class="p">,</span> <span class="s1">'y'</span><span class="p">,</span> <span class="s1">'label'</span><span class="p">])</span>
+ <span class="o">.</span><span class="n">size</span><span class="p">()</span>
+ <span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s1">'n'</span><span class="p">)</span>
+ <span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+ <span class="o">.</span><span class="n">pivot</span><span class="p">([</span><span class="s1">'x'</span><span class="p">,</span> <span class="s1">'y'</span><span class="p">],</span> <span class="s1">'label'</span><span class="p">,</span> <span class="s1">'n'</span><span class="p">)</span>
+ <span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+ <span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">diff</span><span class="o">=</span><span class="k">lambda</span> <span class="n">dd</span><span class="p">:</span> <span class="n">dd</span><span class="p">[</span><span class="s1">'KD Maxima'</span><span class="p">]</span> <span class="o">-</span> <span class="n">dd</span><span class="p">[</span><span class="s1">'KD Minima'</span><span class="p">])</span>
+ <span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">fc</span><span class="o">=</span><span class="k">lambda</span> <span class="n">dd</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">log2</span><span class="p">(</span><span class="n">dd</span><span class="p">[</span><span class="s1">'KD Maxima'</span><span class="p">]</span> <span class="o">/</span> <span class="n">dd</span><span class="p">[</span><span class="s1">'KD Minima'</span><span class="p">]))</span>
+ <span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">'diff'</span><span class="p">)</span>
+ <span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+ <span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">x_y_poly</span><span class="p">)</span>
+ <span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">total_n</span><span class="o">=</span><span class="k">lambda</span> <span class="n">dd</span><span class="p">:</span> <span class="n">dd</span><span class="p">[</span><span class="s1">'KD Maxima'</span><span class="p">]</span> <span class="o">+</span> <span class="n">dd</span><span class="p">[</span><span class="s1">'KD Minima'</span><span class="p">])</span>
+ <span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="k">lambda</span> <span class="n">dd</span><span class="p">:</span> <span class="n">dd</span><span class="o">.</span><span class="n">total_n</span> <span class="o">&gt;=</span> <span class="mi">1120</span> <span class="o">*</span> <span class="mf">0.01</span><span class="p">]</span>
+<span class="c1">#  .loc[lambda dd: np.isfinite(dd.fc)]</span>
+<span class="c1">#  .sort_values('fc')</span>
+ <span class="o">.</span><span class="n">pipe</span><span class="p">(</span><span class="k">lambda</span> <span class="n">dd</span><span class="p">:</span> <span class="n">p9</span><span class="o">.</span><span class="n">ggplot</span><span class="p">(</span><span class="n">dd</span><span class="p">)</span> 
+       <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">geom_map</span><span class="p">(</span><span class="n">p9</span><span class="o">.</span><span class="n">aes</span><span class="p">(</span><span class="n">fill</span><span class="o">=</span><span class="s1">'fc'</span><span class="p">,</span> <span class="n">geometry</span><span class="o">=</span><span class="s1">'cell'</span><span class="p">),</span> <span class="n">size</span><span class="o">=</span><span class="mf">.0</span><span class="p">)</span>
+       <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">geom_map</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">world</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mf">.1</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">.1</span><span class="p">)</span>
+       <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">scale_fill_continuous</span><span class="p">(</span><span class="s1">'RdBu_r'</span><span class="p">)</span>
+       <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">scale_alpha_continuous</span><span class="p">(</span><span class="n">trans</span><span class="o">=</span><span class="s1">'log10'</span><span class="p">)</span>
+       <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">theme</span><span class="p">(</span><span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">panel_grid</span><span class="o">=</span><span class="n">p9</span><span class="o">.</span><span class="n">element_blank</span><span class="p">(),</span> <span class="n">plot_background</span><span class="o">=</span><span class="n">p9</span><span class="o">.</span><span class="n">element_blank</span><span class="p">(),</span>
+                  <span class="n">legend_background</span><span class="o">=</span><span class="n">p9</span><span class="o">.</span><span class="n">element_blank</span><span class="p">(),</span> <span class="n">legend_key_size</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span>
+                  <span class="n">legend_text</span><span class="o">=</span><span class="n">p9</span><span class="o">.</span><span class="n">element_text</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">6</span><span class="p">),</span> <span class="n">legend_title_align</span><span class="o">=</span><span class="s1">'center'</span><span class="p">,</span>
+                  <span class="n">legend_title</span><span class="o">=</span><span class="n">p9</span><span class="o">.</span><span class="n">element_text</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">7</span><span class="p">))</span>
+       <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">labs</span><span class="p">(</span><span class="n">fill</span><span class="o">=</span><span class="s1">'Log$_2$ FC'</span><span class="p">)</span>
+       <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">scale_x_continuous</span><span class="p">(</span><span class="n">labels</span><span class="o">=</span><span class="n">custom_format</span><span class="p">(</span><span class="s1">'</span><span class="si">{:0g}</span><span class="s1">°E'</span><span class="p">),</span> <span class="n">limits</span><span class="o">=</span><span class="p">(</span><span class="mi">90</span><span class="p">,</span> <span class="mi">160</span><span class="p">))</span>
+       <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">scale_y_continuous</span><span class="p">(</span><span class="n">labels</span><span class="o">=</span><span class="n">custom_format</span><span class="p">(</span><span class="s1">'</span><span class="si">{:0g}</span><span class="s1">°N'</span><span class="p">),</span> <span class="n">limits</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">65</span><span class="p">)))</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+
+<img alt="_images/kd_tokyo_air_sources_79_1.png" src="_images/kd_tokyo_air_sources_79_1.png"/>
+
+</div>
+</div>
+</div>
+<div class="section" id="extra">
+<h2>Extra<a class="headerlink" href="#extra" title="Permalink to this headline">¶</a></h2>
+<p>I’ll just share here some code snippets made to generate figures with average air mass sources per month / week that I showed in some of the presentations:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">trajectories_18</span> <span class="o">=</span> <span class="n">trajectory_lines</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">'start_time.dt.year==2018'</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">trajectories_18_intersections</span> <span class="o">=</span> <span class="p">(</span><span class="n">gpd</span><span class="o">.</span><span class="n">sjoin</span><span class="p">(</span><span class="n">trajectories_18</span><span class="p">,</span> <span class="n">grid</span><span class="p">,</span> <span class="n">op</span><span class="o">=</span><span class="s1">'intersects'</span><span class="p">)</span>
+                                  <span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">date</span><span class="o">=</span><span class="k">lambda</span> <span class="n">dd</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">dd</span><span class="o">.</span><span class="n">start_time</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">date</span><span class="p">))</span>
+                                  <span class="o">.</span><span class="n">pipe</span><span class="p">(</span><span class="n">add_date_columns</span><span class="p">)</span>
+                                <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">trajectories_18_intersections</span>
+ <span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">'x'</span><span class="p">,</span> <span class="s1">'y'</span><span class="p">,</span> <span class="s1">'month_name'</span><span class="p">])</span>
+ <span class="o">.</span><span class="n">size</span><span class="p">()</span>
+ <span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s1">'n'</span><span class="p">)</span>
+ <span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+ <span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">x_y_poly</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="p">[</span><span class="s1">'x'</span><span class="p">,</span> <span class="s1">'y'</span><span class="p">])</span>
+ <span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">'cell'</span><span class="p">:</span> <span class="s1">'geometry'</span><span class="p">})</span>
+ <span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="k">lambda</span> <span class="n">dd</span><span class="p">:</span> <span class="n">dd</span><span class="p">[</span><span class="s1">'n'</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">]</span>
+ <span class="o">.</span><span class="n">pipe</span><span class="p">(</span><span class="k">lambda</span> <span class="n">dd</span><span class="p">:</span> <span class="n">p9</span><span class="o">.</span><span class="n">ggplot</span><span class="p">(</span><span class="n">dd</span><span class="p">)</span>
+  <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">geom_map</span><span class="p">(</span><span class="n">p9</span><span class="o">.</span><span class="n">aes</span><span class="p">(</span><span class="n">fill</span><span class="o">=</span><span class="s1">'n'</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+  <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">geom_map</span><span class="p">(</span><span class="n">world</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">.1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mf">.1</span><span class="p">)</span>
+  <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">scale_fill_continuous</span><span class="p">(</span><span class="s1">'Oranges'</span><span class="p">,</span> <span class="n">trans</span><span class="o">=</span><span class="s1">'log10'</span><span class="p">)</span>
+  <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">scale_x_continuous</span><span class="p">(</span><span class="n">labels</span><span class="o">=</span><span class="n">custom_format</span><span class="p">(</span><span class="s1">'</span><span class="si">{:0g}</span><span class="s1">°E'</span><span class="p">),</span> <span class="n">limits</span><span class="o">=</span><span class="p">(</span><span class="mi">75</span><span class="p">,</span> <span class="mi">170</span><span class="p">))</span>
+  <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">scale_y_continuous</span><span class="p">(</span><span class="n">labels</span><span class="o">=</span><span class="n">custom_format</span><span class="p">(</span><span class="s1">'</span><span class="si">{:0g}</span><span class="s1">°N'</span><span class="p">),</span> <span class="n">limits</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">60</span><span class="p">))</span>
+  <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">facet_wrap</span><span class="p">(</span><span class="s1">'month_name'</span><span class="p">,</span> <span class="n">ncol</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">labeller</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span> <span class="o">+</span> <span class="s1">' 2018'</span><span class="p">)</span>
+  <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">guides</span><span class="p">(</span><span class="n">fill</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+  <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">ggtitle</span><span class="p">(</span><span class="s1">'Average air mass sources (96h) in Tokyo'</span><span class="p">)</span>
+  <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">theme</span><span class="p">(</span><span class="n">figure_size</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span>
+             <span class="n">axis_text</span><span class="o">=</span><span class="n">p9</span><span class="o">.</span><span class="n">element_text</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">6</span><span class="p">),</span>
+             <span class="n">title</span><span class="o">=</span><span class="n">p9</span><span class="o">.</span><span class="n">element_text</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">10</span><span class="p">),</span>
+             <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span>
+             <span class="n">strip_text</span><span class="o">=</span><span class="n">p9</span><span class="o">.</span><span class="n">element_text</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">7</span><span class="p">))</span>
+  <span class="p">)</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+
+
+<img alt="_images/kd_tokyo_air_sources_84_2.png" src="_images/kd_tokyo_air_sources_84_2.png"/>
+
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">trajectories_18_intersections</span>
+  <span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">'x'</span><span class="p">,</span> <span class="s1">'y'</span><span class="p">,</span> <span class="s1">'week'</span><span class="p">])</span>
+ <span class="o">.</span><span class="n">size</span><span class="p">()</span>
+ <span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s1">'n'</span><span class="p">)</span>
+ <span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+ <span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">x_y_poly</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="p">[</span><span class="s1">'x'</span><span class="p">,</span> <span class="s1">'y'</span><span class="p">])</span>
+ <span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">'cell'</span><span class="p">:</span> <span class="s1">'geometry'</span><span class="p">})</span>
+ <span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="k">lambda</span> <span class="n">dd</span><span class="p">:</span> <span class="n">dd</span><span class="p">[</span><span class="s1">'n'</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">]</span>
+ <span class="o">.</span><span class="n">pipe</span><span class="p">(</span><span class="k">lambda</span> <span class="n">dd</span><span class="p">:</span> <span class="n">p9</span><span class="o">.</span><span class="n">ggplot</span><span class="p">(</span><span class="n">dd</span><span class="p">)</span>
+  <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">geom_map</span><span class="p">(</span><span class="n">p9</span><span class="o">.</span><span class="n">aes</span><span class="p">(</span><span class="n">fill</span><span class="o">=</span><span class="s1">'n'</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+  <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">geom_map</span><span class="p">(</span><span class="n">world</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">.1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mf">.1</span><span class="p">)</span>
+  <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">scale_fill_continuous</span><span class="p">(</span><span class="s1">'Oranges'</span><span class="p">,</span> <span class="n">trans</span><span class="o">=</span><span class="s1">'log10'</span><span class="p">)</span>
+  <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">scale_x_continuous</span><span class="p">(</span><span class="n">labels</span><span class="o">=</span><span class="n">custom_format</span><span class="p">(</span><span class="s1">'</span><span class="si">{:0g}</span><span class="s1">°E'</span><span class="p">),</span> <span class="n">limits</span><span class="o">=</span><span class="p">(</span><span class="mi">75</span><span class="p">,</span> <span class="mi">170</span><span class="p">),</span> <span class="n">breaks</span><span class="o">=</span><span class="p">[</span><span class="mi">85</span><span class="p">,</span> <span class="mi">120</span><span class="p">,</span> <span class="mi">155</span><span class="p">])</span>
+  <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">scale_y_continuous</span><span class="p">(</span><span class="n">labels</span><span class="o">=</span><span class="n">custom_format</span><span class="p">(</span><span class="s1">'</span><span class="si">{:0g}</span><span class="s1">°N'</span><span class="p">),</span> <span class="n">limits</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">60</span><span class="p">))</span>
+  <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">facet_wrap</span><span class="p">(</span><span class="s1">'week'</span><span class="p">,</span> <span class="n">ncol</span><span class="o">=</span><span class="mi">9</span><span class="p">,</span> <span class="n">labeller</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="sa">f</span><span class="s1">'Week </span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
+  <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">guides</span><span class="p">(</span><span class="n">fill</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+  <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">ggtitle</span><span class="p">(</span><span class="s1">'Average air mass sources (96h) in Tokyo - 2018'</span><span class="p">)</span>
+  <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">theme</span><span class="p">(</span><span class="n">figure_size</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span>
+             <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span>
+             <span class="n">axis_text</span><span class="o">=</span><span class="n">p9</span><span class="o">.</span><span class="n">element_text</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">5</span><span class="p">),</span>
+             <span class="n">title</span><span class="o">=</span><span class="n">p9</span><span class="o">.</span><span class="n">element_text</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">10</span><span class="p">),</span>
+             <span class="n">strip_text</span><span class="o">=</span><span class="n">p9</span><span class="o">.</span><span class="n">element_text</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">7</span><span class="p">),</span>
+             <span class="n">strip_margin</span><span class="o">=</span><span class="n">p9</span><span class="o">.</span><span class="n">element_blank</span><span class="p">(),</span>
+             <span class="p">)</span>
+  <span class="p">)</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+
+
+
+
+
+
+<img alt="_images/kd_tokyo_air_sources_85_6.png" src="_images/kd_tokyo_air_sources_85_6.png"/>
+
+</div>
+</div>
+</div>
+<div class="section" id="comments">
+<h2>Comments<a class="headerlink" href="#comments" title="Permalink to this headline">¶</a></h2>
+<p>For any questions or ideas, please write a comment below using your GitHub account, or simply send an email to <a class="reference external" href="mailto:alejandro.fontal%40isglobal.org">alejandro<span>.</span>fontal<span>@</span>isglobal<span>.</span>org</a></p>
+<p>Thanks for reading!</p>
 </div>
 </div>
 
