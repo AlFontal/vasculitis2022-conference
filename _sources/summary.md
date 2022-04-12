@@ -60,9 +60,9 @@ To generate the **yearly maxima** and **minima**, we selected the **5 weeks** wi
 
 ### Trajectory Generation
 
-To model **air mass back-trajectories**, we used the Hybrid Single Particle Lagrangian Integrated Trajectory (**HYSPLIT**) model version 5 {cite}`stein_noaas_2015`, which we operated programmatically via the Python package `PySPLIT` {cite}`warner_introduction_2018` to generate a high amount of trajectories. 
+To model **air mass back-trajectories**, we used the Hybrid Single Particle Lagrangian Integrated Trajectory (**HYSPLIT**) model version 5.2 {cite}`stein_noaas_2015`, which we operated programmatically via the Python package `PySPLIT` {cite}`warner_introduction_2018` to generate a high amount of trajectories. 
 
-For each day of the period from t**he 1st of January 2011 to the 31st of December 2018, we generated 4 backtrajectories up to the previous 96h starting at 00:00, 6:00, 12:00 and 18:00, with the initial point 50 meters over sea surface in central Tokyo (139.65E, 35.68N). 
+For each day of the period from the 1st of January 2011 to the 31st of December 2018, we generated 4 backtrajectories up to the previous 96h starting at 00:00, 6:00, 12:00 and 18:00, with the initial point 10 meters over sea surface in central Tokyo (139.65E, 35.68N). 
 
 Below, an extract showing the individual trajectories generated at different points in time:
 
@@ -71,7 +71,7 @@ Below, an extract showing the individual trajectories generated at different poi
 
 #### Meteorology data
 
-To model the air trajectories, HYSPLIT requires a set of gridded **meteorological data at all pressure levels. In this case, we downloaded the  [GDAS](https://www.ready.noaa.gov/archives.php) 1x1°, 3 hour resolution dataset for every week from December 2010 (to be able to generate backtrajectories starting on January 2011) to December 2018. These data can directly be accessed through [NOAA'S ARL FTP Server](https://www.ready.noaa.gov/archives.php).
+To model the air trajectories, HYSPLIT requires a set of gridded meteorological data at all pressure levels. In this case, we downloaded the  [GDAS](https://www.ready.noaa.gov/archives.php) 1x1°, 3 hour resolution dataset for every week from December 2010 (to be able to generate backtrajectories starting on January 2011) to December 2018. These data can directly be accessed through [NOAA'S ARL FTP Server](https://www.ready.noaa.gov/archives.php).
 
 
 ### Differential Trajectory Analysis
