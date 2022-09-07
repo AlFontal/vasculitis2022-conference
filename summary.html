@@ -1,32 +1,30 @@
 <!DOCTYPE html>
 <html><head>
     <meta charset="utf-8"/>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="Docutils 0.17.1: http://docutils.sourceforge.net/" name="generator"/>
+
     <title>Tracing Tokyo’s air sources to identify Kawasaki Disease’s etiological triggers — KD and Tokyo's air sources</title>
     
-  <link href="_static/css/theme.css" rel="stylesheet"/>
-  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet"/>
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet"/>
+<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet"/>
 
     
   <link href="_static/vendor/fontawesome/5.13.0/css/all.min.css" rel="stylesheet"/>
   <link as="font" crossorigin="" href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2" rel="preload" type="font/woff2"/>
   <link as="font" crossorigin="" href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2" rel="preload" type="font/woff2"/>
 
-    
-      
-
-    
     <link href="_static/pygments.css" rel="stylesheet" type="text/css"/>
-    <link href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" rel="stylesheet" type="text/css"/>
+    <link href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" rel="stylesheet" type="text/css"/>
     <link href="_static/togglebutton.css" rel="stylesheet" type="text/css"/>
     <link href="_static/copybutton.css" rel="stylesheet" type="text/css"/>
     <link href="_static/mystnb.css" rel="stylesheet" type="text/css"/>
     <link href="_static/sphinx-thebe.css" rel="stylesheet" type="text/css"/>
     <link href="_static/custom.css" rel="stylesheet" type="text/css"/>
-    <link href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" rel="stylesheet" type="text/css"/>
-    <link href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" rel="stylesheet" type="text/css"/>
+    <link href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" rel="stylesheet" type="text/css"/>
     
-  <link as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js" rel="preload"/>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf" rel="preload"/>
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
@@ -34,6 +32,7 @@
     <script src="_static/doctools.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
@@ -72,8 +71,9 @@ var addUtterances = () => {
 }
 commentsRunWhenDOMLoaded(addUtterances);
 </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script src="_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
@@ -82,7 +82,6 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link href="https://alfontal.github.io/vasculitis2022-conference/summary.html" rel="canonical"/>
     <link href="_static/favicon.ico" rel="shortcut icon"/>
     <link href="genindex.html" rel="index" title="Index"/>
@@ -103,7 +102,21 @@ const thebe_selector_output = ".output, .cell_output"
                 </script>
 
   </head>
-  <body data-offset="80" data-spy="scroll" data-target="#bd-toc-nav">
+  <body data-offset="60" data-spy="scroll" data-target="#bd-toc-nav">
+<!-- Checkboxes to toggle the left sidebar -->
+<input aria-label="Toggle navigation sidebar" class="sidebar-toggle" id="__navigation" name="__navigation" type="checkbox"/>
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input aria-label="Toggle in-page Table of Contents" class="sidebar-toggle" id="__page-toc" name="__page-toc" type="checkbox"/>
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
     
     <div class="container-fluid" id="banner"></div>
 
@@ -112,9 +125,10 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="container-xl">
       <div class="row">
           
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="index.html">
       
         <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
@@ -132,14 +146,15 @@ const thebe_selector_output = ".output, .cell_output"
   <input aria-label="Search this book..." autocomplete="off" class="form-control" id="search-input" name="q" placeholder="Search this book..." type="search"/>
 </form><nav aria-label="Main" class="bd-links" id="bd-docs-nav">
     <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1 current active">
+                <a class="reference internal" href="#">
+                    Tracing Tokyo’s air sources to identify Kawasaki Disease’s etiological triggers
+                </a>
+            </li>
+        </ul>
         <ul class="nav bd-sidenav">
- <li class="toctree-l1 current">
-  <a class="reference internal" href="#">
-   Tracing Tokyo’s air sources to identify Kawasaki Disease’s etiological triggers
-  </a>
- </li>
-</ul>
-<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="kd_tokyo_air_sources.html">
    Full code and analysis
@@ -153,10 +168,12 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
 <div>           
 <hr/>
 <a href="https://helical-itn.eu/">
@@ -177,69 +194,139 @@ const thebe_selector_output = ".output, .cell_output"
 <a class="fa fa-envelope" href="mailto:alejandro.fontal.92@gmail.com" style="font-size: 25px;"></a>
 </div>
 
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
-            
-            <button aria-controls="navbar-menu" aria-expanded="true" aria-label="Toggle navigation" class="navbar-toggler ml-0" data-placement="bottom" data-target=".site-navigation" data-toggle="collapse" id="navbar-toggler" title="Toggle navigation" type="button">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button aria-label="Download this page" class="btn btn-secondary topbarbtn" id="dropdown-buttons-trigger"><i class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="_sources/summary.md"><button class="btn btn-secondary topbarbtn" data-placement="left" data-toggle="tooltip" title="Download source file" type="button">.md</button></a>
-        <!-- Download PDF via print -->
-        <button class="btn btn-secondary topbarbtn" data-placement="left" data-toggle="tooltip" id="download-print" onclick="printPdf(this)" title="Print to PDF" type="button">.pdf</button>
-    </div>
-</div>
-
-            <!-- Source interaction buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button aria-label="Connect with source repository" class="btn btn-secondary topbarbtn" id="dropdown-buttons-trigger"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        <a class="repository-button" href="https://github.com/AlFontal/vasculitis2022-conference"><button class="btn btn-secondary topbarbtn" data-placement="left" data-toggle="tooltip" title="Source repository" type="button"><i class="fab fa-github"></i>repository</button></a>
-        <a class="issues-button" href="https://github.com/AlFontal/vasculitis2022-conference/issues/new?title=Issue%20on%20page%20%2Fsummary.html&amp;body=Your%20issue%20content%20here."><button class="btn btn-secondary topbarbtn" data-placement="left" data-toggle="tooltip" title="Open an issue" type="button"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        
-    </div>
-</div>
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button aria-label="Fullscreen mode" class="btn btn-secondary topbarbtn" data-placement="bottom" data-toggle="tooltip" onclick="toggleFullScreen()" title="Fullscreen mode" type="button"><i class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
             </div>
-            <nav aria-label="Page" id="bd-toc-nav">
-                <ul class="visible nav section-nav flex-column">
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label class="headerbtn" data-placement="right" data-toggle="tooltip" for="__navigation" title="Toggle navigation">
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button class="headerbtn" data-placement="bottom" data-toggle="tooltip" onclick="toggleFullScreen()" title="Fullscreen mode">
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button aria-label="Source repositories" class="headerbtn menu-dropdown__trigger">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a class="headerbtn" data-placement="left" data-toggle="tooltip" href="https://github.com/AlFontal/vasculitis2022-conference" title="Source repository">
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a class="headerbtn" data-placement="left" data-toggle="tooltip" href="https://github.com/AlFontal/vasculitis2022-conference/issues/new?title=Issue%20on%20page%20%2Fsummary.html&amp;body=Your%20issue%20content%20here." title="Open an issue">
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button aria-label="Download this page" class="headerbtn menu-dropdown__trigger">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a class="headerbtn" data-placement="left" data-toggle="tooltip" href="_sources/summary.md" title="Download source file">
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button class="headerbtn" data-placement="left" data-toggle="tooltip" onclick="printPdf(this)" title="Print to PDF">
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label class="headerbtn headerbtn-page-toc" for="__page-toc">
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav aria-label="Page" id="bd-toc-nav">
+        <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#table-of-contents">
    Table of contents
@@ -335,12 +422,11 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
 </ul>
 
-            </nav>
-        </div>
-    </div>
+    </nav>
 </div>
-    <div class="row" id="main-content">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div class="onlyprint" id="jb-print-docs-body">
                 <h1>Tracing Tokyo’s air sources to identify Kawasaki Disease’s etiological triggers</h1>
@@ -452,15 +538,16 @@ const thebe_selector_output = ".output, .cell_output"
                     </div>
                 </div>
             </div>
-            
+            <main id="main-content" role="main">
+                
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="tracing-tokyo-s-air-sources-to-identify-kawasaki-disease-s-etiological-triggers">
-<h1>Tracing Tokyo’s air sources to identify Kawasaki Disease’s etiological triggers<a class="headerlink" href="#tracing-tokyo-s-air-sources-to-identify-kawasaki-disease-s-etiological-triggers" title="Permalink to this headline">¶</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="tracing-tokyo-s-air-sources-to-identify-kawasaki-disease-s-etiological-triggers">
+<h1>Tracing Tokyo’s air sources to identify Kawasaki Disease’s etiological triggers<a class="headerlink" href="#tracing-tokyo-s-air-sources-to-identify-kawasaki-disease-s-etiological-triggers" title="Permalink to this headline">#</a></h1>
 <img src="https://vasculitis2022.org/wp-content/uploads/2020/10/Vasculitis-2022.png" width="350"/>
 <p>This document intends to expand, provide context and reproducible analysis code on the study presented in a <a class="reference external" href="https://github.com/helical-itn/anca2022-posters/raw/main/posters/ESR6.%20Alejandro%20Fontal/alejandro_poster_vasculitis_2022.pdf">poster</a> for the <a class="reference external" href="https://vasculitis2022.org/">20th International Vasculitis and ANCA Workshop</a>, which takes place in Dublin, Ireland, from the 3rd to the 6th of April 2022.</p>
-<div class="section" id="table-of-contents">
-<h2>Table of contents<a class="headerlink" href="#table-of-contents" title="Permalink to this headline">¶</a></h2>
+<section id="table-of-contents">
+<h2>Table of contents<a class="headerlink" href="#table-of-contents" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="#background">Background</a></p></li>
 <li><p><a class="reference external" href="#methods">Methods</a></p></li>
@@ -470,9 +557,9 @@ const thebe_selector_output = ".output, .cell_output"
 <li><p><a class="reference external" href="#references">References</a></p></li>
 <li><p><a class="reference external" href="#comments">Leave a comment!</a></p></li>
 </ul>
-</div>
-<div class="section" id="background">
-<h2>Background<a class="headerlink" href="#background" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="background">
+<h2>Background<a class="headerlink" href="#background" title="Permalink to this headline">#</a></h2>
 <p><strong>Kawasaki Disease (KD)</strong> is a systemic vasculitis that mainly affects children <strong>younger than 5 years old</strong>. Although KD cases have been registered in over 60 countries across several continents, its incidence is <strong>highest in East Easia</strong>, particularly in <strong>Japan</strong>, where the highest annual incidence rate was recorded in 2018: <strong>359 per 100 000 children aged 0-4 years</strong> <span id="id1">[<a class="reference internal" href="#id17">Ae <em>et al.</em>, 2020</a>]</span>. After more than five decades since its discovery and active research, the etiology of KD is <strong>yet to be elucidated</strong>. Recent studies have analyzed the association between KD and diverse environmental factors, with some advances pointing towards a <strong>relevant role of the atmospheric transport of a wind-borne agent triggering the disease</strong> <span id="id2">[<a class="reference internal" href="#id10">Rodó <em>et al.</em>, 2011</a>, <a class="reference internal" href="#id11">Rodó <em>et al.</em>, 2014</a>]</span>. The specific nature of this agent(s) is still unknown, with biological (bacterial, fungal or viral) and chemical (pollution) elements being the strongest candidates to initiate the autoimmune cascade which leads to the disease.</p>
 <p>One of the most striking features of the epidemiological dynamics of Kawasaki Disease is the defined <strong>seasonal structure</strong> across multiple countries, with broad coherence in fluctuations of cases across the Northern Hemisphere extra-tropical latitudes <span id="id3">[<a class="reference internal" href="#id9">Burns <em>et al.</em>, 2013</a>]</span>.</p>
 <p>In the case of Japan, the number of admissions has been recorded in the epidemiological records since 1970, and show the following pattern:</p>
@@ -485,37 +572,37 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p>All of this prompts several questions towards the nature of the drivers of these changes in incidence for a disease that is non-communicable in nature.</p>
 <p>In this work, we focus on the period from <strong>2011 to 2018</strong> for the prefecture of <strong>Tokyo</strong>, and try to associate the <strong>seasonal maxima</strong> and <strong>minima</strong> to <strong>atmospheric transport patterns</strong>.</p>
-</div>
-<div class="section" id="methods">
-<h2>Methods<a class="headerlink" href="#methods" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="kawasaki-disease">
-<h3>Kawasaki Disease<a class="headerlink" href="#kawasaki-disease" title="Permalink to this headline">¶</a></h3>
-<div class="section" id="source">
-<h4>Source<a class="headerlink" href="#source" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="methods">
+<h2>Methods<a class="headerlink" href="#methods" title="Permalink to this headline">#</a></h2>
+<section id="kawasaki-disease">
+<h3>Kawasaki Disease<a class="headerlink" href="#kawasaki-disease" title="Permalink to this headline">#</a></h3>
+<section id="source">
+<h4>Source<a class="headerlink" href="#source" title="Permalink to this headline">#</a></h4>
 <p>We collected data on <strong>date of admission</strong> and <strong>reported date of symptoms onset</strong> for a total of <strong>13970 KD cases</strong> in hospitals belonging to the <strong>Tokyo</strong> prefecture from <strong>2011</strong> to <strong>2018</strong>. This data was originally collected by the (22nd to 25th) nationwide epidemiological surveys of Kawasaki disease in Japan <span id="id4">[<a class="reference internal" href="#id17">Ae <em>et al.</em>, 2020</a>, <a class="reference internal" href="#id14">Makino <em>et al.</em>, 2015</a>, <a class="reference internal" href="#id15">Makino <em>et al.</em>, 2018</a>, <a class="reference internal" href="#id16">Makino <em>et al.</em>, 2019</a>]</span>.</p>
-</div>
-<div class="section" id="computation-of-kd-maxima-and-minima">
-<h4>Computation of KD maxima and minima<a class="headerlink" href="#computation-of-kd-maxima-and-minima" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="computation-of-kd-maxima-and-minima">
+<h4>Computation of KD maxima and minima<a class="headerlink" href="#computation-of-kd-maxima-and-minima" title="Permalink to this headline">#</a></h4>
 <p>The data was aggregated to generate <strong>daily counts</strong> of hospital admissions and <strong>registered onsets</strong>.</p>
 <p><img alt="Daily counts" src="_images/daily_cases_tokyo.png"/></p>
 <p>The daily counts were then aggregated by week to obtain a weekly estimate of <strong>case onsets per day</strong> (that is, the daily average for each consecutive week in a year).</p>
 <p>To generate the <strong>yearly maxima</strong> and <strong>minima</strong>, we selected the <strong>5 weeks</strong> with the <strong>most daily cases</strong> and the <strong>5 weeks</strong> with the <strong>least daily cases</strong> for <strong>each year</strong>, respectively, and are shown in the following figure:</p>
 <p><img alt="Weekly counts" src="_images/weekly_kd_tokyo.png"/></p>
-</div>
-</div>
-<div class="section" id="trajectory-generation">
-<h3>Trajectory Generation<a class="headerlink" href="#trajectory-generation" title="Permalink to this headline">¶</a></h3>
+</section>
+</section>
+<section id="trajectory-generation">
+<h3>Trajectory Generation<a class="headerlink" href="#trajectory-generation" title="Permalink to this headline">#</a></h3>
 <p>To model <strong>air mass back-trajectories</strong>, we used the Hybrid Single Particle Lagrangian Integrated Trajectory (<strong>HYSPLIT</strong>) model version 5.2 <span id="id5">[<a class="reference internal" href="#id13">Stein <em>et al.</em>, 2015</a>]</span>, which we operated programmatically via the Python package <code class="docutils literal notranslate"><span class="pre">PySPLIT</span></code> <span id="id6">[<a class="reference internal" href="#id12">Warner, 2018</a>]</span> to generate a high amount of trajectories.</p>
 <p>For each day of the period from the 1st of January 2011 to the 31st of December 2018, we generated 4 backtrajectories up to the previous 96h starting at 00:00, 6:00, 12:00 and 18:00, with the initial point 10 meters over sea surface in central Tokyo (139.65E, 35.68N).</p>
 <p>Below, an extract showing the individual trajectories generated at different points in time:</p>
 <p><img alt="Weekly counts" src="_images/trajectories_animation.gif"/></p>
-<div class="section" id="meteorology-data">
-<h4>Meteorology data<a class="headerlink" href="#meteorology-data" title="Permalink to this headline">¶</a></h4>
+<section id="meteorology-data">
+<h4>Meteorology data<a class="headerlink" href="#meteorology-data" title="Permalink to this headline">#</a></h4>
 <p>To model the air trajectories, HYSPLIT requires a set of gridded meteorological data at all pressure levels. In this case, we downloaded the  <a class="reference external" href="https://www.ready.noaa.gov/archives.php">GDAS</a> 1x1°, 3 hour resolution dataset for every week from December 2010 (to be able to generate backtrajectories starting on January 2011) to December 2018. These data can directly be accessed through <a class="reference external" href="https://www.ready.noaa.gov/archives.php">NOAA’S ARL FTP Server</a>.</p>
-</div>
-</div>
-<div class="section" id="differential-trajectory-analysis">
-<h3>Differential Trajectory Analysis<a class="headerlink" href="#differential-trajectory-analysis" title="Permalink to this headline">¶</a></h3>
+</section>
+</section>
+<section id="differential-trajectory-analysis">
+<h3>Differential Trajectory Analysis<a class="headerlink" href="#differential-trajectory-analysis" title="Permalink to this headline">#</a></h3>
 <p>As a first step, we generated a grid of frequency of intersection between lat-lon grid cells and the trajectories associated to KD maxima and KD minima dates, which are a total of <strong>1120</strong> trajectories associated to each group.</p>
 <p>We first generate a grid of 200 by 200 cellsvbased on the boundaries of the generated trajectories, which ends up looking like a 0.8x0.8° resolution grid like the one displayed in the following image:</p>
 <p><img alt="Map Grid" src="_images/map_grid.png"/></p>
@@ -526,23 +613,23 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="math notranslate nohighlight">
 \[R = \text{Log}_2\cfrac{\text{Intersections}_{max}}{\text{Intersections}_{min}}\]</div>
 <p>This allows for a symmetric scale on both sides, generating negative values for areas overrepresented for KD minima, and positive values for areas overrepresented in KD maxima.</p>
-</div>
-</div>
-<div class="section" id="results">
-<h2>Results<a class="headerlink" href="#results" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="results">
+<h2>Results<a class="headerlink" href="#results" title="Permalink to this headline">#</a></h2>
 <p>The main findings support the hypothesis that winds from <strong>Northeastern Asia</strong> are associated and synchronized with <strong>periods of high KD Maxima</strong> in <strong>Tokyo</strong>, as the main figure portrays:</p>
 <p><img alt="Main Figure" src="_images/main_figure.png"/></p>
 <p>Red values represent those areas of more common occurence during weeks of KD maxima with respect to those of KD minima, with blue values representing the opposite.</p>
 <p>All in all, there seem to be two main different routes associated to periods of</p>
-</div>
-<div class="section" id="limitations">
-<h2>Limitations<a class="headerlink" href="#limitations" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="temporal-association-study">
-<h3>Temporal association study<a class="headerlink" href="#temporal-association-study" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="limitations">
+<h2>Limitations<a class="headerlink" href="#limitations" title="Permalink to this headline">#</a></h2>
+<section id="temporal-association-study">
+<h3>Temporal association study<a class="headerlink" href="#temporal-association-study" title="Permalink to this headline">#</a></h3>
 <p>There are several limitations when trying to relate studies to connect temporal changes between different processes, as finding associations doesn’t necessarily imply a causal link between both phenomena, and external drivers connecting both might be the reason of the link.</p>
-</div>
-<div class="section" id="choice-of-temporal-variability">
-<h3>Choice of temporal variability<a class="headerlink" href="#choice-of-temporal-variability" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="choice-of-temporal-variability">
+<h3>Choice of temporal variability<a class="headerlink" href="#choice-of-temporal-variability" title="Permalink to this headline">#</a></h3>
 <p>Taking this into account, the <strong>temporal changes</strong> in KD incidence in Tokyo has <strong>three main sources of variability</strong>:</p>
 <ul class="simple">
 <li><p>The increasing trend.</p></li>
@@ -550,21 +637,21 @@ const thebe_selector_output = ".output, .cell_output"
 <li><p>The anomalies once removed of trend and seasonal variability.</p></li>
 </ul>
 <p>The methods employed here, given the selection of the yearly maxima and minima, only allow us to associate or identify the phenomena related to yearly variation, and would fail to identify the processes that drive the general increase in cases for the last 20 years and the anomalies unrelated to the seasonal variability.</p>
-</div>
-<div class="section" id="backtrajectory-modelling">
-<h3>Backtrajectory modelling<a class="headerlink" href="#backtrajectory-modelling" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="backtrajectory-modelling">
+<h3>Backtrajectory modelling<a class="headerlink" href="#backtrajectory-modelling" title="Permalink to this headline">#</a></h3>
 <p>The use of HYSPLIT for modelling the trajectories implies that there is a certain degree of error in the estimation of the trajectories, and the magnitude of these is known to increase as the trajectories surpass the planet boundary layer. By not using single trajectories to assess any of the effects but aggregates of many of them, we attempted to mitigate these issues. The use of higher resolution meteorology data might also allow us to improve the accuracy of the modelling.</p>
 <p>In this study, we’ve also just considered the 2D intersections of the trajectories with the latitudinal-longitudinal plane, without regard for the actual altitude of the trajectories. To be more thorough, we should include the altitude of the trajectories in each point in  time, paired with calculations of moisture uptake rates in order to able to actually pinpoint with better accuracy the areas where the air masses that arrive to the destination are <em>collecting</em> matter.</p>
-</div>
-</div>
-<div class="section" id="conclusions-and-outlook">
-<h2>Conclusions and outlook<a class="headerlink" href="#conclusions-and-outlook" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="conclusions-and-outlook">
+<h2>Conclusions and outlook<a class="headerlink" href="#conclusions-and-outlook" title="Permalink to this headline">#</a></h2>
 <p>This study further confirms, with updated data, the hypothesis connecting the tropospheric winds from NE Asia with higher Kawasaki Disesase incidence periods which was discussed in <span id="id7">[<a class="reference internal" href="#id11">Rodó <em>et al.</em>, 2014</a>]</span>, allowing us now to pinpoint with higher accuracy the specific locations that might source the (or one of) the etiologic agents of the disease.</p>
 <p>Further studies should (and are being done) on the characterization of these air masses to understand the potential immune-triggering compounds carried in them.</p>
 <p>Stay posted for more updated on the issue and feel free to comment below with any doubts or comments.</p>
-</div>
-<div class="section" id="references">
-<h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="references">
+<h2>References<a class="headerlink" href="#references" title="Permalink to this headline">#</a></h2>
 <details>
   <summary>Click to expand!</summary>
 <p id="id8"></p><dl class="citation">
@@ -598,13 +685,13 @@ const thebe_selector_output = ".output, .cell_output"
 </dl>
 <p></p>
 </details>
-</div>
-<div class="section" id="comments">
-<h2>Comments<a class="headerlink" href="#comments" title="Permalink to this headline">¶</a></h2>
-</div>
+</section>
+<section id="comments">
+<h2>Comments<a class="headerlink" href="#comments" title="Permalink to this headline">#</a></h2>
+</section>
 <div class="toctree-wrapper compound">
 </div>
-</div>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -628,8 +715,10 @@ const thebe_selector_output = ".output, .cell_output"
 
               </div>
               
-            
-                <!-- Previous / next buttons -->
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="right-next" href="kd_tokyo_air_sources.html" id="next-link" title="next page">
     <div class="prev-next-info">
@@ -639,24 +728,28 @@ const thebe_selector_output = ".output, .cell_output"
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-            
+            </footer>
         </div>
     </div>
-    <footer class="footer">
-  <p>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Alejandro Fontal<br/>
+  
+      © Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
     
-      By Alejandro Fontal<br/>
-    
-        © Copyright 2022.<br/>
-  </p>
-</footer>
-</main>
+</div>
 
 
       </div>
     </div>
   
-  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
 
   
 </body></html>
