@@ -1,6 +1,8 @@
 
 ![Pages Badge](https://github.com/AlFontal/vasculitis2022-conference/actions/workflows/deploy.yml/badge.svg)
 [![Pages site badge](https://img.shields.io/badge/Pages%20Site-Online-green)](https://alfontal.github.io/vasculitis2022-conference/)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.7056692.svg)](https://doi.org/10.5281/zenodo.7056692)
+
 # Tracing Tokyo's air sources to identify Kawasaki Disease's etiological triggers
 
 <img src="https://vasculitis2022.org/wp-content/uploads/2020/10/Vasculitis-2022.png" width="350" />
