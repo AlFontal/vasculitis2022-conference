@@ -1,30 +1,32 @@
 <!DOCTYPE html>
 <html><head>
     <meta charset="utf-8"/>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="Docutils 0.17.1: http://docutils.sourceforge.net/" name="generator"/>
-
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
     <title>Full code and analysis — KD and Tokyo's air sources</title>
     
-  <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet"/>
-<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet"/>
+  <link href="_static/css/theme.css" rel="stylesheet"/>
+  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet"/>
 
     
   <link href="_static/vendor/fontawesome/5.13.0/css/all.min.css" rel="stylesheet"/>
   <link as="font" crossorigin="" href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2" rel="preload" type="font/woff2"/>
   <link as="font" crossorigin="" href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2" rel="preload" type="font/woff2"/>
 
+    
+      
+
+    
     <link href="_static/pygments.css" rel="stylesheet" type="text/css"/>
-    <link href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" rel="stylesheet" type="text/css"/>
+    <link href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" rel="stylesheet" type="text/css"/>
     <link href="_static/togglebutton.css" rel="stylesheet" type="text/css"/>
     <link href="_static/copybutton.css" rel="stylesheet" type="text/css"/>
     <link href="_static/mystnb.css" rel="stylesheet" type="text/css"/>
     <link href="_static/sphinx-thebe.css" rel="stylesheet" type="text/css"/>
     <link href="_static/custom.css" rel="stylesheet" type="text/css"/>
-    <link href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" rel="stylesheet" type="text/css"/>
+    <link href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" rel="stylesheet" type="text/css"/>
+    <link href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" rel="stylesheet" type="text/css"/>
     
-  <!-- Pre-loaded scripts that we'll load fully later -->
-  <link as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf" rel="preload"/>
+  <link as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js" rel="preload"/>
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
@@ -32,7 +34,6 @@
     <script src="_static/doctools.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
@@ -71,15 +72,15 @@ var addUtterances = () => {
 }
 commentsRunWhenDOMLoaded(addUtterances);
 </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="_static/design-tabs.js"></script>
+    <script src="_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link href="https://alfontal.github.io/vasculitis2022-conference/kd_tokyo_air_sources.html" rel="canonical"/>
     <link href="_static/favicon.ico" rel="shortcut icon"/>
     <link href="genindex.html" rel="index" title="Index"/>
@@ -101,21 +102,7 @@ const thebe_selector_output = ".output, .cell_output"
                 </script>
 
   </head>
-  <body data-offset="60" data-spy="scroll" data-target="#bd-toc-nav">
-<!-- Checkboxes to toggle the left sidebar -->
-<input aria-label="Toggle navigation sidebar" class="sidebar-toggle" id="__navigation" name="__navigation" type="checkbox"/>
-<label class="overlay overlay-navbar" for="__navigation">
-    <div class="visually-hidden">Toggle navigation sidebar</div>
-</label>
-<!-- Checkboxes to toggle the in-page toc -->
-<input aria-label="Toggle in-page Table of Contents" class="sidebar-toggle" id="__page-toc" name="__page-toc" type="checkbox"/>
-<label class="overlay overlay-pagetoc" for="__page-toc">
-    <div class="visually-hidden">Toggle in-page Table of Contents</div>
-</label>
-<!-- Headers at the top -->
-<div class="announcement header-item noprint"></div>
-<div class="header header-item noprint"></div>
-
+  <body data-offset="80" data-spy="scroll" data-target="#bd-toc-nav">
     
     <div class="container-fluid" id="banner"></div>
 
@@ -124,10 +111,9 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="container-xl">
       <div class="row">
           
-<!-- Sidebar -->
-<div class="bd-sidebar noprint" id="site-navigation">
-    <div class="bd-sidebar__content">
-        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="index.html">
       
         <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
@@ -145,15 +131,14 @@ const thebe_selector_output = ".output, .cell_output"
   <input aria-label="Search this book..." autocomplete="off" class="form-control" id="search-input" name="q" placeholder="Search this book..." type="search"/>
 </form><nav aria-label="Main" class="bd-links" id="bd-docs-nav">
     <div class="bd-toc-item active">
-        
-        <ul class="nav bd-sidenav bd-sidenav__home-link">
-            <li class="toctree-l1">
-                <a class="reference internal" href="summary.html">
-                    Tracing Tokyo’s air sources to identify Kawasaki Disease’s etiological triggers
-                </a>
-            </li>
-        </ul>
-        <ul class="current nav bd-sidenav">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="summary.html">
+   Tracing Tokyo’s air sources to identify Kawasaki Disease’s etiological triggers
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
    Full code and analysis
@@ -167,12 +152,10 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 
     </div>
-</nav></div>
-        <div class="bd-sidebar__bottom">
-             <!-- To handle the deprecated key -->
-            
-            <div class="navbar_extra_footer">
-            <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
 <div>           
 <hr/>
 <a href="https://helical-itn.eu/">
@@ -193,11 +176,8 @@ const thebe_selector_output = ".output, .cell_output"
 <a class="fa fa-envelope" href="mailto:alejandro.fontal.92@gmail.com" style="font-size: 25px;"></a>
 </div>
 
-            </div>
-            
-        </div>
-    </div>
-    <div id="rtd-footer-container"></div>
+</div>
+
 </div>
 
 
@@ -205,150 +185,72 @@ const thebe_selector_output = ".output, .cell_output"
 
 
           
-<!-- A tiny helper pixel to detect if we've scrolled -->
-<div class="sbt-scroll-pixel-helper"></div>
-<!-- Main content -->
-<div class="col py-0 content-container">
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
     
-    <div class="header-article row sticky-top noprint">
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button aria-controls="navbar-menu" aria-expanded="true" aria-label="Toggle navigation" class="navbar-toggler ml-0" data-placement="bottom" data-target=".site-navigation" data-toggle="collapse" id="navbar-toggler" title="Toggle navigation" type="button">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button aria-label="Download this page" class="btn btn-secondary topbarbtn" id="dropdown-buttons-trigger"><i class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
         
-
-
-
-<div class="col py-1 d-flex header-article-main">
-    <div class="header-article__left">
-        
-        <label class="headerbtn" data-placement="right" data-toggle="tooltip" for="__navigation" title="Toggle navigation">
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-bars"></i>
-  </span>
-
-</label>
-
-        
-    </div>
-    <div class="header-article__right">
-<div class="menu-dropdown menu-dropdown-launch-buttons">
-  <button aria-label="Launch interactive content" class="headerbtn menu-dropdown__trigger">
-      <i class="fas fa-rocket"></i>
-  </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a class="headerbtn" data-placement="left" data-toggle="tooltip" href="https://mybinder.org/v2/gh/AlFontal/vasculitis2022-conference/main?urlpath=tree/kd_tokyo_air_sources.ipynb" title="Launch on Binder">
-  
-
-<span class="headerbtn__icon-container">
-  
-    <img src="_static/images/logo_binder.svg"/>
-  </span>
-<span class="headerbtn__text-container">Binder</span>
-</a>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-
-<button class="headerbtn" data-placement="bottom" data-toggle="tooltip" onclick="toggleFullScreen()" title="Fullscreen mode">
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-expand"></i>
-  </span>
-
-</button>
-
-<div class="menu-dropdown menu-dropdown-repository-buttons">
-  <button aria-label="Source repositories" class="headerbtn menu-dropdown__trigger">
-      <i class="fab fa-github"></i>
-  </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a class="headerbtn" data-placement="left" data-toggle="tooltip" href="https://github.com/AlFontal/vasculitis2022-conference" title="Source repository">
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fab fa-github"></i>
-  </span>
-<span class="headerbtn__text-container">repository</span>
-</a>
-
-      </li>
-      
-      <li>
-        <a class="headerbtn" data-placement="left" data-toggle="tooltip" href="https://github.com/AlFontal/vasculitis2022-conference/issues/new?title=Issue%20on%20page%20%2Fkd_tokyo_air_sources.html&amp;body=Your%20issue%20content%20here." title="Open an issue">
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-lightbulb"></i>
-  </span>
-<span class="headerbtn__text-container">open issue</span>
-</a>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-
-<div class="menu-dropdown menu-dropdown-download-buttons">
-  <button aria-label="Download this page" class="headerbtn menu-dropdown__trigger">
-      <i class="fas fa-download"></i>
-  </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a class="headerbtn" data-placement="left" data-toggle="tooltip" href="_sources/kd_tokyo_air_sources.ipynb" title="Download source file">
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file"></i>
-  </span>
-<span class="headerbtn__text-container">.ipynb</span>
-</a>
-
-      </li>
-      
-      <li>
-        
-<button class="headerbtn" data-placement="left" data-toggle="tooltip" onclick="printPdf(this)" title="Print to PDF">
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file-pdf"></i>
-  </span>
-<span class="headerbtn__text-container">.pdf</span>
-</button>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-<label class="headerbtn headerbtn-page-toc" for="__page-toc">
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-list"></i>
-  </span>
-
-</label>
-
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/kd_tokyo_air_sources.ipynb"><button class="btn btn-secondary topbarbtn" data-placement="left" data-toggle="tooltip" title="Download source file" type="button">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button class="btn btn-secondary topbarbtn" data-placement="left" data-toggle="tooltip" id="download-print" onclick="printPdf(this)" title="Print to PDF" type="button">.pdf</button>
     </div>
 </div>
 
-<!-- Table of contents -->
-<div class="col-md-3 bd-toc show noprint">
-    <div class="tocsection onthispage pt-5 pb-3">
-        <i class="fas fa-list"></i> Contents
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button aria-label="Connect with source repository" class="btn btn-secondary topbarbtn" id="dropdown-buttons-trigger"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button" href="https://github.com/AlFontal/vasculitis2022-conference"><button class="btn btn-secondary topbarbtn" data-placement="left" data-toggle="tooltip" title="Source repository" type="button"><i class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button" href="https://github.com/AlFontal/vasculitis2022-conference/issues/new?title=Issue%20on%20page%20%2Fkd_tokyo_air_sources.html&amp;body=Your%20issue%20content%20here."><button class="btn btn-secondary topbarbtn" data-placement="left" data-toggle="tooltip" title="Open an issue" type="button"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
     </div>
-    <nav aria-label="Page" id="bd-toc-nav">
-        <ul class="visible nav section-nav flex-column">
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button aria-label="Fullscreen mode" class="btn btn-secondary topbarbtn" data-placement="bottom" data-toggle="tooltip" onclick="toggleFullScreen()" title="Fullscreen mode" type="button"><i class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button aria-label="Launch interactive content" class="btn btn-secondary topbarbtn" id="dropdown-buttons-trigger"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/AlFontal/vasculitis2022-conference/main?urlpath=tree/kd_tokyo_air_sources.ipynb"><button class="btn btn-secondary topbarbtn" data-placement="left" data-toggle="tooltip" title="Launch Binder" type="button"><img alt="Interact on binder" class="binder-button-logo" src="_static/images/logo_binder.svg"/>Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav aria-label="Page" id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#preamble">
    Preamble
@@ -417,11 +319,12 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
 </ul>
 
-    </nav>
-</div>
+            </nav>
+        </div>
     </div>
-    <div class="article row">
-        <div class="col pl-md-3 pl-lg-5 content-container">
+</div>
+    <div class="row" id="main-content">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div class="onlyprint" id="jb-print-docs-body">
                 <h1>Full code and analysis</h1>
@@ -506,23 +409,22 @@ const thebe_selector_output = ".output, .cell_output"
                     </div>
                 </div>
             </div>
-            <main id="main-content" role="main">
-                
+            
               <div>
                 
   <h1>Table of Contents<span class="tocSkip"></span></h1>
-<div class="toc"><ul class="toc-item"><li><span><a data-toc-modified-id="Preamble-1" href="#preamble"><span class="toc-item-num">1  </span>Preamble</a></span><ul class="toc-item"><li><span><a data-toc-modified-id="Imports-1.1" href="#imports"><span class="toc-item-num">1.1  </span>Imports</a></span></li><li><span><a data-toc-modified-id="Pre-sets-1.2" href="#pre-sets"><span class="toc-item-num">1.2  </span>Pre-sets</a></span></li></ul></li><li><span><a data-toc-modified-id="Data-loading-and-processing-2" href="#data-loading-and-processing"><span class="toc-item-num">2  </span>Data loading and processing</a></span><ul class="toc-item"><li><span><a data-toc-modified-id="Kawasaki-Disease-2.1" href="#kawasaki-disease"><span class="toc-item-num">2.1  </span>Kawasaki Disease</a></span><ul class="toc-item"><li><span><a data-toc-modified-id="Full-Japanese-temporal-records-2.1.1" href="#full-japanese-temporal-records"><span class="toc-item-num">2.1.1  </span>Full Japanese temporal records</a></span></li><li><span><a data-toc-modified-id="Tokyo-records-(2011-2018)-2.1.2" href="#tokyo-records-2011-2018"><span class="toc-item-num">2.1.2  </span>Tokyo records (2011-2018)</a></span></li></ul></li><li><span><a data-toc-modified-id="Shapes-2.2" href="#shapes"><span class="toc-item-num">2.2  </span>Shapes</a></span></li></ul></li><li><span><a data-toc-modified-id="Generating-the-backtrajectories-3" href="#generating-the-backtrajectories"><span class="toc-item-num">3  </span>Generating the backtrajectories</a></span></li><li><span><a data-toc-modified-id="Trajectories-groupying-and-analysis-4" href="#trajectories-groupying-and-analysis"><span class="toc-item-num">4  </span>Trajectories groupying and analysis</a></span></li><li><span><a data-toc-modified-id="Extra-5" href="#extra"><span class="toc-item-num">5  </span>Extra</a></span></li><li><span><a data-toc-modified-id="Comments-6" href="#comments"><span class="toc-item-num">6  </span>Comments</a></span></li></ul></div><section class="tex2jax_ignore mathjax_ignore" id="full-code-and-analysis">
-<h1>Full code and analysis<a class="headerlink" href="#full-code-and-analysis" title="Permalink to this headline">#</a></h1>
+<div class="toc"><ul class="toc-item"><li><span><a data-toc-modified-id="Preamble-1" href="#preamble"><span class="toc-item-num">1  </span>Preamble</a></span><ul class="toc-item"><li><span><a data-toc-modified-id="Imports-1.1" href="#imports"><span class="toc-item-num">1.1  </span>Imports</a></span></li><li><span><a data-toc-modified-id="Pre-sets-1.2" href="#pre-sets"><span class="toc-item-num">1.2  </span>Pre-sets</a></span></li></ul></li><li><span><a data-toc-modified-id="Data-loading-and-processing-2" href="#data-loading-and-processing"><span class="toc-item-num">2  </span>Data loading and processing</a></span><ul class="toc-item"><li><span><a data-toc-modified-id="Kawasaki-Disease-2.1" href="#kawasaki-disease"><span class="toc-item-num">2.1  </span>Kawasaki Disease</a></span><ul class="toc-item"><li><span><a data-toc-modified-id="Full-Japanese-temporal-records-2.1.1" href="#full-japanese-temporal-records"><span class="toc-item-num">2.1.1  </span>Full Japanese temporal records</a></span></li><li><span><a data-toc-modified-id="Tokyo-records-(2011-2018)-2.1.2" href="#tokyo-records-2011-2018"><span class="toc-item-num">2.1.2  </span>Tokyo records (2011-2018)</a></span></li></ul></li><li><span><a data-toc-modified-id="Shapes-2.2" href="#shapes"><span class="toc-item-num">2.2  </span>Shapes</a></span></li></ul></li><li><span><a data-toc-modified-id="Generating-the-backtrajectories-3" href="#generating-the-backtrajectories"><span class="toc-item-num">3  </span>Generating the backtrajectories</a></span></li><li><span><a data-toc-modified-id="Trajectories-groupying-and-analysis-4" href="#trajectories-groupying-and-analysis"><span class="toc-item-num">4  </span>Trajectories groupying and analysis</a></span></li><li><span><a data-toc-modified-id="Extra-5" href="#extra"><span class="toc-item-num">5  </span>Extra</a></span></li><li><span><a data-toc-modified-id="Comments-6" href="#comments"><span class="toc-item-num">6  </span>Comments</a></span></li></ul></div><div class="tex2jax_ignore mathjax_ignore section" id="full-code-and-analysis">
+<h1>Full code and analysis<a class="headerlink" href="#full-code-and-analysis" title="Permalink to this headline">¶</a></h1>
 <p>This notebook should serve as a guide to reproduce the analysis and figures shown in the poster and
 main summary file.</p>
 <p>The whole analysis can be performed using <code class="docutils literal notranslate"><span class="pre">Python</span></code> (&lt;3.8) and a local installation of <a class="reference external" href="https://www.ready.noaa.gov/HYSPLIT_register.php">HYSPLIT</a> (follow the link
 for the instructions on how to get it installed).</p>
 <p>While the full KD registry dataset can’t be shared, we will share the list of dates selected as KD Maxima
 and KD Minima so that the trajectory generation can be emulated and reproduced.</p>
-<section id="preamble">
-<h2>Preamble<a class="headerlink" href="#preamble" title="Permalink to this headline">#</a></h2>
-<section id="imports">
-<h3>Imports<a class="headerlink" href="#imports" title="Permalink to this headline">#</a></h3>
+<div class="section" id="preamble">
+<h2>Preamble<a class="headerlink" href="#preamble" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="imports">
+<h3>Imports<a class="headerlink" href="#imports" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">shapely</span>
@@ -548,9 +450,9 @@ and KD Minima so that the trajectory generation can be emulated and reproduced.<
 
 </div>
 </div>
-</section>
-<section id="pre-sets">
-<h3>Pre-sets<a class="headerlink" href="#pre-sets" title="Permalink to this headline">#</a></h3>
+</div>
+<div class="section" id="pre-sets">
+<h3>Pre-sets<a class="headerlink" href="#pre-sets" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p9</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">'dpi'</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
@@ -565,14 +467,14 @@ and KD Minima so that the trajectory generation can be emulated and reproduced.<
 </div>
 </div>
 </div>
-</section>
-</section>
-<section id="data-loading-and-processing">
-<h2>Data loading and processing<a class="headerlink" href="#data-loading-and-processing" title="Permalink to this headline">#</a></h2>
-<section id="kawasaki-disease">
-<h3>Kawasaki Disease<a class="headerlink" href="#kawasaki-disease" title="Permalink to this headline">#</a></h3>
-<section id="full-japanese-temporal-records">
-<h4>Full Japanese temporal records<a class="headerlink" href="#full-japanese-temporal-records" title="Permalink to this headline">#</a></h4>
+</div>
+</div>
+<div class="section" id="data-loading-and-processing">
+<h2>Data loading and processing<a class="headerlink" href="#data-loading-and-processing" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="kawasaki-disease">
+<h3>Kawasaki Disease<a class="headerlink" href="#kawasaki-disease" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="full-japanese-temporal-records">
+<h4>Full Japanese temporal records<a class="headerlink" href="#full-japanese-temporal-records" title="Permalink to this headline">¶</a></h4>
 <p>We have acces to a pre-processed file with the number of hospital admissions registered as
 Kawasaki Disease cases for all of Japan starting from 1970 and up to 2018. For privacy reasons
 we are not allowed to share this but since we will just use this to generate the general time
@@ -781,9 +683,9 @@ series for the whole period, it shouldn’t be a big deal.</p>
 <p>There is a yearly cycle which peaks every winter and has its nadir during the fall, and the trend, represented by the red line (displaying the 12-month moving average), shows a change from ~23 daily cases in the early 2000s to about ~45 daily cases in 2016.</p>
 <p>We are undergoing more formal time series analysis work, but for the sake of this example let’s keep it here.</p>
 <p>The period from 2016 to 2018 seems to break both the seasonal and trend pattern, and the reasons for these are being studied, but let’s now focus on the data for Tokyo used in this study.</p>
-</section>
-<section id="tokyo-records-2011-2018">
-<h4>Tokyo records (2011-2018)<a class="headerlink" href="#tokyo-records-2011-2018" title="Permalink to this headline">#</a></h4>
+</div>
+<div class="section" id="tokyo-records-2011-2018">
+<h4>Tokyo records (2011-2018)<a class="headerlink" href="#tokyo-records-2011-2018" title="Permalink to this headline">¶</a></h4>
 <p>We have another dataset with the reported dates of onset for a total of 13790 cases diagnosed in hospitals within the prefecture of Tokyo from 2011 to 2018.</p>
 <p>Let’s load the already pre-processed file:</p>
 <div class="cell docutils container">
@@ -933,10 +835,10 @@ series for the whole period, it shouldn’t be a big deal.</p>
 </div>
 </div>
 </div>
-</section>
-</section>
-<section id="shapes">
-<h3>Shapes<a class="headerlink" href="#shapes" title="Permalink to this headline">#</a></h3>
+</div>
+</div>
+<div class="section" id="shapes">
+<h3>Shapes<a class="headerlink" href="#shapes" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">world</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="s1">'../data/shapes/ne_50m_admin_0_countries.zip'</span><span class="p">)</span>
@@ -944,10 +846,10 @@ series for the whole period, it shouldn’t be a big deal.</p>
 </div>
 </div>
 </div>
-</section>
-</section>
-<section id="generating-the-backtrajectories">
-<h2>Generating the backtrajectories<a class="headerlink" href="#generating-the-backtrajectories" title="Permalink to this headline">#</a></h2>
+</div>
+</div>
+<div class="section" id="generating-the-backtrajectories">
+<h2>Generating the backtrajectories<a class="headerlink" href="#generating-the-backtrajectories" title="Permalink to this headline">¶</a></h2>
 <p>We will generate the backtrajectories using the <code class="docutils literal notranslate"><span class="pre">pysplit</span></code> library, which allows us to programmatically call HYSPLIT and generate many trajectories in bulk. For that, however, we need to have (1) a running version of HYSPLIT installed in our local machine, and (2) ARL compatible meteorology files for the period of time we want to run the trajectories.</p>
 <p>In this case, we downloaded the GDAS1 meteorology files from the ARL FTP server. These can be accessed through the following link: <span class="xref myst">ftp://arlftp.arlhq.noaa.gov/archives/gdas1/ </span></p>
 <p>I am going to define here the local folders where my installation of HYSPLIT is located and where the meteorology files are.</p>
@@ -985,9 +887,9 @@ series for the whole period, it shouldn’t be a big deal.</p>
 </div>
 </div>
 <p>The generated trajectories are now in the <code class="docutils literal notranslate"><span class="pre">output/trajectories</span></code> directory.</p>
-</section>
-<section id="trajectories-groupying-and-analysis">
-<h2>Trajectories groupying and analysis<a class="headerlink" href="#trajectories-groupying-and-analysis" title="Permalink to this headline">#</a></h2>
+</div>
+<div class="section" id="trajectories-groupying-and-analysis">
+<h2>Trajectories groupying and analysis<a class="headerlink" href="#trajectories-groupying-and-analysis" title="Permalink to this headline">¶</a></h2>
 <p>HYSPLIT generates a file for each of the calculated trajectories. Taking a peek at one of them we can see how they’re basically tabular data giving a x-y-z coordinate and pressure level for every hour the backtrajectory lasts: in our case, a total of 96 points.</p>
 <p>Just showing the first 24 here:</p>
 <div class="cell docutils container">
@@ -2974,9 +2876,9 @@ AAAAAAAAAAAALWlsc3QAAAAlqXRvbwAAAB1kYXRhAAAAAQAAAABMYXZmNTguMjkuMTAw
 
 </div>
 </div>
-</section>
-<section id="extra">
-<h2>Extra<a class="headerlink" href="#extra" title="Permalink to this headline">#</a></h2>
+</div>
+<div class="section" id="extra">
+<h2>Extra<a class="headerlink" href="#extra" title="Permalink to this headline">¶</a></h2>
 <p>I’ll just share here some code snippets made to generate figures with average air mass sources per month / week that I showed in some of the presentations:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -3076,13 +2978,13 @@ AAAAAAAAAAAALWlsc3QAAAAlqXRvbwAAAB1kYXRhAAAAAQAAAABMYXZmNTguMjkuMTAw
 
 </div>
 </div>
-</section>
-<section id="comments">
-<h2>Comments<a class="headerlink" href="#comments" title="Permalink to this headline">#</a></h2>
+</div>
+<div class="section" id="comments">
+<h2>Comments<a class="headerlink" href="#comments" title="Permalink to this headline">¶</a></h2>
 <p>For any questions or ideas, please write a comment below using your GitHub account, or simply send an email to <a class="reference external" href="mailto:alejandro.fontal%40isglobal.org">alejandro<span>.</span>fontal<span>@</span>isglobal<span>.</span>org</a></p>
 <p>Thanks for reading!</p>
-</section>
-</section>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {
@@ -3106,11 +3008,9 @@ AAAAAAAAAAAALWlsc3QAAAAlqXRvbwAAAB1kYXRhAAAAAQAAAABMYXZmNTguMjkuMTAw
 
               </div>
               
-            </main>
-            <footer class="footer-article noprint">
-                
-    <!-- Previous / next buttons -->
-<div class="prev-next-area">
+            
+                <!-- Previous / next buttons -->
+<div class="prev-next-area"> 
     <a class="left-prev" href="summary.html" id="prev-link" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
@@ -3126,28 +3026,24 @@ AAAAAAAAAAAALWlsc3QAAAAlqXRvbwAAAB1kYXRhAAAAAQAAAABMYXZmNTguMjkuMTAw
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-            </footer>
+            
         </div>
     </div>
-    <div class="footer-content row">
-        <footer class="col footer"><p>
-  
-    By Alejandro Fontal<br/>
-  
-      © Copyright 2022.<br/>
-</p>
-        </footer>
-    </div>
+    <footer class="footer">
+  <p>
     
-</div>
+      By Alejandro Fontal<br/>
+    
+        © Copyright 2022.<br/>
+  </p>
+</footer>
+</main>
 
 
       </div>
     </div>
   
-  <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
-
+  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
 
   
 </body></html>
