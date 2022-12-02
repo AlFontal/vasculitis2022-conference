@@ -158,8 +158,8 @@ const thebe_selector_output = ".output, .cell_output"
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
 <div>           
 <hr/>
-<a href="https://helical-itn.eu/">
-<img src="https://helical-itn.eu/wp-content/uploads/2020/01/cropped-HELICAL_logo-3.png" width="200px"/>
+<a href="https://helical-itn.github.io/">
+<img src="https://helical-itn.github.io/assets/institutional_logos/helical-logo.png" width="200px"/>
 </a>
 <p></p>
 <a href="https://www.isglobal.org/en/-/clima-y-salud">
@@ -427,22 +427,22 @@ and KD Minima so that the trajectory generation can be emulated and reproduced.<
 <h3>Imports<a class="headerlink" href="#imports" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">shapely</span>
-<span class="kn">import</span> <span class="nn">pysplit</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import shapely
+import pysplit
 
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">plotnine</span> <span class="k">as</span> <span class="nn">p9</span>
-<span class="kn">import</span> <span class="nn">geopandas</span> <span class="k">as</span> <span class="nn">gpd</span>
+import numpy as np
+import pandas as pd
+import plotnine as p9
+import geopandas as gpd
 
-<span class="kn">from</span> <span class="nn">glob</span> <span class="kn">import</span> <span class="n">glob</span>
-<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">rc</span>
-<span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">product</span>
-<span class="kn">from</span> <span class="nn">mizani.breaks</span> <span class="kn">import</span> <span class="n">date_breaks</span>
-<span class="kn">from</span> <span class="nn">src.utils</span> <span class="kn">import</span> <span class="n">add_date_columns</span>
-<span class="kn">from</span> <span class="nn">shapely.geometry</span> <span class="kn">import</span> <span class="n">Point</span><span class="p">,</span> <span class="n">LineString</span>
-<span class="kn">from</span> <span class="nn">plotnine.animation</span> <span class="kn">import</span> <span class="n">PlotnineAnimation</span>
-<span class="kn">from</span> <span class="nn">mizani.formatters</span> <span class="kn">import</span> <span class="n">percent_format</span><span class="p">,</span> <span class="n">date_format</span><span class="p">,</span> <span class="n">custom_format</span>
+from glob import glob
+from matplotlib import rc
+from itertools import product
+from mizani.breaks import date_breaks
+from src.utils import add_date_columns
+from shapely.geometry import Point, LineString
+from plotnine.animation import PlotnineAnimation
+from mizani.formatters import percent_format, date_format, custom_format
 </pre></div>
 </div>
 </div>
@@ -455,14 +455,14 @@ and KD Minima so that the trajectory generation can be emulated and reproduced.<
 <h3>Pre-sets<a class="headerlink" href="#pre-sets" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p9</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">'dpi'</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
-<span class="n">p9</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">'figure_size'</span><span class="p">,</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
-<span class="n">p9</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">'base_family'</span><span class="p">,</span> <span class="s1">'Bitstream Vera Serif'</span><span class="p">)</span>
-<span class="n">p9</span><span class="o">.</span><span class="n">theme_set</span><span class="p">(</span><span class="n">p9</span><span class="o">.</span><span class="n">theme_bw</span><span class="p">()</span> <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">theme</span><span class="p">(</span><span class="n">axis_text</span><span class="o">=</span><span class="n">p9</span><span class="o">.</span><span class="n">element_text</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">7</span><span class="p">),</span>
-                                      <span class="n">axis_title</span><span class="o">=</span><span class="n">p9</span><span class="o">.</span><span class="n">element_text</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">9</span><span class="p">)))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>p9.options.set_option('dpi', 200)
+p9.options.set_option('figure_size', (4, 3))
+p9.options.set_option('base_family', 'Bitstream Vera Serif')
+p9.theme_set(p9.theme_bw() + p9.theme(axis_text=p9.element_text(size=7),
+                                      axis_title=p9.element_text(size=9)))
 
 
-<span class="n">rc</span><span class="p">(</span><span class="s1">'animation'</span><span class="p">,</span> <span class="n">html</span><span class="o">=</span><span class="s1">'html5'</span><span class="p">)</span>
+rc('animation', html='html5')
 </pre></div>
 </div>
 </div>
@@ -482,12 +482,12 @@ series for the whole period, it shouldn’t be a big deal.</p>
 <p>We load a file and show a sample of 10 rows, with the date and the number of registered admissions:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">kd_japan</span> <span class="o">=</span> <span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">'../data/kawasaki_disease/japan_ts.csv'</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-            <span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
-            <span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">'index'</span><span class="p">:</span> <span class="s1">'date'</span><span class="p">})</span>
-            <span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">date</span><span class="o">=</span><span class="k">lambda</span> <span class="n">dd</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">dd</span><span class="o">.</span><span class="n">date</span><span class="p">))</span>
-<span class="p">)</span>
-<span class="n">kd_japan</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">'date'</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>kd_japan = (pd.read_csv('../data/kawasaki_disease/japan_ts.csv', index_col=0)
+            .reset_index()
+            .rename(columns={'index': 'date'})
+            .assign(date=lambda dd: pd.to_datetime(dd.date))
+)
+kd_japan.sample(10).set_index('date')
 </pre></div>
 </div>
 </div>
@@ -565,15 +565,15 @@ series for the whole period, it shouldn’t be a big deal.</p>
 <p>If we plot the full temporal series for the daily KD hospital admissions in all of Japan, the figure is the following:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">p9</span><span class="o">.</span><span class="n">ggplot</span><span class="p">(</span><span class="n">kd_japan</span><span class="p">)</span>
- <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">aes</span><span class="p">(</span><span class="s1">'date'</span><span class="p">,</span> <span class="s1">'kd_cases'</span><span class="p">)</span>
- <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">geom_line</span><span class="p">()</span>
- <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">labs</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">''</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">'Registered KD Admissions'</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">'Daily KD admissions in Japan (1970-2018)'</span><span class="p">)</span>
- <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">theme</span><span class="p">(</span><span class="n">figure_size</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span>
-                  <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span>
-                  <span class="n">title</span><span class="o">=</span><span class="n">p9</span><span class="o">.</span><span class="n">element_text</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">10</span><span class="p">),</span>
-                  <span class="n">axis_title_y</span><span class="o">=</span><span class="n">p9</span><span class="o">.</span><span class="n">element_text</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">9</span><span class="p">))</span>
-<span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>(p9.ggplot(kd_japan)
+ + p9.aes('date', 'kd_cases')
+ + p9.geom_line()
+ + p9.labs(x='', y='Registered KD Admissions', title='Daily KD admissions in Japan (1970-2018)')
+ + p9.theme(figure_size=(5, 2),
+                  dpi=300,
+                  title=p9.element_text(size=10),
+                  axis_title_y=p9.element_text(size=9))
+)
 </pre></div>
 </div>
 </div>
@@ -585,22 +585,22 @@ series for the whole period, it shouldn’t be a big deal.</p>
 <p>While some of the patterns are visible here, the daily variance makes some of the temporal features hard to visualize. Let’s generate the monthly averages of daily admissions and plot the figure again:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">kd_japan</span>
- <span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">'date'</span><span class="p">)</span>
- <span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="s1">'M'</span><span class="p">)</span>
- <span class="o">.</span><span class="n">mean</span><span class="p">()</span>
- <span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
- <span class="o">.</span><span class="n">pipe</span><span class="p">(</span><span class="k">lambda</span> <span class="n">dd</span><span class="p">:</span> <span class="n">p9</span><span class="o">.</span><span class="n">ggplot</span><span class="p">(</span><span class="n">dd</span><span class="p">)</span>
-                <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">aes</span><span class="p">(</span><span class="s1">'date'</span><span class="p">,</span> <span class="s1">'kd_cases'</span><span class="p">)</span>
-                <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">geom_line</span><span class="p">()</span>
-                <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">labs</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">''</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">'Registered KD Admissions'</span><span class="p">,</span>
-                        <span class="n">title</span><span class="o">=</span><span class="s1">'Daily KD admissions in Japan (1970-2018)'</span><span class="p">)</span>
-                <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">theme</span><span class="p">(</span><span class="n">figure_size</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span>
-                                <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span>
-                                <span class="n">title</span><span class="o">=</span><span class="n">p9</span><span class="o">.</span><span class="n">element_text</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">10</span><span class="p">),</span>
-                                <span class="n">axis_title_y</span><span class="o">=</span><span class="n">p9</span><span class="o">.</span><span class="n">element_text</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">9</span><span class="p">))</span>
-<span class="p">)</span>
-<span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>(kd_japan
+ .set_index('date')
+ .resample('M')
+ .mean()
+ .reset_index()
+ .pipe(lambda dd: p9.ggplot(dd)
+                + p9.aes('date', 'kd_cases')
+                + p9.geom_line()
+                + p9.labs(x='', y='Registered KD Admissions',
+                        title='Daily KD admissions in Japan (1970-2018)')
+                + p9.theme(figure_size=(5, 2),
+                                dpi=300,
+                                title=p9.element_text(size=10),
+                                axis_title_y=p9.element_text(size=9))
+)
+)
 
  
 </pre></div>
@@ -620,24 +620,24 @@ series for the whole period, it shouldn’t be a big deal.</p>
 <p>Taking a closer look to the pre-1990 period:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">kd_japan</span>
- <span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">'date'</span><span class="p">)</span>
- <span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="s1">'M'</span><span class="p">)</span>
- <span class="o">.</span><span class="n">mean</span><span class="p">()</span>
- <span class="o">.</span><span class="n">loc</span><span class="p">[:</span><span class="s1">'1990-01-01'</span><span class="p">]</span>
- <span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
- <span class="o">.</span><span class="n">pipe</span><span class="p">(</span><span class="k">lambda</span> <span class="n">dd</span><span class="p">:</span> <span class="n">p9</span><span class="o">.</span><span class="n">ggplot</span><span class="p">(</span><span class="n">dd</span><span class="p">)</span>
- <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">aes</span><span class="p">(</span><span class="s1">'date'</span><span class="p">,</span> <span class="s1">'kd_cases'</span><span class="p">)</span>
- <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">geom_line</span><span class="p">()</span>
- <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">geom_area</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="mf">.1</span><span class="p">)</span>
- <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">labs</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">''</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">'Registered KD Admissions'</span><span class="p">,</span>
-           <span class="n">title</span><span class="o">=</span><span class="s1">'Daily KD admissions in Japan (1970-1990)'</span><span class="p">)</span>
- <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">theme</span><span class="p">(</span><span class="n">figure_size</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span>
-                  <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span>
-                  <span class="n">title</span><span class="o">=</span><span class="n">p9</span><span class="o">.</span><span class="n">element_text</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">10</span><span class="p">),</span>
-                  <span class="n">axis_title_y</span><span class="o">=</span><span class="n">p9</span><span class="o">.</span><span class="n">element_text</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">9</span><span class="p">))</span>
-<span class="p">)</span>
-<span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>(kd_japan
+ .set_index('date')
+ .resample('M')
+ .mean()
+ .loc[:'1990-01-01']
+ .reset_index()
+ .pipe(lambda dd: p9.ggplot(dd)
+ + p9.aes('date', 'kd_cases')
+ + p9.geom_line()
+ + p9.geom_area(alpha=.1)
+ + p9.labs(x='', y='Registered KD Admissions',
+           title='Daily KD admissions in Japan (1970-1990)')
+ + p9.theme(figure_size=(5, 2),
+                  dpi=300,
+                  title=p9.element_text(size=10),
+                  axis_title_y=p9.element_text(size=9))
+)
+)
 </pre></div>
 </div>
 </div>
@@ -650,26 +650,26 @@ series for the whole period, it shouldn’t be a big deal.</p>
 <p>Let’s look closely to the post 2000 era:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">kd_japan</span>
- <span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">'date'</span><span class="p">)</span>
- <span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="s1">'M'</span><span class="p">)</span>
- <span class="o">.</span><span class="n">mean</span><span class="p">()</span>
- <span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">'2000-01-01'</span><span class="p">:]</span>
- <span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
- <span class="o">.</span><span class="n">pipe</span><span class="p">(</span><span class="k">lambda</span> <span class="n">dd</span><span class="p">:</span> <span class="n">p9</span><span class="o">.</span><span class="n">ggplot</span><span class="p">(</span><span class="n">dd</span><span class="p">)</span>
- <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">aes</span><span class="p">(</span><span class="s1">'date'</span><span class="p">,</span> <span class="s1">'kd_cases'</span><span class="p">)</span>
- <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">geom_line</span><span class="p">(</span><span class="n">p9</span><span class="o">.</span><span class="n">aes</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="s1">'kd_cases.rolling(12, center=True).mean()'</span><span class="p">),</span>
-                 <span class="n">color</span><span class="o">=</span><span class="s1">'red'</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">.9</span><span class="p">)</span>
- <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">geom_line</span><span class="p">()</span>
- <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">scale_x_datetime</span><span class="p">(</span><span class="n">labels</span><span class="o">=</span><span class="n">date_format</span><span class="p">(</span><span class="s1">'%Y'</span><span class="p">))</span>
- <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">labs</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">''</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">'Registered KD Admissions'</span><span class="p">,</span>
-           <span class="n">title</span><span class="o">=</span><span class="s1">'Daily KD admissions in Japan (2000-2018)'</span><span class="p">)</span>
- <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">theme</span><span class="p">(</span><span class="n">figure_size</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">),</span>
-                  <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span>
-                  <span class="n">title</span><span class="o">=</span><span class="n">p9</span><span class="o">.</span><span class="n">element_text</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">10</span><span class="p">),</span>
-                  <span class="n">axis_title_y</span><span class="o">=</span><span class="n">p9</span><span class="o">.</span><span class="n">element_text</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">9</span><span class="p">))</span>
-<span class="p">)</span>
-<span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>(kd_japan
+ .set_index('date')
+ .resample('M')
+ .mean()
+ .loc['2000-01-01':]
+ .reset_index()
+ .pipe(lambda dd: p9.ggplot(dd)
+ + p9.aes('date', 'kd_cases')
+ + p9.geom_line(p9.aes(y='kd_cases.rolling(12, center=True).mean()'),
+                 color='red', size=1, alpha=.9)
+ + p9.geom_line()
+ + p9.scale_x_datetime(labels=date_format('%Y'))
+ + p9.labs(x='', y='Registered KD Admissions',
+           title='Daily KD admissions in Japan (2000-2018)')
+ + p9.theme(figure_size=(5, 1.5),
+                  dpi=300,
+                  title=p9.element_text(size=10),
+                  axis_title_y=p9.element_text(size=9))
+)
+)
 </pre></div>
 </div>
 </div>
@@ -690,7 +690,7 @@ series for the whole period, it shouldn’t be a big deal.</p>
 <p>Let’s load the already pre-processed file:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">kd_tokyo</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">'../data/kawasaki_disease/tokyo_ts.csv'</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>kd_tokyo = pd.read_csv('../data/kawasaki_disease/tokyo_ts.csv')
 </pre></div>
 </div>
 </div>
@@ -698,23 +698,23 @@ series for the whole period, it shouldn’t be a big deal.</p>
 <p>And visualize the full temporal series:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">kd_tokyo</span>
- <span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">rolling_7</span><span class="o">=</span><span class="k">lambda</span> <span class="n">dd</span><span class="p">:</span> <span class="n">dd</span><span class="o">.</span><span class="n">cases</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="n">center</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
- <span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">rolling_56</span><span class="o">=</span><span class="k">lambda</span> <span class="n">dd</span><span class="p">:</span> <span class="n">dd</span><span class="o">.</span><span class="n">cases</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="mi">7</span> <span class="o">*</span> <span class="mi">8</span><span class="p">,</span> <span class="n">center</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
- <span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">'cases'</span><span class="p">:</span> <span class="s1">'Daily cases'</span><span class="p">,</span> <span class="s1">'rolling_7'</span><span class="p">:</span> <span class="s1">'7 Days MA'</span><span class="p">,</span> <span class="s1">'rolling_56'</span><span class="p">:</span> <span class="s1">'8 Weeks MA'</span><span class="p">})</span>
- <span class="o">.</span><span class="n">melt</span><span class="p">([</span><span class="s1">'date'</span><span class="p">,</span> <span class="s1">'year'</span><span class="p">])</span>
- <span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
-  <span class="o">.</span><span class="n">pipe</span><span class="p">(</span><span class="k">lambda</span> <span class="n">dd</span><span class="p">:</span> <span class="n">p9</span><span class="o">.</span><span class="n">ggplot</span><span class="p">(</span><span class="n">dd</span><span class="p">)</span> 
-        <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">aes</span><span class="p">(</span><span class="s1">'date'</span><span class="p">,</span> <span class="s1">'value'</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">'variable'</span><span class="p">,</span> <span class="n">group</span><span class="o">=</span><span class="s1">'variable'</span><span class="p">)</span> 
-        <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">geom_line</span><span class="p">(</span><span class="n">p9</span><span class="o">.</span><span class="n">aes</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="s1">'variable'</span><span class="p">))</span>
-        <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">scale_alpha_manual</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">.2</span><span class="p">])</span>
-        <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">scale_color_manual</span><span class="p">([</span><span class="s1">'black'</span><span class="p">,</span> <span class="s1">'red'</span><span class="p">,</span> <span class="s1">'black'</span><span class="p">])</span>
-       <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">scale_x_datetime</span><span class="p">(</span><span class="n">labels</span><span class="o">=</span><span class="n">date_format</span><span class="p">(</span><span class="s1">'%Y-%m'</span><span class="p">),</span> <span class="n">breaks</span><span class="o">=</span><span class="n">date_breaks</span><span class="p">(</span><span class="s1">'20 months'</span><span class="p">))</span>
-       <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">theme</span><span class="p">(</span><span class="n">figure_size</span><span class="o">=</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">title</span><span class="o">=</span><span class="n">p9</span><span class="o">.</span><span class="n">element_text</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">11</span><span class="p">))</span>
-       <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">labs</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">''</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">'Registered KD cases'</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">'Daily KD cases in Tokyo'</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">''</span><span class="p">,</span>
-                 <span class="n">alpha</span><span class="o">=</span><span class="s1">''</span><span class="p">)</span>
-<span class="p">)</span>
-<span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>(kd_tokyo
+ .assign(rolling_7=lambda dd: dd.cases.rolling(7, center=True).mean())
+ .assign(rolling_56=lambda dd: dd.cases.rolling(7 * 8, center=True).mean())
+ .rename(columns={'cases': 'Daily cases', 'rolling_7': '7 Days MA', 'rolling_56': '8 Weeks MA'})
+ .melt(['date', 'year'])
+ .dropna()
+  .pipe(lambda dd: p9.ggplot(dd) 
+        + p9.aes('date', 'value', color='variable', group='variable') 
+        + p9.geom_line(p9.aes(alpha='variable'))
+        + p9.scale_alpha_manual([1, 1, .2])
+        + p9.scale_color_manual(['black', 'red', 'black'])
+       + p9.scale_x_datetime(labels=date_format('%Y-%m'), breaks=date_breaks('20 months'))
+       + p9.theme(figure_size=(4, 2), title=p9.element_text(size=11))
+       + p9.labs(x='', y='Registered KD cases', title='Daily KD cases in Tokyo', color='',
+                 alpha='')
+)
+)
 </pre></div>
 </div>
 </div>
@@ -730,12 +730,12 @@ series for the whole period, it shouldn’t be a big deal.</p>
 <p>Let’s process the data:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">kd_weekly_tokyo</span> <span class="o">=</span> <span class="p">(</span><span class="n">kd_tokyo</span>
-        <span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">date</span><span class="o">=</span><span class="k">lambda</span> <span class="n">dd</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">dd</span><span class="o">.</span><span class="n">date</span><span class="p">))</span>
-        <span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">week</span><span class="o">=</span><span class="k">lambda</span> <span class="n">dd</span><span class="p">:</span> <span class="p">(((</span><span class="n">dd</span><span class="o">.</span><span class="n">date</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">dayofyear</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">//</span> <span class="mi">7</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="mi">52</span><span class="p">))</span>
-        <span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">'year'</span><span class="p">,</span> <span class="s1">'week'</span><span class="p">],</span> <span class="n">as_index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-        <span class="o">.</span><span class="n">cases</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
-<span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>kd_weekly_tokyo = (kd_tokyo
+        .assign(date=lambda dd: pd.to_datetime(dd.date))
+        .assign(week=lambda dd: (((dd.date.dt.dayofyear - 1) // 7) + 1).clip(None, 52))
+        .groupby(['year', 'week'], as_index=False)
+        .cases.mean()
+)
 </pre></div>
 </div>
 </div>
@@ -743,20 +743,20 @@ series for the whole period, it shouldn’t be a big deal.</p>
 <p>We can now visualize the average number of daily cases per week:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">kd_weekly_tokyo</span>
- <span class="o">.</span><span class="n">pipe</span><span class="p">(</span><span class="k">lambda</span> <span class="n">dd</span><span class="p">:</span> <span class="n">p9</span><span class="o">.</span><span class="n">ggplot</span><span class="p">(</span><span class="n">dd</span><span class="p">)</span> 
-                <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">aes</span><span class="p">(</span><span class="s1">'week'</span><span class="p">,</span> <span class="s1">'cases'</span><span class="p">)</span> 
-                <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">geom_col</span><span class="p">()</span>
-                <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">theme</span><span class="p">(</span><span class="n">figure_size</span><span class="o">=</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">400</span><span class="p">,</span> <span class="n">strip_text</span><span class="o">=</span><span class="n">p9</span><span class="o">.</span><span class="n">element_text</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">6</span><span class="p">),</span>
-                           <span class="n">axis_text</span><span class="o">=</span><span class="n">p9</span><span class="o">.</span><span class="n">element_text</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">6</span><span class="p">),</span> <span class="n">subplots_adjust</span><span class="o">=</span><span class="p">{</span><span class="s1">'hspace'</span><span class="p">:</span> <span class="mf">.4</span><span class="p">},</span>
-                           <span class="n">legend_key_size</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span> <span class="n">legend_text</span><span class="o">=</span><span class="n">p9</span><span class="o">.</span><span class="n">element_text</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">7</span><span class="p">))</span>
-                <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">facet_wrap</span><span class="p">(</span><span class="s1">'year'</span><span class="p">,</span> <span class="n">ncol</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-                <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">scale_y_continuous</span><span class="p">(</span><span class="n">breaks</span><span class="o">=</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">8</span><span class="p">])</span>
-                <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">scale_fill_manual</span><span class="p">([</span><span class="s1">'#B2182B'</span><span class="p">,</span> <span class="s1">'#2166AC'</span><span class="p">])</span>
-                <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">labs</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">'Week of the year'</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">'Mean Daily KD cases'</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="s1">''</span><span class="p">,</span> 
-                          <span class="n">title</span><span class="o">=</span><span class="s1">''</span><span class="p">)</span>
-                <span class="p">)</span>
-<span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>(kd_weekly_tokyo
+ .pipe(lambda dd: p9.ggplot(dd) 
+                + p9.aes('week', 'cases') 
+                + p9.geom_col()
+                + p9.theme(figure_size=(4, 3), dpi=400, strip_text=p9.element_text(size=6),
+                           axis_text=p9.element_text(size=6), subplots_adjust={'hspace': .4},
+                           legend_key_size=7, legend_text=p9.element_text(size=7))
+                + p9.facet_wrap('year', ncol=2)
+                + p9.scale_y_continuous(breaks=[2, 5, 8])
+                + p9.scale_fill_manual(['#B2182B', '#2166AC'])
+                + p9.labs(x='Week of the year', y='Mean Daily KD cases', fill='', 
+                          title='')
+                )
+)
 </pre></div>
 </div>
 </div>
@@ -769,12 +769,12 @@ series for the whole period, it shouldn’t be a big deal.</p>
 <p>Let’s now select the weeks associated to the yearly KD maxima and minima:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">kd_weekly_tokyo_minmax</span> <span class="o">=</span> <span class="p">(</span><span class="n">kd_weekly_tokyo</span>
- <span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">'year'</span><span class="p">])</span>
- <span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">dd</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">dd</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">'cases'</span><span class="p">)</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:</span><span class="mi">5</span><span class="p">]</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s1">'KD Minima'</span><span class="p">),</span>
-                              <span class="n">dd</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">'cases'</span><span class="p">)</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="mi">5</span><span class="p">:]</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s1">'KD Maxima'</span><span class="p">)]))</span>
- <span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>kd_weekly_tokyo_minmax = (kd_weekly_tokyo
+ .groupby(['year'])
+ .apply(lambda dd: pd.concat([dd.sort_values('cases').iloc[:5].assign(label='KD Minima'),
+                              dd.sort_values('cases').iloc[-5:].assign(label='KD Maxima')]))
+ .reset_index(drop=True)
+)
 </pre></div>
 </div>
 </div>
@@ -782,21 +782,21 @@ series for the whole period, it shouldn’t be a big deal.</p>
 <p>If we now mark the weeks associated to KD Maxima and Minima:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">kd_weekly_tokyo</span>
- <span class="o">.</span><span class="n">pipe</span><span class="p">(</span><span class="k">lambda</span> <span class="n">dd</span><span class="p">:</span> <span class="n">p9</span><span class="o">.</span><span class="n">ggplot</span><span class="p">(</span><span class="n">dd</span><span class="p">)</span> 
-                <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">aes</span><span class="p">(</span><span class="s1">'week'</span><span class="p">,</span> <span class="s1">'cases'</span><span class="p">)</span> 
-                <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">geom_col</span><span class="p">()</span>
-                <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">geom_col</span><span class="p">(</span><span class="n">p9</span><span class="o">.</span><span class="n">aes</span><span class="p">(</span><span class="n">fill</span><span class="o">=</span><span class="s1">'label'</span><span class="p">),</span> <span class="n">data</span><span class="o">=</span><span class="n">kd_weekly_tokyo_minmax</span><span class="p">)</span>
-                <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">theme</span><span class="p">(</span><span class="n">figure_size</span><span class="o">=</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">400</span><span class="p">,</span> <span class="n">strip_text</span><span class="o">=</span><span class="n">p9</span><span class="o">.</span><span class="n">element_text</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">6</span><span class="p">),</span>
-                           <span class="n">axis_text</span><span class="o">=</span><span class="n">p9</span><span class="o">.</span><span class="n">element_text</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">6</span><span class="p">),</span> <span class="n">subplots_adjust</span><span class="o">=</span><span class="p">{</span><span class="s1">'hspace'</span><span class="p">:</span> <span class="mf">.4</span><span class="p">},</span>
-                           <span class="n">legend_key_size</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span> <span class="n">legend_text</span><span class="o">=</span><span class="n">p9</span><span class="o">.</span><span class="n">element_text</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">7</span><span class="p">))</span>
-                <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">facet_wrap</span><span class="p">(</span><span class="s1">'year'</span><span class="p">,</span> <span class="n">ncol</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-                <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">scale_y_continuous</span><span class="p">(</span><span class="n">breaks</span><span class="o">=</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">8</span><span class="p">])</span>
-                <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">scale_fill_manual</span><span class="p">([</span><span class="s1">'#B2182B'</span><span class="p">,</span> <span class="s1">'#2166AC'</span><span class="p">])</span>
-                <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">labs</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">'Week of the year'</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">'Mean Daily KD cases'</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="s1">''</span><span class="p">,</span> 
-                          <span class="n">title</span><span class="o">=</span><span class="s1">''</span><span class="p">)</span>
-                <span class="p">)</span>
-<span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>(kd_weekly_tokyo
+ .pipe(lambda dd: p9.ggplot(dd) 
+                + p9.aes('week', 'cases') 
+                + p9.geom_col()
+                + p9.geom_col(p9.aes(fill='label'), data=kd_weekly_tokyo_minmax)
+                + p9.theme(figure_size=(4, 3), dpi=400, strip_text=p9.element_text(size=6),
+                           axis_text=p9.element_text(size=6), subplots_adjust={'hspace': .4},
+                           legend_key_size=7, legend_text=p9.element_text(size=7))
+                + p9.facet_wrap('year', ncol=2)
+                + p9.scale_y_continuous(breaks=[2, 5, 8])
+                + p9.scale_fill_manual(['#B2182B', '#2166AC'])
+                + p9.labs(x='Week of the year', y='Mean Daily KD cases', fill='', 
+                          title='')
+                )
+)
 </pre></div>
 </div>
 </div>
@@ -809,20 +809,20 @@ series for the whole period, it shouldn’t be a big deal.</p>
 <p>We can now generate a list of single dates that we’ll later use to select the trajectories associated to either KD maxima or minima. This list will be shared so as to enable the reproduction of the differential trajectory analysis.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">min_max_weekly_dates</span> <span class="o">=</span> <span class="p">(</span><span class="n">kd_weekly_tokyo_minmax</span>
- <span class="o">.</span><span class="n">merge</span><span class="p">((</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="nb">dict</span><span class="p">(</span><span class="n">date</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="s1">'2011'</span><span class="p">,</span> <span class="s1">'2018-12-31'</span><span class="p">)))</span>
-         <span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">year</span><span class="o">=</span><span class="k">lambda</span> <span class="n">dd</span><span class="p">:</span> <span class="n">dd</span><span class="o">.</span><span class="n">date</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">year</span><span class="p">)</span>
-         <span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">week</span><span class="o">=</span><span class="k">lambda</span> <span class="n">dd</span><span class="p">:</span> <span class="p">(((</span><span class="n">dd</span><span class="o">.</span><span class="n">date</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">dayofyear</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">//</span> <span class="mi">7</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
-         <span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="mi">52</span><span class="p">))))</span>
- <span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="s1">'cases'</span><span class="p">)</span>
-<span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>min_max_weekly_dates = (kd_weekly_tokyo_minmax
+ .merge((pd.DataFrame(dict(date=pd.date_range('2011', '2018-12-31')))
+         .assign(year=lambda dd: dd.date.dt.year)
+         .assign(week=lambda dd: (((dd.date.dt.dayofyear - 1) // 7) + 1)
+         .clip(None, 52))))
+ .drop(columns='cases')
+)
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">min_max_weekly_dates</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">'../data/kawasaki_disease/kd_min_max_dates.csv'</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>min_max_weekly_dates.to_csv('../data/kawasaki_disease/kd_min_max_dates.csv', index=False)
 </pre></div>
 </div>
 </div>
@@ -830,7 +830,7 @@ series for the whole period, it shouldn’t be a big deal.</p>
 <p>If you want to reproduce the analysis, just read the data running the following cell, and you should be able to follow the next steps.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">min_max_weekly_dates</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">'../data/kawasaki_disease/kd_min_max_dates.csv'</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>min_max_weekly_dates = pd.read_csv('../data/kawasaki_disease/kd_min_max_dates.csv')
 </pre></div>
 </div>
 </div>
@@ -841,7 +841,7 @@ series for the whole period, it shouldn’t be a big deal.</p>
 <h3>Shapes<a class="headerlink" href="#shapes" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">world</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="s1">'../data/shapes/ne_50m_admin_0_countries.zip'</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>world = gpd.read_file('../data/shapes/ne_50m_admin_0_countries.zip')
 </pre></div>
 </div>
 </div>
@@ -855,10 +855,10 @@ series for the whole period, it shouldn’t be a big deal.</p>
 <p>I am going to define here the local folders where my installation of HYSPLIT is located and where the meteorology files are.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">HYSPLIT_DIR</span> <span class="o">=</span> <span class="s1">'/home/afontal/utils/hysplit/exec/hyts_std'</span>
-<span class="n">HYSPLIT_WORKING</span> <span class="o">=</span> <span class="s1">'/home/afontal/utils/hysplit/working'</span>
-<span class="n">METEO_DIR</span> <span class="o">=</span> <span class="s1">'/home/afontal/utils/hysplit/meteo/gdas1'</span>
-<span class="n">OUT_DIR</span> <span class="o">=</span> <span class="s1">'/home/afontal/projects/vasculitis2022-conference/output/trajectories'</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>HYSPLIT_DIR = '/home/afontal/utils/hysplit/exec/hyts_std'
+HYSPLIT_WORKING = '/home/afontal/utils/hysplit/working'
+METEO_DIR = '/home/afontal/utils/hysplit/meteo/gdas1'
+OUT_DIR = '/home/afontal/projects/vasculitis2022-conference/output/trajectories'
 </pre></div>
 </div>
 </div>
@@ -866,22 +866,22 @@ series for the whole period, it shouldn’t be a big deal.</p>
 <p>We will now call the <code class="docutils literal notranslate"><span class="pre">generate_bulktraj</span></code> function from the <code class="docutils literal notranslate"><span class="pre">pysplit</span></code> package to generate the trajectories. In previous trials I realized that trying to call too many trajectories at once causes the call to freeze (at least in my local machine) so I ended up splitting the call by months:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">year</span><span class="p">,</span> <span class="n">month</span> <span class="ow">in</span> <span class="n">product</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">2011</span><span class="p">,</span> <span class="mi">2019</span><span class="p">),</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">13</span><span class="p">)):</span>
-    <span class="n">pysplit</span><span class="o">.</span><span class="n">generate_bulktraj</span><span class="p">(</span><span class="s1">'tokyo'</span><span class="p">,</span>
-                              <span class="n">hysplit_working</span><span class="o">=</span><span class="n">HYSPLIT_WORKING</span><span class="p">,</span>
-                              <span class="n">hysplit</span><span class="o">=</span><span class="n">HYSPLIT_DIR</span><span class="p">,</span>
-                              <span class="n">output_dir</span><span class="o">=</span><span class="n">OUT_DIR</span><span class="p">,</span>
-                              <span class="n">meteo_dir</span><span class="o">=</span><span class="n">METEO_DIR</span><span class="p">,</span>
-                              <span class="n">years</span><span class="o">=</span><span class="p">[</span><span class="n">year</span><span class="p">],</span>
-                              <span class="n">months</span><span class="o">=</span><span class="p">[</span><span class="n">month</span><span class="p">],</span>
-                              <span class="n">meteoyr_2digits</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-                              <span class="n">hours</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">18</span><span class="p">],</span>
-                              <span class="n">altitudes</span><span class="o">=</span><span class="p">[</span><span class="mi">10</span><span class="p">],</span>
-                              <span class="n">coordinates</span><span class="o">=</span><span class="p">(</span><span class="mf">35.68</span><span class="p">,</span> <span class="mf">139.65</span><span class="p">),</span>
-                              <span class="n">run</span><span class="o">=-</span><span class="mi">96</span><span class="p">,</span>
-                              <span class="n">meteo_bookends</span><span class="o">=</span><span class="p">([</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span> <span class="p">[])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>for year, month in product(range(2011, 2019), range(1, 13)):
+    pysplit.generate_bulktraj('tokyo',
+                              hysplit_working=HYSPLIT_WORKING,
+                              hysplit=HYSPLIT_DIR,
+                              output_dir=OUT_DIR,
+                              meteo_dir=METEO_DIR,
+                              years=[year],
+                              months=[month],
+                              meteoyr_2digits=True,
+                              hours=[0, 6, 12, 18],
+                              altitudes=[10],
+                              coordinates=(35.68, 139.65),
+                              run=-96,
+                              meteo_bookends=([4, 5], [])
 
-    <span class="p">)</span>
+    )
 </pre></div>
 </div>
 </div>
@@ -894,7 +894,7 @@ series for the whole period, it shouldn’t be a big deal.</p>
 <p>Just showing the first 24 here:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>sed -n <span class="s1">'12,36p'</span> &lt; ../output/trajectories/tokyoapr0010spring2011040100 
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>!sed -n '12,36p' &lt; ../output/trajectories/tokyoapr0010spring2011040100 
 </pre></div>
 </div>
 </div>
@@ -931,7 +931,7 @@ series for the whole period, it shouldn’t be a big deal.</p>
 <p>With <code class="docutils literal notranslate"><span class="pre">pysplit</span></code>, we can directly load all trajectory files into a single object, or ‘trajectory group’. Let’s do that:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">all_trajs</span> <span class="o">=</span> <span class="n">pysplit</span><span class="o">.</span><span class="n">make_trajectorygroup</span><span class="p">(</span><span class="n">glob</span><span class="p">(</span><span class="s1">'../output/trajectories/*'</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>all_trajs = pysplit.make_trajectorygroup(glob('../output/trajectories/*'))
 </pre></div>
 </div>
 </div>
@@ -939,26 +939,26 @@ series for the whole period, it shouldn’t be a big deal.</p>
 <p>Since I want to manipulate these myself, we can extract the data of every single trajectory into a pandas DataFrame:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">all_trajectories_data</span> <span class="o">=</span> <span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">t</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">traj_id</span><span class="o">=</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">all_trajs</span><span class="p">)])</span>
-                         <span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">'Temperature_C'</span><span class="p">,</span>  <span class="s1">'Temperature'</span><span class="p">,</span> <span class="s1">'Mixing_Depth'</span><span class="p">])</span>
-                         <span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">start_time</span><span class="o">=</span><span class="k">lambda</span> <span class="n">dd</span><span class="p">:</span> <span class="n">dd</span><span class="o">.</span><span class="n">DateTime</span> <span class="o">-</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_timedelta</span><span class="p">(</span><span class="n">dd</span><span class="o">.</span><span class="n">Timestep</span><span class="p">,</span> <span class="n">unit</span><span class="o">=</span><span class="s1">'h'</span><span class="p">))</span>
-<span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>all_trajectories_data = (pd.concat([t.data.assign(traj_id=i) for i, t in enumerate(all_trajs)])
+                         .drop(columns=['Temperature_C',  'Temperature', 'Mixing_Depth'])
+                         .assign(start_time=lambda dd: dd.DateTime - pd.to_timedelta(dd.Timestep, unit='h'))
+)
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">all_trajectories_data</span>
- <span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="k">lambda</span> <span class="n">dd</span><span class="p">:</span> <span class="n">dd</span><span class="o">.</span><span class="n">start_time</span><span class="o">==</span><span class="s1">'2011-01-01 00:00:00'</span><span class="p">]</span>
- <span class="o">.</span><span class="n">pipe</span><span class="p">(</span><span class="k">lambda</span> <span class="n">dd</span><span class="p">:</span> <span class="n">p9</span><span class="o">.</span><span class="n">ggplot</span><span class="p">(</span><span class="n">dd</span><span class="p">)</span> 
-       <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">geom_map</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mf">.1</span><span class="p">)</span>
-       <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">geom_map</span><span class="p">(</span><span class="n">world</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">.1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mf">.1</span><span class="p">)</span>
-       <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">theme</span><span class="p">(</span><span class="n">figure_size</span><span class="o">=</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">title</span><span class="o">=</span><span class="n">p9</span><span class="o">.</span><span class="n">element_text</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">8</span><span class="p">))</span>
-       <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">labs</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">'96h backtrajectory from 2011-01-01 at 00:00:00'</span><span class="p">)</span>
-       <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">scale_x_continuous</span><span class="p">(</span><span class="n">labels</span><span class="o">=</span><span class="n">custom_format</span><span class="p">(</span><span class="s1">'</span><span class="si">{:0g}</span><span class="s1">°E'</span><span class="p">),</span> <span class="n">limits</span><span class="o">=</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">150</span><span class="p">))</span>
-       <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">scale_y_continuous</span><span class="p">(</span><span class="n">labels</span><span class="o">=</span><span class="n">custom_format</span><span class="p">(</span><span class="s1">'</span><span class="si">{:0g}</span><span class="s1">°N'</span><span class="p">),</span> <span class="n">limits</span><span class="o">=</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span> <span class="mi">50</span><span class="p">)))</span>
-<span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>(all_trajectories_data
+ .loc[lambda dd: dd.start_time=='2011-01-01 00:00:00']
+ .pipe(lambda dd: p9.ggplot(dd) 
+       + p9.geom_map(size=.1)
+       + p9.geom_map(world, alpha=.1, size=.1)
+       + p9.theme(figure_size=(4, 2), title=p9.element_text(size=8))
+       + p9.labs(title='96h backtrajectory from 2011-01-01 at 00:00:00')
+       + p9.scale_x_continuous(labels=custom_format('{:0g}°E'), limits=(100, 150))
+       + p9.scale_y_continuous(labels=custom_format('{:0g}°N'), limits=(30, 50)))
+)
 </pre></div>
 </div>
 </div>
@@ -971,27 +971,27 @@ series for the whole period, it shouldn’t be a big deal.</p>
 <p>What we want, however, is to have these trajectories as continuous <em>lines</em>, so we will linearly interpolate the 96 points of each trajectory to generate <em>trajectory lines</em>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">trajectory_lines</span> <span class="o">=</span> <span class="p">(</span><span class="n">all_trajectories_data</span>
-                    <span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">'traj_id'</span><span class="p">,</span> <span class="s1">'start_time'</span><span class="p">],</span> <span class="n">as_index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-                    <span class="p">[</span><span class="s1">'geometry'</span><span class="p">]</span>
-                    <span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">LineString</span><span class="p">([(</span><span class="n">i</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">i</span><span class="o">.</span><span class="n">y</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">x</span><span class="o">.</span><span class="n">to_list</span><span class="p">()]))</span>
-<span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>trajectory_lines = (all_trajectories_data
+                    .groupby(['traj_id', 'start_time'], as_index=False)
+                    ['geometry']
+                    .apply(lambda x: LineString([(i.x, i.y) for i in x.to_list()]))
+)
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">trajectory_lines</span>
- <span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="k">lambda</span> <span class="n">dd</span><span class="p">:</span> <span class="n">dd</span><span class="o">.</span><span class="n">start_time</span><span class="o">==</span><span class="s1">'2011-01-01 00:00:00'</span><span class="p">]</span>
- <span class="o">.</span><span class="n">pipe</span><span class="p">(</span><span class="k">lambda</span> <span class="n">dd</span><span class="p">:</span> <span class="n">p9</span><span class="o">.</span><span class="n">ggplot</span><span class="p">(</span><span class="n">dd</span><span class="p">)</span> 
-       <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">geom_map</span><span class="p">()</span>
-       <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">geom_map</span><span class="p">(</span><span class="n">world</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">.1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mf">.1</span><span class="p">)</span>
-       <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">theme</span><span class="p">(</span><span class="n">figure_size</span><span class="o">=</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">title</span><span class="o">=</span><span class="n">p9</span><span class="o">.</span><span class="n">element_text</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">8</span><span class="p">))</span>
-       <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">labs</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">'96h backtrajectory from 2011-01-01 at 00:00:00'</span><span class="p">)</span>
-       <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">scale_x_continuous</span><span class="p">(</span><span class="n">labels</span><span class="o">=</span><span class="n">custom_format</span><span class="p">(</span><span class="s1">'</span><span class="si">{:0g}</span><span class="s1">°E'</span><span class="p">),</span> <span class="n">limits</span><span class="o">=</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">150</span><span class="p">))</span>
-       <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">scale_y_continuous</span><span class="p">(</span><span class="n">labels</span><span class="o">=</span><span class="n">custom_format</span><span class="p">(</span><span class="s1">'</span><span class="si">{:0g}</span><span class="s1">°N'</span><span class="p">),</span> <span class="n">limits</span><span class="o">=</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span> <span class="mi">50</span><span class="p">)))</span>
-<span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>(trajectory_lines
+ .loc[lambda dd: dd.start_time=='2011-01-01 00:00:00']
+ .pipe(lambda dd: p9.ggplot(dd) 
+       + p9.geom_map()
+       + p9.geom_map(world, alpha=.1, size=.1)
+       + p9.theme(figure_size=(4, 2), title=p9.element_text(size=8))
+       + p9.labs(title='96h backtrajectory from 2011-01-01 at 00:00:00')
+       + p9.scale_x_continuous(labels=custom_format('{:0g}°E'), limits=(100, 150))
+       + p9.scale_y_continuous(labels=custom_format('{:0g}°N'), limits=(30, 50)))
+)
 </pre></div>
 </div>
 </div>
@@ -1004,23 +1004,23 @@ series for the whole period, it shouldn’t be a big deal.</p>
 <p>If we want to generate an animation with several of these computed trajectories:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plots</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="k">for</span> <span class="n">s</span><span class="p">,</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">trajectory_lines</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="k">lambda</span> <span class="n">dd</span><span class="p">:</span> <span class="n">dd</span><span class="o">.</span><span class="n">start_time</span> <span class="o">&lt;</span> <span class="s1">'2011-01-15'</span><span class="p">]</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">'start_time'</span><span class="p">):</span>
-    <span class="n">p</span> <span class="o">=</span> <span class="p">(</span><span class="n">t</span>
-        <span class="o">.</span><span class="n">pipe</span><span class="p">(</span><span class="k">lambda</span> <span class="n">dd</span><span class="p">:</span> <span class="n">p9</span><span class="o">.</span><span class="n">ggplot</span><span class="p">(</span><span class="n">dd</span><span class="p">)</span>
-                <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">geom_map</span><span class="p">()</span>
-                <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">geom_map</span><span class="p">(</span><span class="n">world</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">.1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mf">.1</span><span class="p">)</span>
-                <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">scale_x_continuous</span><span class="p">(</span><span class="n">labels</span><span class="o">=</span><span class="n">custom_format</span><span class="p">(</span><span class="s1">'</span><span class="si">{:0g}</span><span class="s1">°E'</span><span class="p">),</span> <span class="n">limits</span><span class="o">=</span><span class="p">(</span><span class="mi">90</span><span class="p">,</span> <span class="mi">180</span><span class="p">))</span>
-                <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">scale_y_continuous</span><span class="p">(</span><span class="n">labels</span><span class="o">=</span><span class="n">custom_format</span><span class="p">(</span><span class="s1">'</span><span class="si">{:0g}</span><span class="s1">°N'</span><span class="p">),</span> <span class="n">limits</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">65</span><span class="p">))</span>
-                <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="n">geom</span><span class="o">=</span><span class="s1">'text'</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">s</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="mi">164</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
-                <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">labs</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">''</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">''</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">'96h backtrajectory from Tokyo'</span><span class="p">)</span>
-                <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">theme</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="n">p9</span><span class="o">.</span><span class="n">element_text</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">10</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">200</span><span class="p">))</span>
-        <span class="p">)</span>
-    <span class="n">plots</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>plots = []
+for s, t in trajectory_lines.loc[lambda dd: dd.start_time &lt; '2011-01-15'].groupby('start_time'):
+    p = (t
+        .pipe(lambda dd: p9.ggplot(dd)
+                + p9.geom_map()
+                + p9.geom_map(world, alpha=.1, size=.1)
+                + p9.scale_x_continuous(labels=custom_format('{:0g}°E'), limits=(90, 180))
+                + p9.scale_y_continuous(labels=custom_format('{:0g}°N'), limits=(10, 65))
+                + p9.annotate(geom='text', label=s, x=164, y=10, size=8)
+                + p9.labs(x='', y='', title='96h backtrajectory from Tokyo')
+                + p9.theme(title=p9.element_text(size=10), dpi=200))
+        )
+    plots.append(p)
 
-<span class="n">ani</span> <span class="o">=</span> <span class="n">PlotnineAnimation</span><span class="p">(</span><span class="n">plots</span><span class="p">,</span> <span class="n">interval</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span> <span class="n">repeat_delay</span><span class="o">=</span><span class="mi">500</span><span class="p">)</span>
-<span class="n">ani</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s1">'../output/animation.gif'</span><span class="p">)</span>
-<span class="n">ani</span>
+ani = PlotnineAnimation(plots, interval=500, repeat_delay=500)
+ani.save('../output/animation.gif')
+ani
 </pre></div>
 </div>
 </div>
@@ -2700,36 +2700,36 @@ AAAAAAAAAAAALWlsc3QAAAAlqXRvbwAAAB1kYXRhAAAAAQAAAABMYXZmNTguMjkuMTAw
 <p>Now, we will generate a grid so that we can generate counts of the number of times each area in the map is intersected in various conditions so that we can test for differential areas.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">margin</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="n">xmin</span><span class="p">,</span> <span class="n">ymin</span><span class="p">,</span> <span class="n">xmax</span><span class="p">,</span> <span class="n">ymax</span> <span class="o">=</span> <span class="n">all_trajectories_data</span><span class="o">.</span><span class="n">total_bounds</span><span class="o">.</span><span class="n">round</span><span class="p">()</span> <span class="o">+</span> <span class="p">[</span><span class="mi">200</span><span class="p">,</span> <span class="o">-</span><span class="n">margin</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">margin</span><span class="p">]</span>
-<span class="n">n_cells</span> <span class="o">=</span> <span class="mi">200</span>
-<span class="n">cell_size</span> <span class="o">=</span> <span class="p">(</span><span class="n">xmax</span> <span class="o">-</span> <span class="n">xmin</span><span class="p">)</span> <span class="o">/</span> <span class="n">n_cells</span>
-<span class="n">grid_cells</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="k">for</span> <span class="n">x0</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">xmin</span><span class="p">,</span> <span class="n">xmax</span> <span class="o">+</span> <span class="n">cell_size</span><span class="p">,</span> <span class="n">cell_size</span> <span class="p">):</span>
-    <span class="k">for</span> <span class="n">y0</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">ymin</span><span class="p">,</span> <span class="n">ymax</span> <span class="o">+</span> <span class="n">cell_size</span><span class="p">,</span> <span class="n">cell_size</span><span class="p">):</span>
-        <span class="c1"># bounds</span>
-        <span class="n">x1</span> <span class="o">=</span> <span class="n">x0</span> <span class="o">-</span> <span class="n">cell_size</span>
-        <span class="n">y1</span> <span class="o">=</span> <span class="n">y0</span> <span class="o">+</span> <span class="n">cell_size</span>
-        <span class="n">grid_cells</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">shapely</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">box</span><span class="p">(</span><span class="n">x0</span><span class="p">,</span> <span class="n">y0</span><span class="p">,</span> <span class="n">x1</span><span class="p">,</span> <span class="n">y1</span><span class="p">))</span>
-<span class="n">grid</span> <span class="o">=</span> <span class="p">(</span><span class="n">gpd</span><span class="o">.</span><span class="n">GeoDataFrame</span><span class="p">(</span><span class="n">grid_cells</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">'geometry'</span><span class="p">])</span>
-        <span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">cell</span><span class="o">=</span><span class="k">lambda</span> <span class="n">dd</span><span class="p">:</span> <span class="n">dd</span><span class="o">.</span><span class="n">geometry</span><span class="p">)</span>
-        <span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="k">lambda</span> <span class="n">dd</span><span class="p">:</span> <span class="n">dd</span><span class="o">.</span><span class="n">cell</span><span class="o">.</span><span class="n">centroid</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="k">lambda</span> <span class="n">dd</span><span class="p">:</span> <span class="n">dd</span><span class="o">.</span><span class="n">cell</span><span class="o">.</span><span class="n">centroid</span><span class="o">.</span><span class="n">y</span><span class="p">)</span>
-<span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>margin = 1
+xmin, ymin, xmax, ymax = all_trajectories_data.total_bounds.round() + [200, -margin, 0, margin]
+n_cells = 200
+cell_size = (xmax - xmin) / n_cells
+grid_cells = []
+for x0 in np.arange(xmin, xmax + cell_size, cell_size ):
+    for y0 in np.arange(ymin, ymax + cell_size, cell_size):
+        # bounds
+        x1 = x0 - cell_size
+        y1 = y0 + cell_size
+        grid_cells.append(shapely.geometry.box(x0, y0, x1, y1))
+grid = (gpd.GeoDataFrame(grid_cells, columns=['geometry'])
+        .assign(cell=lambda dd: dd.geometry)
+        .assign(x=lambda dd: dd.cell.centroid.x, y=lambda dd: dd.cell.centroid.y)
+)
 
-<span class="n">x_y_poly</span> <span class="o">=</span> <span class="n">grid</span><span class="p">[[</span><span class="s1">'x'</span><span class="p">,</span> <span class="s1">'y'</span><span class="p">,</span> <span class="s1">'cell'</span><span class="p">]]</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">()</span>
+x_y_poly = grid[['x', 'y', 'cell']].drop_duplicates()
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">p9</span><span class="o">.</span><span class="n">ggplot</span><span class="p">(</span><span class="n">grid</span><span class="p">)</span> 
-     <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">geom_map</span><span class="p">(</span><span class="n">world</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">.1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mf">.2</span><span class="p">)</span>
-     <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">geom_map</span><span class="p">(</span><span class="n">fill</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mf">.1</span><span class="p">)</span>               
-     <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">scale_x_continuous</span><span class="p">(</span><span class="n">labels</span><span class="o">=</span><span class="n">custom_format</span><span class="p">(</span><span class="s1">'</span><span class="si">{:0g}</span><span class="s1">°E'</span><span class="p">),</span> <span class="n">limits</span><span class="o">=</span><span class="p">(</span><span class="mi">70</span><span class="p">,</span> <span class="mi">160</span><span class="p">))</span>
-     <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">scale_y_continuous</span><span class="p">(</span><span class="n">labels</span><span class="o">=</span><span class="n">custom_format</span><span class="p">(</span><span class="s1">'</span><span class="si">{:0g}</span><span class="s1">°N'</span><span class="p">),</span> <span class="n">limits</span><span class="o">=</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span> <span class="mi">65</span><span class="p">))</span>
-     <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">theme</span><span class="p">(</span><span class="n">figure_size</span><span class="o">=</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">panel_grid</span><span class="o">=</span><span class="n">p9</span><span class="o">.</span><span class="n">element_blank</span><span class="p">())</span>
-<span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>(p9.ggplot(grid) 
+     + p9.geom_map(world, alpha=.1, size=.2)
+     + p9.geom_map(fill=None, size=.1)               
+     + p9.scale_x_continuous(labels=custom_format('{:0g}°E'), limits=(70, 160))
+     + p9.scale_y_continuous(labels=custom_format('{:0g}°N'), limits=(30, 65))
+     + p9.theme(figure_size=(4, 2), dpi=300, panel_grid=p9.element_blank())
+)
 </pre></div>
 </div>
 </div>
@@ -2742,9 +2742,9 @@ AAAAAAAAAAAALWlsc3QAAAAlqXRvbwAAAB1kYXRhAAAAAQAAAABMYXZmNTguMjkuMTAw
 <p>We can now merge the trajectories to include only those contained in the dates which we previously assigned to days of KD minima and maxima:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">min_max_trajectories</span> <span class="o">=</span> <span class="p">(</span><span class="n">trajectory_lines</span>
-                         <span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">date</span><span class="o">=</span><span class="k">lambda</span> <span class="n">dd</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">dd</span><span class="o">.</span><span class="n">start_time</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">date</span><span class="p">))</span>
-                         <span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">min_max_weekly_dates</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>min_max_trajectories = (trajectory_lines
+                         .assign(date=lambda dd: pd.to_datetime(dd.start_time.dt.date))
+                         .merge(min_max_weekly_dates))
 </pre></div>
 </div>
 </div>
@@ -2752,7 +2752,7 @@ AAAAAAAAAAAALWlsc3QAAAAlqXRvbwAAAB1kYXRhAAAAAQAAAABMYXZmNTguMjkuMTAw
 <p>And then, we perform a merge operation with the <code class="docutils literal notranslate"><span class="pre">geopandas</span></code> <code class="docutils literal notranslate"><span class="pre">sjoin</span></code> function, specifying the <code class="docutils literal notranslate"><span class="pre">op</span></code> parameter as ‘intersects’ so that we can get a count of intersections per category.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">grid_intersections</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">sjoin</span><span class="p">(</span><span class="n">min_max_trajectories</span><span class="p">,</span> <span class="n">grid</span><span class="p">,</span> <span class="n">op</span><span class="o">=</span><span class="s1">'intersects'</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>grid_intersections = gpd.sjoin(min_max_trajectories, grid, op='intersects')
 </pre></div>
 </div>
 </div>
@@ -2763,35 +2763,35 @@ AAAAAAAAAAAALWlsc3QAAAAlqXRvbwAAAB1kYXRhAAAAAQAAAABMYXZmNTguMjkuMTAw
 <p>We can now visualize the average trajectory path per year and KD maxima/minima:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">negative_log</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sign</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>def negative_log(x):
+    return np.sign(x) * np.log10(np.abs(x))
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">grid_intersections</span>
- <span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">'x'</span><span class="p">,</span> <span class="s1">'y'</span><span class="p">,</span> <span class="s1">'label'</span><span class="p">,</span> <span class="s1">'year'</span><span class="p">])</span>
- <span class="o">.</span><span class="n">size</span><span class="p">()</span>
- <span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s1">'n'</span><span class="p">)</span>
- <span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
- <span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">x_y_poly</span><span class="p">)</span>
- <span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="k">lambda</span> <span class="n">dd</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">dd</span><span class="o">.</span><span class="n">label</span><span class="o">==</span><span class="s1">'KD Minima'</span><span class="p">,</span> <span class="o">-</span><span class="n">dd</span><span class="o">.</span><span class="n">n</span><span class="p">,</span> <span class="n">dd</span><span class="o">.</span><span class="n">n</span><span class="p">))</span>
- <span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="k">lambda</span> <span class="n">dd</span><span class="p">:</span> <span class="n">negative_log</span><span class="p">(</span><span class="n">dd</span><span class="o">.</span><span class="n">n</span><span class="p">))</span>
- <span class="o">.</span><span class="n">pipe</span><span class="p">(</span><span class="k">lambda</span> <span class="n">dd</span><span class="p">:</span> <span class="n">p9</span><span class="o">.</span><span class="n">ggplot</span><span class="p">(</span><span class="n">dd</span><span class="p">)</span> 
-       <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">geom_map</span><span class="p">(</span><span class="n">p9</span><span class="o">.</span><span class="n">aes</span><span class="p">(</span><span class="n">fill</span><span class="o">=</span><span class="s1">'n'</span><span class="p">,</span> <span class="n">geometry</span><span class="o">=</span><span class="s1">'cell'</span><span class="p">),</span> <span class="n">size</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-       <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">geom_map</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">world</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mf">.1</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">.1</span><span class="p">)</span>
-       <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">facet_grid</span><span class="p">([</span><span class="s1">'year'</span><span class="p">,</span> <span class="s1">'label'</span><span class="p">])</span>
-       <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">theme</span><span class="p">(</span><span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">panel_grid</span><span class="o">=</span><span class="n">p9</span><span class="o">.</span><span class="n">element_blank</span><span class="p">(),</span> <span class="n">figure_size</span><span class="o">=</span><span class="p">(</span><span class="mf">2.5</span><span class="p">,</span> <span class="mi">7</span><span class="p">),</span>
-                  <span class="n">axis_text</span><span class="o">=</span><span class="n">p9</span><span class="o">.</span><span class="n">element_text</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">5</span><span class="p">),</span> <span class="n">strip_text</span><span class="o">=</span><span class="n">p9</span><span class="o">.</span><span class="n">element_text</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">7</span><span class="p">))</span>
-       <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">labs</span><span class="p">(</span><span class="n">fill</span><span class="o">=</span><span class="s1">''</span><span class="p">)</span>
-       <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">scale_fill_continuous</span><span class="p">(</span><span class="s1">'RdBu_r'</span><span class="p">)</span>
-       <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">scale_alpha_continuous</span><span class="p">(</span><span class="n">trans</span><span class="o">=</span><span class="s1">'sqrt'</span><span class="p">)</span>
-       <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">guides</span><span class="p">(</span><span class="n">fill</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-       <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">scale_x_continuous</span><span class="p">(</span><span class="n">labels</span><span class="o">=</span><span class="n">custom_format</span><span class="p">(</span><span class="s1">'</span><span class="si">{:0g}</span><span class="s1">°E'</span><span class="p">),</span> <span class="n">limits</span><span class="o">=</span><span class="p">(</span><span class="mi">90</span><span class="p">,</span> <span class="mi">160</span><span class="p">),</span> <span class="n">breaks</span><span class="o">=</span><span class="p">[</span><span class="mi">105</span><span class="p">,</span> <span class="mi">130</span><span class="p">,</span> <span class="mi">155</span><span class="p">])</span>
-       <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">scale_y_continuous</span><span class="p">(</span><span class="n">labels</span><span class="o">=</span><span class="n">custom_format</span><span class="p">(</span><span class="s1">'</span><span class="si">{:0g}</span><span class="s1">°N'</span><span class="p">),</span> <span class="n">limits</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">65</span><span class="p">),</span> <span class="n">breaks</span><span class="o">=</span><span class="p">[</span><span class="mi">25</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">55</span><span class="p">]))</span>
-<span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>(grid_intersections
+ .groupby(['x', 'y', 'label', 'year'])
+ .size()
+ .rename('n')
+ .reset_index()
+ .merge(x_y_poly)
+ .assign(n=lambda dd: np.where(dd.label=='KD Minima', -dd.n, dd.n))
+ .assign(n=lambda dd: negative_log(dd.n))
+ .pipe(lambda dd: p9.ggplot(dd) 
+       + p9.geom_map(p9.aes(fill='n', geometry='cell'), size=0)
+       + p9.geom_map(data=world, size=.1, alpha=.1)
+       + p9.facet_grid(['year', 'label'])
+       + p9.theme(dpi=300, panel_grid=p9.element_blank(), figure_size=(2.5, 7),
+                  axis_text=p9.element_text(size=5), strip_text=p9.element_text(size=7))
+       + p9.labs(fill='')
+       + p9.scale_fill_continuous('RdBu_r')
+       + p9.scale_alpha_continuous(trans='sqrt')
+       + p9.guides(fill=False, alpha=False)
+       + p9.scale_x_continuous(labels=custom_format('{:0g}°E'), limits=(90, 160), breaks=[105, 130, 155])
+       + p9.scale_y_continuous(labels=custom_format('{:0g}°N'), limits=(20, 65), breaks=[25, 40, 55]))
+)
 </pre></div>
 </div>
 </div>
@@ -2805,27 +2805,27 @@ AAAAAAAAAAAALWlsc3QAAAAlqXRvbwAAAB1kYXRhAAAAAQAAAABMYXZmNTguMjkuMTAw
 <p>We can generate the same plot for the full period:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">grid_intersections</span>
- <span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">'x'</span><span class="p">,</span> <span class="s1">'y'</span><span class="p">,</span> <span class="s1">'label'</span><span class="p">])</span>
- <span class="o">.</span><span class="n">size</span><span class="p">()</span>
- <span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s1">'n'</span><span class="p">)</span>
- <span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
- <span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">x_y_poly</span><span class="p">)</span>
- <span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="k">lambda</span> <span class="n">dd</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">dd</span><span class="o">.</span><span class="n">label</span><span class="o">==</span><span class="s1">'KD Minima'</span><span class="p">,</span> <span class="o">-</span><span class="n">dd</span><span class="o">.</span><span class="n">n</span><span class="p">,</span> <span class="n">dd</span><span class="o">.</span><span class="n">n</span><span class="p">))</span>
- <span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="k">lambda</span> <span class="n">dd</span><span class="p">:</span> <span class="n">negative_log</span><span class="p">(</span><span class="n">dd</span><span class="o">.</span><span class="n">n</span><span class="p">))</span>
- <span class="o">.</span><span class="n">pipe</span><span class="p">(</span><span class="k">lambda</span> <span class="n">dd</span><span class="p">:</span> <span class="n">p9</span><span class="o">.</span><span class="n">ggplot</span><span class="p">(</span><span class="n">dd</span><span class="p">)</span> 
-       <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">geom_map</span><span class="p">(</span><span class="n">p9</span><span class="o">.</span><span class="n">aes</span><span class="p">(</span><span class="n">fill</span><span class="o">=</span><span class="s1">'n'</span><span class="p">,</span> <span class="n">geometry</span><span class="o">=</span><span class="s1">'cell'</span><span class="p">),</span> <span class="n">size</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-       <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">geom_map</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">world</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mf">.1</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">.1</span><span class="p">)</span>
-       <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">facet_wrap</span><span class="p">([</span><span class="s1">'label'</span><span class="p">],</span> <span class="n">ncol</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-       <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">theme</span><span class="p">(</span><span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">panel_grid</span><span class="o">=</span><span class="n">p9</span><span class="o">.</span><span class="n">element_blank</span><span class="p">(),</span> <span class="n">figure_size</span><span class="o">=</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span>
-                  <span class="n">axis_text</span><span class="o">=</span><span class="n">p9</span><span class="o">.</span><span class="n">element_text</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">5</span><span class="p">),</span> <span class="n">strip_text</span><span class="o">=</span><span class="n">p9</span><span class="o">.</span><span class="n">element_text</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">7</span><span class="p">))</span>
-       <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">labs</span><span class="p">(</span><span class="n">fill</span><span class="o">=</span><span class="s1">''</span><span class="p">)</span>
-       <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">scale_fill_continuous</span><span class="p">(</span><span class="s1">'RdBu_r'</span><span class="p">)</span>
-       <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">scale_alpha_continuous</span><span class="p">(</span><span class="n">trans</span><span class="o">=</span><span class="s1">'sqrt'</span><span class="p">)</span>
-       <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">guides</span><span class="p">(</span><span class="n">fill</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-       <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">scale_x_continuous</span><span class="p">(</span><span class="n">labels</span><span class="o">=</span><span class="n">custom_format</span><span class="p">(</span><span class="s1">'</span><span class="si">{:0g}</span><span class="s1">°E'</span><span class="p">),</span> <span class="n">limits</span><span class="o">=</span><span class="p">(</span><span class="mi">90</span><span class="p">,</span> <span class="mi">160</span><span class="p">),</span> <span class="n">breaks</span><span class="o">=</span><span class="p">[</span><span class="mi">105</span><span class="p">,</span> <span class="mi">130</span><span class="p">,</span> <span class="mi">155</span><span class="p">])</span>
-       <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">scale_y_continuous</span><span class="p">(</span><span class="n">labels</span><span class="o">=</span><span class="n">custom_format</span><span class="p">(</span><span class="s1">'</span><span class="si">{:0g}</span><span class="s1">°N'</span><span class="p">),</span> <span class="n">limits</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">65</span><span class="p">),</span> <span class="n">breaks</span><span class="o">=</span><span class="p">[</span><span class="mi">25</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">55</span><span class="p">]))</span>
-<span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>(grid_intersections
+ .groupby(['x', 'y', 'label'])
+ .size()
+ .rename('n')
+ .reset_index()
+ .merge(x_y_poly)
+ .assign(n=lambda dd: np.where(dd.label=='KD Minima', -dd.n, dd.n))
+ .assign(n=lambda dd: negative_log(dd.n))
+ .pipe(lambda dd: p9.ggplot(dd) 
+       + p9.geom_map(p9.aes(fill='n', geometry='cell'), size=0)
+       + p9.geom_map(data=world, size=.1, alpha=.1)
+       + p9.facet_wrap(['label'], ncol=2)
+       + p9.theme(dpi=300, panel_grid=p9.element_blank(), figure_size=(4, 2),
+                  axis_text=p9.element_text(size=5), strip_text=p9.element_text(size=7))
+       + p9.labs(fill='')
+       + p9.scale_fill_continuous('RdBu_r')
+       + p9.scale_alpha_continuous(trans='sqrt')
+       + p9.guides(fill=False, alpha=False)
+       + p9.scale_x_continuous(labels=custom_format('{:0g}°E'), limits=(90, 160), breaks=[105, 130, 155])
+       + p9.scale_y_continuous(labels=custom_format('{:0g}°N'), limits=(20, 65), breaks=[25, 40, 55]))
+)
 </pre></div>
 </div>
 </div>
@@ -2838,35 +2838,35 @@ AAAAAAAAAAAALWlsc3QAAAAlqXRvbwAAAB1kYXRhAAAAAQAAAABMYXZmNTguMjkuMTAw
 <p>And if we now calculate the Log2 Fold Change of the number of counts for every cell, keeping only those cells which are intersected by more than 11 trajectories (over 0.5% of all the trajectories), we get the differential plot:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">grid_intersections</span>
- <span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">'x'</span><span class="p">,</span> <span class="s1">'y'</span><span class="p">,</span> <span class="s1">'label'</span><span class="p">])</span>
- <span class="o">.</span><span class="n">size</span><span class="p">()</span>
- <span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s1">'n'</span><span class="p">)</span>
- <span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
- <span class="o">.</span><span class="n">pivot</span><span class="p">([</span><span class="s1">'x'</span><span class="p">,</span> <span class="s1">'y'</span><span class="p">],</span> <span class="s1">'label'</span><span class="p">,</span> <span class="s1">'n'</span><span class="p">)</span>
- <span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
- <span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">diff</span><span class="o">=</span><span class="k">lambda</span> <span class="n">dd</span><span class="p">:</span> <span class="n">dd</span><span class="p">[</span><span class="s1">'KD Maxima'</span><span class="p">]</span> <span class="o">-</span> <span class="n">dd</span><span class="p">[</span><span class="s1">'KD Minima'</span><span class="p">])</span>
- <span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">fc</span><span class="o">=</span><span class="k">lambda</span> <span class="n">dd</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">log2</span><span class="p">(</span><span class="n">dd</span><span class="p">[</span><span class="s1">'KD Maxima'</span><span class="p">]</span> <span class="o">/</span> <span class="n">dd</span><span class="p">[</span><span class="s1">'KD Minima'</span><span class="p">]))</span>
- <span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">'diff'</span><span class="p">)</span>
- <span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
- <span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">x_y_poly</span><span class="p">)</span>
- <span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">total_n</span><span class="o">=</span><span class="k">lambda</span> <span class="n">dd</span><span class="p">:</span> <span class="n">dd</span><span class="p">[</span><span class="s1">'KD Maxima'</span><span class="p">]</span> <span class="o">+</span> <span class="n">dd</span><span class="p">[</span><span class="s1">'KD Minima'</span><span class="p">])</span>
- <span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="k">lambda</span> <span class="n">dd</span><span class="p">:</span> <span class="n">dd</span><span class="o">.</span><span class="n">total_n</span> <span class="o">&gt;=</span> <span class="mi">1120</span> <span class="o">*</span> <span class="mf">0.01</span><span class="p">]</span>
-<span class="c1">#  .loc[lambda dd: np.isfinite(dd.fc)]</span>
-<span class="c1">#  .sort_values('fc')</span>
- <span class="o">.</span><span class="n">pipe</span><span class="p">(</span><span class="k">lambda</span> <span class="n">dd</span><span class="p">:</span> <span class="n">p9</span><span class="o">.</span><span class="n">ggplot</span><span class="p">(</span><span class="n">dd</span><span class="p">)</span> 
-       <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">geom_map</span><span class="p">(</span><span class="n">p9</span><span class="o">.</span><span class="n">aes</span><span class="p">(</span><span class="n">fill</span><span class="o">=</span><span class="s1">'fc'</span><span class="p">,</span> <span class="n">geometry</span><span class="o">=</span><span class="s1">'cell'</span><span class="p">),</span> <span class="n">size</span><span class="o">=</span><span class="mf">.0</span><span class="p">)</span>
-       <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">geom_map</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">world</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mf">.1</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">.1</span><span class="p">)</span>
-       <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">scale_fill_continuous</span><span class="p">(</span><span class="s1">'RdBu_r'</span><span class="p">)</span>
-       <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">scale_alpha_continuous</span><span class="p">(</span><span class="n">trans</span><span class="o">=</span><span class="s1">'log10'</span><span class="p">)</span>
-       <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">theme</span><span class="p">(</span><span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">panel_grid</span><span class="o">=</span><span class="n">p9</span><span class="o">.</span><span class="n">element_blank</span><span class="p">(),</span> <span class="n">plot_background</span><span class="o">=</span><span class="n">p9</span><span class="o">.</span><span class="n">element_blank</span><span class="p">(),</span>
-                  <span class="n">legend_background</span><span class="o">=</span><span class="n">p9</span><span class="o">.</span><span class="n">element_blank</span><span class="p">(),</span> <span class="n">legend_key_size</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span>
-                  <span class="n">legend_text</span><span class="o">=</span><span class="n">p9</span><span class="o">.</span><span class="n">element_text</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">6</span><span class="p">),</span> <span class="n">legend_title_align</span><span class="o">=</span><span class="s1">'center'</span><span class="p">,</span>
-                  <span class="n">legend_title</span><span class="o">=</span><span class="n">p9</span><span class="o">.</span><span class="n">element_text</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">7</span><span class="p">))</span>
-       <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">labs</span><span class="p">(</span><span class="n">fill</span><span class="o">=</span><span class="s1">'Log$_2$ FC'</span><span class="p">)</span>
-       <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">scale_x_continuous</span><span class="p">(</span><span class="n">labels</span><span class="o">=</span><span class="n">custom_format</span><span class="p">(</span><span class="s1">'</span><span class="si">{:0g}</span><span class="s1">°E'</span><span class="p">),</span> <span class="n">limits</span><span class="o">=</span><span class="p">(</span><span class="mi">90</span><span class="p">,</span> <span class="mi">160</span><span class="p">))</span>
-       <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">scale_y_continuous</span><span class="p">(</span><span class="n">labels</span><span class="o">=</span><span class="n">custom_format</span><span class="p">(</span><span class="s1">'</span><span class="si">{:0g}</span><span class="s1">°N'</span><span class="p">),</span> <span class="n">limits</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">65</span><span class="p">)))</span>
-<span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>(grid_intersections
+ .groupby(['x', 'y', 'label'])
+ .size()
+ .rename('n')
+ .reset_index()
+ .pivot(['x', 'y'], 'label', 'n')
+ .fillna(0)
+ .assign(diff=lambda dd: dd['KD Maxima'] - dd['KD Minima'])
+ .assign(fc=lambda dd: np.log2(dd['KD Maxima'] / dd['KD Minima']))
+ .sort_values('diff')
+ .reset_index()
+ .merge(x_y_poly)
+ .assign(total_n=lambda dd: dd['KD Maxima'] + dd['KD Minima'])
+ .loc[lambda dd: dd.total_n &gt;= 1120 * 0.01]
+#  .loc[lambda dd: np.isfinite(dd.fc)]
+#  .sort_values('fc')
+ .pipe(lambda dd: p9.ggplot(dd) 
+       + p9.geom_map(p9.aes(fill='fc', geometry='cell'), size=.0)
+       + p9.geom_map(data=world, size=.1, alpha=.1)
+       + p9.scale_fill_continuous('RdBu_r')
+       + p9.scale_alpha_continuous(trans='log10')
+       + p9.theme(dpi=300, panel_grid=p9.element_blank(), plot_background=p9.element_blank(),
+                  legend_background=p9.element_blank(), legend_key_size=8,
+                  legend_text=p9.element_text(size=6), legend_title_align='center',
+                  legend_title=p9.element_text(size=7))
+       + p9.labs(fill='Log$_2$ FC')
+       + p9.scale_x_continuous(labels=custom_format('{:0g}°E'), limits=(90, 160))
+       + p9.scale_y_continuous(labels=custom_format('{:0g}°N'), limits=(20, 65)))
+)
 </pre></div>
 </div>
 </div>
@@ -2882,17 +2882,17 @@ AAAAAAAAAAAALWlsc3QAAAAlqXRvbwAAAB1kYXRhAAAAAQAAAABMYXZmNTguMjkuMTAw
 <p>I’ll just share here some code snippets made to generate figures with average air mass sources per month / week that I showed in some of the presentations:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">trajectories_18</span> <span class="o">=</span> <span class="n">trajectory_lines</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">'start_time.dt.year==2018'</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>trajectories_18 = trajectory_lines.query('start_time.dt.year==2018')
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">trajectories_18_intersections</span> <span class="o">=</span> <span class="p">(</span><span class="n">gpd</span><span class="o">.</span><span class="n">sjoin</span><span class="p">(</span><span class="n">trajectories_18</span><span class="p">,</span> <span class="n">grid</span><span class="p">,</span> <span class="n">op</span><span class="o">=</span><span class="s1">'intersects'</span><span class="p">)</span>
-                                  <span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">date</span><span class="o">=</span><span class="k">lambda</span> <span class="n">dd</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">dd</span><span class="o">.</span><span class="n">start_time</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">date</span><span class="p">))</span>
-                                  <span class="o">.</span><span class="n">pipe</span><span class="p">(</span><span class="n">add_date_columns</span><span class="p">)</span>
-                                <span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>trajectories_18_intersections = (gpd.sjoin(trajectories_18, grid, op='intersects')
+                                  .assign(date=lambda dd: pd.to_datetime(dd.start_time.dt.date))
+                                  .pipe(add_date_columns)
+                                )
 </pre></div>
 </div>
 </div>
@@ -2902,30 +2902,30 @@ AAAAAAAAAAAALWlsc3QAAAAlqXRvbwAAAB1kYXRhAAAAAQAAAABMYXZmNTguMjkuMTAw
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">trajectories_18_intersections</span>
- <span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">'x'</span><span class="p">,</span> <span class="s1">'y'</span><span class="p">,</span> <span class="s1">'month_name'</span><span class="p">])</span>
- <span class="o">.</span><span class="n">size</span><span class="p">()</span>
- <span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s1">'n'</span><span class="p">)</span>
- <span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
- <span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">x_y_poly</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="p">[</span><span class="s1">'x'</span><span class="p">,</span> <span class="s1">'y'</span><span class="p">])</span>
- <span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">'cell'</span><span class="p">:</span> <span class="s1">'geometry'</span><span class="p">})</span>
- <span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="k">lambda</span> <span class="n">dd</span><span class="p">:</span> <span class="n">dd</span><span class="p">[</span><span class="s1">'n'</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">]</span>
- <span class="o">.</span><span class="n">pipe</span><span class="p">(</span><span class="k">lambda</span> <span class="n">dd</span><span class="p">:</span> <span class="n">p9</span><span class="o">.</span><span class="n">ggplot</span><span class="p">(</span><span class="n">dd</span><span class="p">)</span>
-  <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">geom_map</span><span class="p">(</span><span class="n">p9</span><span class="o">.</span><span class="n">aes</span><span class="p">(</span><span class="n">fill</span><span class="o">=</span><span class="s1">'n'</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-  <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">geom_map</span><span class="p">(</span><span class="n">world</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">.1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mf">.1</span><span class="p">)</span>
-  <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">scale_fill_continuous</span><span class="p">(</span><span class="s1">'Oranges'</span><span class="p">,</span> <span class="n">trans</span><span class="o">=</span><span class="s1">'log10'</span><span class="p">)</span>
-  <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">scale_x_continuous</span><span class="p">(</span><span class="n">labels</span><span class="o">=</span><span class="n">custom_format</span><span class="p">(</span><span class="s1">'</span><span class="si">{:0g}</span><span class="s1">°E'</span><span class="p">),</span> <span class="n">limits</span><span class="o">=</span><span class="p">(</span><span class="mi">75</span><span class="p">,</span> <span class="mi">170</span><span class="p">))</span>
-  <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">scale_y_continuous</span><span class="p">(</span><span class="n">labels</span><span class="o">=</span><span class="n">custom_format</span><span class="p">(</span><span class="s1">'</span><span class="si">{:0g}</span><span class="s1">°N'</span><span class="p">),</span> <span class="n">limits</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">60</span><span class="p">))</span>
-  <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">facet_wrap</span><span class="p">(</span><span class="s1">'month_name'</span><span class="p">,</span> <span class="n">ncol</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">labeller</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span> <span class="o">+</span> <span class="s1">' 2018'</span><span class="p">)</span>
-  <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">guides</span><span class="p">(</span><span class="n">fill</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-  <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">ggtitle</span><span class="p">(</span><span class="s1">'Average air mass sources (96h) in Tokyo'</span><span class="p">)</span>
-  <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">theme</span><span class="p">(</span><span class="n">figure_size</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span>
-             <span class="n">axis_text</span><span class="o">=</span><span class="n">p9</span><span class="o">.</span><span class="n">element_text</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">6</span><span class="p">),</span>
-             <span class="n">title</span><span class="o">=</span><span class="n">p9</span><span class="o">.</span><span class="n">element_text</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">10</span><span class="p">),</span>
-             <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span>
-             <span class="n">strip_text</span><span class="o">=</span><span class="n">p9</span><span class="o">.</span><span class="n">element_text</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">7</span><span class="p">))</span>
-  <span class="p">)</span>
-<span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>(trajectories_18_intersections
+ .groupby(['x', 'y', 'month_name'])
+ .size()
+ .rename('n')
+ .reset_index()
+ .merge(x_y_poly, on=['x', 'y'])
+ .rename(columns={'cell': 'geometry'})
+ .loc[lambda dd: dd['n'] &gt; 0]
+ .pipe(lambda dd: p9.ggplot(dd)
+  + p9.geom_map(p9.aes(fill='n'), color=None, alpha=1)
+  + p9.geom_map(world, alpha=.1, size=.1)
+  + p9.scale_fill_continuous('Oranges', trans='log10')
+  + p9.scale_x_continuous(labels=custom_format('{:0g}°E'), limits=(75, 170))
+  + p9.scale_y_continuous(labels=custom_format('{:0g}°N'), limits=(15, 60))
+  + p9.facet_wrap('month_name', ncol=4, labeller=lambda x: x + ' 2018')
+  + p9.guides(fill=False)
+  + p9.ggtitle('Average air mass sources (96h) in Tokyo')
+  + p9.theme(figure_size=(8, 4),
+             axis_text=p9.element_text(size=6),
+             title=p9.element_text(size=10),
+             dpi=300,
+             strip_text=p9.element_text(size=7))
+  )
+)
 </pre></div>
 </div>
 </div>
@@ -2938,32 +2938,32 @@ AAAAAAAAAAAALWlsc3QAAAAlqXRvbwAAAB1kYXRhAAAAAQAAAABMYXZmNTguMjkuMTAw
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">trajectories_18_intersections</span>
-  <span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">'x'</span><span class="p">,</span> <span class="s1">'y'</span><span class="p">,</span> <span class="s1">'week'</span><span class="p">])</span>
- <span class="o">.</span><span class="n">size</span><span class="p">()</span>
- <span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s1">'n'</span><span class="p">)</span>
- <span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
- <span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">x_y_poly</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="p">[</span><span class="s1">'x'</span><span class="p">,</span> <span class="s1">'y'</span><span class="p">])</span>
- <span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">'cell'</span><span class="p">:</span> <span class="s1">'geometry'</span><span class="p">})</span>
- <span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="k">lambda</span> <span class="n">dd</span><span class="p">:</span> <span class="n">dd</span><span class="p">[</span><span class="s1">'n'</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">]</span>
- <span class="o">.</span><span class="n">pipe</span><span class="p">(</span><span class="k">lambda</span> <span class="n">dd</span><span class="p">:</span> <span class="n">p9</span><span class="o">.</span><span class="n">ggplot</span><span class="p">(</span><span class="n">dd</span><span class="p">)</span>
-  <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">geom_map</span><span class="p">(</span><span class="n">p9</span><span class="o">.</span><span class="n">aes</span><span class="p">(</span><span class="n">fill</span><span class="o">=</span><span class="s1">'n'</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-  <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">geom_map</span><span class="p">(</span><span class="n">world</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">.1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mf">.1</span><span class="p">)</span>
-  <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">scale_fill_continuous</span><span class="p">(</span><span class="s1">'Oranges'</span><span class="p">,</span> <span class="n">trans</span><span class="o">=</span><span class="s1">'log10'</span><span class="p">)</span>
-  <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">scale_x_continuous</span><span class="p">(</span><span class="n">labels</span><span class="o">=</span><span class="n">custom_format</span><span class="p">(</span><span class="s1">'</span><span class="si">{:0g}</span><span class="s1">°E'</span><span class="p">),</span> <span class="n">limits</span><span class="o">=</span><span class="p">(</span><span class="mi">75</span><span class="p">,</span> <span class="mi">170</span><span class="p">),</span> <span class="n">breaks</span><span class="o">=</span><span class="p">[</span><span class="mi">85</span><span class="p">,</span> <span class="mi">120</span><span class="p">,</span> <span class="mi">155</span><span class="p">])</span>
-  <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">scale_y_continuous</span><span class="p">(</span><span class="n">labels</span><span class="o">=</span><span class="n">custom_format</span><span class="p">(</span><span class="s1">'</span><span class="si">{:0g}</span><span class="s1">°N'</span><span class="p">),</span> <span class="n">limits</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">60</span><span class="p">))</span>
-  <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">facet_wrap</span><span class="p">(</span><span class="s1">'week'</span><span class="p">,</span> <span class="n">ncol</span><span class="o">=</span><span class="mi">9</span><span class="p">,</span> <span class="n">labeller</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="sa">f</span><span class="s1">'Week </span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
-  <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">guides</span><span class="p">(</span><span class="n">fill</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-  <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">ggtitle</span><span class="p">(</span><span class="s1">'Average air mass sources (96h) in Tokyo - 2018'</span><span class="p">)</span>
-  <span class="o">+</span> <span class="n">p9</span><span class="o">.</span><span class="n">theme</span><span class="p">(</span><span class="n">figure_size</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span>
-             <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span>
-             <span class="n">axis_text</span><span class="o">=</span><span class="n">p9</span><span class="o">.</span><span class="n">element_text</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">5</span><span class="p">),</span>
-             <span class="n">title</span><span class="o">=</span><span class="n">p9</span><span class="o">.</span><span class="n">element_text</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">10</span><span class="p">),</span>
-             <span class="n">strip_text</span><span class="o">=</span><span class="n">p9</span><span class="o">.</span><span class="n">element_text</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">7</span><span class="p">),</span>
-             <span class="n">strip_margin</span><span class="o">=</span><span class="n">p9</span><span class="o">.</span><span class="n">element_blank</span><span class="p">(),</span>
-             <span class="p">)</span>
-  <span class="p">)</span>
-<span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>(trajectories_18_intersections
+  .groupby(['x', 'y', 'week'])
+ .size()
+ .rename('n')
+ .reset_index()
+ .merge(x_y_poly, on=['x', 'y'])
+ .rename(columns={'cell': 'geometry'})
+ .loc[lambda dd: dd['n'] &gt; 0]
+ .pipe(lambda dd: p9.ggplot(dd)
+  + p9.geom_map(p9.aes(fill='n'), color=None, alpha=1)
+  + p9.geom_map(world, alpha=.1, size=.1)
+  + p9.scale_fill_continuous('Oranges', trans='log10')
+  + p9.scale_x_continuous(labels=custom_format('{:0g}°E'), limits=(75, 170), breaks=[85, 120, 155])
+  + p9.scale_y_continuous(labels=custom_format('{:0g}°N'), limits=(15, 60))
+  + p9.facet_wrap('week', ncol=9, labeller = lambda x: f'Week {x}')
+  + p9.guides(fill=False)
+  + p9.ggtitle('Average air mass sources (96h) in Tokyo - 2018')
+  + p9.theme(figure_size=(10, 6),
+             dpi=300,
+             axis_text=p9.element_text(size=5),
+             title=p9.element_text(size=10),
+             strip_text=p9.element_text(size=7),
+             strip_margin=p9.element_blank(),
+             )
+  )
+)
 </pre></div>
 </div>
 </div>
