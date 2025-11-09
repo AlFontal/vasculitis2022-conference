@@ -5,7 +5,7 @@
 
 # Tracing Tokyo's air sources to identify Kawasaki Disease's etiological triggers
 
-<img src="https://vasculitis2022.org/wp-content/uploads/2020/10/Vasculitis-2022.png" width="350" />
+<img src="https://i.postimg.cc/6qtTr6cM/vasc22logo.png" width="350" />
 
 This repository acts as a centralized place where to provide reproducible code for the analysis displayed in the 20th International Vasculitis and ANCA workshop in the study titled  *Tracing Tokyo's air sources to identify Kawasaki Disease's etiological triggers*:
 
